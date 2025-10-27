@@ -6,7 +6,7 @@ This library is a C implementation of SQIsign.
 
 - CMake (version 3.13 or later)
 - C11-compatible compiler
-GMP is NOT required anymore!
+- GMP is NOT required anymore!
 
 ### Pre-computation
 
