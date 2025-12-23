@@ -26,6 +26,7 @@ $ mkdir -p build
 $ cd build
 $ cmake -DSQISIGN_BUILD_TYPE=ref ..
 $ make
+$ ulimit -s unlimited
 $ make test
 ```
 
