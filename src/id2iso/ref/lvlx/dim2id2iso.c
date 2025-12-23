@@ -887,7 +887,7 @@ dim2id2iso_ideal_to_isogeny_clapotis(quat_alg_elem_t *beta1,
     pushed_points[2] = PmQ;
     // we perform the computation of phiu with a fixed degree isogeny
     ret = fixed_degree_isogeny_and_eval(
-        &idealu, u, true, &Fu_codomain, pushed_points, sizeof(pushed_points) / sizeof(*pushed_points), index_order1);
+        &idealu, u, false, &Fu_codomain, pushed_points, sizeof(pushed_points) / sizeof(*pushed_points), index_order1);
 
     if (!ret) {
         goto cleanup;
@@ -941,7 +941,7 @@ dim2id2iso_ideal_to_isogeny_clapotis(quat_alg_elem_t *beta1,
 
     // computation of phiv
     ret = fixed_degree_isogeny_and_eval(
-        &idealv, v, true, &Fv_codomain, pushed_points, sizeof(pushed_points) / sizeof(*pushed_points), index_order2);
+        &idealv, v, false, &Fv_codomain, pushed_points, sizeof(pushed_points) / sizeof(*pushed_points), index_order2);
     if (!ret) {
         goto cleanup;
     }
