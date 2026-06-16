@@ -13,20 +13,19 @@ extern "C"
 #endif
 
 #ifndef IBZ_LIMBS
-/* SQISIGN_VARIANT is defined as lvl1, lvl3, or lvl5 by the build system */
-#define SQISIGN_LVL1 lvl1
-#define SQISIGN_LVL3 lvl3
-#define SQISIGN_LVL5 lvl5
-
-#if SQISIGN_VARIANT == SQISIGN_LVL1
-#define IBZ_LIMBS 110  /* NIST Level I */
-#elif SQISIGN_VARIANT == SQISIGN_LVL3
-#define IBZ_LIMBS 168  /* NIST Level III */
-#elif SQISIGN_VARIANT == SQISIGN_LVL5
-#define IBZ_LIMBS 222  /* NIST Level V */
-#else
-#define IBZ_LIMBS 222  /* Default to NIST Level V */
-#endif
+/* SQISIGN_VARIANT is supplied by the build system as a bare token: lvl1,
+ * lvl3, or lvl5. The pre-existing `#if SQISIGN_VARIANT == SQISIGN_LVL1`
+ * was broken: at preprocessor `#if`, identifiers that aren't macros are
+ * substituted with 0, so all three branches collapsed to `0 == 0` and
+ * silently picked lvl1's limb count for every variant. Fix: dispatch via
+ * token paste. The two-level _SQI_LIMBS / _SQI_LIMBS_ indirection forces
+ * SQISIGN_VARIANT to be expanded before the ## paste. */
+#define _SQI_LIMBS_lvl1 110  /* NIST Level I */
+#define _SQI_LIMBS_lvl3 168  /* NIST Level III */
+#define _SQI_LIMBS_lvl5 222  /* NIST Level V */
+#define _SQI_LIMBS_(v)  _SQI_LIMBS_##v
+#define _SQI_LIMBS(v)   _SQI_LIMBS_(v)
+#define IBZ_LIMBS       _SQI_LIMBS(SQISIGN_VARIANT)
 #endif
 
 #ifndef IBZ_BITS

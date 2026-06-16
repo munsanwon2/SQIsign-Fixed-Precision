@@ -1128,6 +1128,28 @@ ibz_probab_prime(const ibz_t *n, int reps)
     if (ibz_cmp_int32(n, 1) <= 0)
         return 0;
 
+    /* Trial-division precheck against the first 50 odd primes. Most
+     * candidates entering MR from quat_represent_integer are composite;
+     * `ibz_mod_ui` runs in O(limbs) per small prime, avoiding ~`reps`
+     * rounds of full Miller-Rabin (each `ibz_pow_mod`, O(limbs^2) per
+     * modular step). Algorithm-preserving: a true prime cannot be
+     * divisible by any small prime < itself, and any small-prime hit
+     * here correctly returns composite. */
+    static const unsigned long small_primes[50] = {
+          3,   5,   7,  11,  13,  17,  19,  23,  29,  31,
+         37,  41,  43,  47,  53,  59,  61,  67,  71,  73,
+         79,  83,  89,  97, 101, 103, 107, 109, 113, 127,
+        131, 137, 139, 149, 151, 157, 163, 167, 173, 179,
+        181, 191, 193, 197, 199, 211, 223, 227, 229, 233
+    };
+    for (size_t i = 0; i < 50; i++) {
+        unsigned long p = small_primes[i];
+        if (ibz_cmp_int32(n, (int32_t)p) == 0)
+            return 1;  /* candidate equals a small prime ⇒ prime */
+        if (ibz_mod_ui(n, p) == 0)
+            return 0;  /* divisible by a smaller prime ⇒ composite */
+    }
+
     ibz_t n_minus_1, d, a, x, temp;
     ibz_sub(&n_minus_1, n, (const ibz_t *)&ibz_const_one);
     ibz_copy(&d, &n_minus_1);

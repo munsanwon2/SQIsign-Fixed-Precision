@@ -96,16 +96,23 @@ _TRUNC(uint64_t x)
             abort();                                                                               \
         uint64_t cycles, cycles1, cycles2;                                                         \
         uint64_t cycles_list[count];                                                               \
+        uint64_t wallns_list[count];                                                               \
+        struct timespec _wt1, _wt2;                                                                \
         cycles = 0;                                                                                \
         for (size_t i = 0; i < count; ++i) {                                                       \
+            clock_gettime(CLOCK_MONOTONIC, &_wt1);                                                 \
             cycles1 = cpucycles();
 
 #define BENCH_CODE_2(name)                                                                         \
     cycles2 = cpucycles();                                                                         \
+    clock_gettime(CLOCK_MONOTONIC, &_wt2);                                                         \
     cycles_list[i] = cycles2 - cycles1;                                                            \
+    wallns_list[i] = (uint64_t)(_wt2.tv_sec - _wt1.tv_sec) * 1000000000ULL                         \
+                   + (uint64_t)(_wt2.tv_nsec - _wt1.tv_nsec);                                      \
     cycles += cycles2 - cycles1;                                                                   \
     }                                                                                              \
     qsort(cycles_list, count, sizeof(uint64_t), CMPFUNC);                                          \
+    qsort(wallns_list, count, sizeof(uint64_t), CMPFUNC);                                          \
     uint64_t variance = 0;                                                                         \
     for (size_t i = 0; i < count; ++i) {                                                           \
         int64_t off = cycles_list[i] - cycles / count;                                             \
@@ -121,6 +128,11 @@ _TRUNC(uint64_t x)
            _TRUNC(cycles_list[0]),                                                                 \
            _TRUNC(cycles_list[count - 1]));                                                        \
     printf("  (%s)\n", _UNIT);                                                                     \
+    printf("  %-10s", name);                                                                       \
+    printf(" | wall_med %.6f | wall_min %.6f | wall_max %.6f  (seconds)\n",                        \
+           wallns_list[count / 2] / 1e9,                                                           \
+           wallns_list[0] / 1e9,                                                                   \
+           wallns_list[count - 1] / 1e9);                                                          \
     }
 
 #endif

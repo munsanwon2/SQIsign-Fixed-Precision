@@ -94,7 +94,7 @@ compute_response_quat_element(quat_alg_elem_t *resp_quat,
     quat_lattice_finalize(&lattice_hom_chall_to_com);
 }
 
-static void
+static int
 compute_backtracking_signature(signature_t *sig, quat_alg_elem_t *resp_quat, ibz_t *lattice_content, ibz_t *remain)
 {
     uint_fast8_t backtracking;
@@ -105,6 +105,19 @@ compute_backtracking_signature(signature_t *sig, quat_alg_elem_t *resp_quat, ibz
     ibz_vec_4_init(&dummy_coord);
 
     quat_alg_make_primitive(&dummy_coord, &tmp, resp_quat, &MAXORD_O0);
+    // Under NDEBUG, `quat_alg_make_primitive` can return tmp == 0 silently
+    // (the `quat_lattice_contains` assertion below that would catch it is
+    //  compiled out). Multiplying denom by 0 then zeroes resp_quat->denom,
+    //  collapsing every downstream `quat_alg_norm` result, which truncates
+    //  `degree_full_resp / lattice_content` to 0, makes random_aux_norm
+    //  even, and traps the sign loop in `quat_represent_integer`'s
+    //  is_even fast-exit. Surface the failure to the caller so the sign
+    //  loop's normal retry path takes over.
+    if (ibz_is_zero(&tmp)) {
+        ibz_finalize(&tmp);
+        ibz_vec_4_finalize(&dummy_coord);
+        return 0;
+    }
     ibz_mul(&resp_quat->denom, &resp_quat->denom, &tmp);
     assert(quat_lattice_contains(NULL, &MAXORD_O0, resp_quat));
 
@@ -118,6 +131,7 @@ compute_backtracking_signature(signature_t *sig, quat_alg_elem_t *resp_quat, ibz
 
     ibz_finalize(&tmp);
     ibz_vec_4_finalize(&dummy_coord);
+    return 1;
 }
 
 static uint_fast8_t
@@ -480,6 +494,7 @@ protocols_sign(signature_t *sig, const public_key_t *pk, secret_key_t *sk, const
 {
     int ret = 0;
     int reduced_order = 0; // work around false positive gcc warning
+    int sign_retries = 0;  // observability: how many times the outer sign loop retried
 
     uint_fast8_t pow_dim2_deg_resp;
     assert(SQIsign_response_length <= (intmax_t)UINT_FAST8_MAX); // otherwise we might need more bits there
@@ -514,10 +529,11 @@ protocols_sign(signature_t *sig, const public_key_t *pk, secret_key_t *sk, const
 
         // computing the commitment
         ret = commit(&Ecom_Eaux.E1, &Ecom_Eaux.B1, &lideal_commit);
-        printf("--commit done--\n");
+        (void)0;
 
         // start again if the commitment generation has failed
         if (!ret) {
+            sign_retries++;
             continue;
         }
 
@@ -531,9 +547,9 @@ protocols_sign(signature_t *sig, const public_key_t *pk, secret_key_t *sk, const
 
             // computing the challenge ideal
             compute_challenge_ideal_signature(&lideal_chall_two, sig, sk);
-            printf("--compute_challenge_ideal_signature done--\n");
+            (void)0;
             compute_response_quat_element(&resp_quat, &lattice_content, sk, &lideal_chall_two, &lideal_commit);
-            printf("--compute_response_quat_element done--\n");
+            (void)0;
 
             // Clean up
             quat_left_ideal_finalize(&lideal_chall_two);
@@ -541,8 +557,11 @@ protocols_sign(signature_t *sig, const public_key_t *pk, secret_key_t *sk, const
 
         // computing the amount of backtracking we're making
         // and removing it
-        compute_backtracking_signature(sig, &resp_quat, &lattice_content, &remain);
-        printf("--compute_backtracking_signature done--\n");
+        if (!compute_backtracking_signature(sig, &resp_quat, &lattice_content, &remain)) {
+            sign_retries++;
+            ret = 0;
+            continue;
+        }
 
         // creating lideal_com * lideal_resp
         // we first compute the norm of lideal_resp
@@ -555,7 +574,7 @@ protocols_sign(signature_t *sig, const public_key_t *pk, secret_key_t *sk, const
                                                                 &resp_quat,
                                                                 &lideal_com_resp,
                                                                 &lideal_commit);
-        printf("--compute_random_aux_norm_and_helpers done--\n");
+        (void)0;
 
         // notational conventions:
         // B0 = canonical basis of E0
@@ -566,10 +585,11 @@ protocols_sign(signature_t *sig, const public_key_t *pk, secret_key_t *sk, const
             // Evaluate the random aux ideal on the curve E0 and its basis to find E_aux and B_aux
             ret =
                 evaluate_random_aux_isogeny_signature(&Ecom_Eaux.E2, &Ecom_Eaux.B2, &random_aux_norm, &lideal_com_resp);
-            printf("--evaluate_random_aux_isogeny_signature done--\n");
+            (void)0;
 
             // auxiliary isogeny computation failed we must start again
             if (!ret) {
+                sign_retries++;
                 continue;
             }
 
@@ -594,9 +614,11 @@ protocols_sign(signature_t *sig, const public_key_t *pk, secret_key_t *sk, const
             // B_chall_2 on E_chall_2
             ret = compute_dim2_isogeny_challenge(
                 &Eaux2_Echall2, &Ecom_Eaux, &degree_resp_inv, pow_dim2_deg_resp, sig->two_resp_length, reduced_order);
-            printf("--compute_dim2_isogeny_challenge done--\n");
-            if (!ret)
+            (void)0;
+            if (!ret) {
+                sign_retries++;
                 continue;
+            }
         } else {
             // No 2d isogeny needed, so simulate a "Kani matrix" identity here
             copy_curve(&Eaux2_Echall2.E1, &Ecom_Eaux.E1);
@@ -627,7 +649,7 @@ protocols_sign(signature_t *sig, const public_key_t *pk, secret_key_t *sk, const
     // Set the basis change matrix from canonical bases to the supplied bases
     compute_and_set_basis_change_matrix(
         sig, &Eaux2_Echall2.B1, &Eaux2_Echall2.B2, &Eaux2_Echall2.E1, &E_chall, reduced_order);
-    printf("--compute_and_set_basis_change_matrix done--\n");
+    (void)0;
 
     quat_alg_elem_finalize(&resp_quat);
     quat_left_ideal_finalize(&lideal_commit);
@@ -637,6 +659,8 @@ protocols_sign(signature_t *sig, const public_key_t *pk, secret_key_t *sk, const
     ibz_finalize(&remain);
     ibz_finalize(&degree_resp_inv);
     ibz_finalize(&random_aux_norm);
+
+    fprintf(stderr, "[SIGN_RETRIES] %d\n", sign_retries);
 
     return ret;
 }
