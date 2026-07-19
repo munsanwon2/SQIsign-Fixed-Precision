@@ -143,7 +143,10 @@ quat_represent_integer(quat_alg_elem_t *gamma,
         ibz_sub(&counter, &counter, &ibz_const_one);
 
         // we start by sampling the first coordinate
-        ibz_rand_interval(&coeffs[2], &ibz_const_one, &bound);
+        if (!ibz_rand_interval(&coeffs[2], &ibz_const_one, &bound)) {
+            found = 0;
+            break;
+        }
 
         // then, we sample the second coordinate
         // computing the second bound in temp as sqrt( (adjust_n_gamma - p*coeffs[2]²)/qp )
@@ -154,11 +157,13 @@ quat_represent_integer(quat_alg_elem_t *gamma,
         ibz_div(&temp, &sq_bound, &temp, &sq_bound);
         ibz_sqrt_floor(&temp, &temp);
 
-        if (ibz_cmp(&temp, &ibz_const_zero) == 0) {
-            continue;
+        // Sample the second value in the full symmetric interval prescribed by
+        // GeneralizedRepresentInteger.
+        ibz_neg(&sq_bound, &temp);
+        if (!ibz_rand_interval(&coeffs[3], &sq_bound, &temp)) {
+            found = 0;
+            break;
         }
-        // sampling the second value
-        ibz_rand_interval(&coeffs[3], &ibz_const_one, &temp);
 
         // compute cornacchia_target = n_gamma - p * (z² + q*t²)
         ibz_mul(&temp, &coeffs[3], &coeffs[3]);
@@ -166,7 +171,9 @@ quat_represent_integer(quat_alg_elem_t *gamma,
         ibz_add(&cornacchia_target, &cornacchia_target, &temp);
         ibz_mul(&cornacchia_target, &cornacchia_target, &((params->algebra)->p));
         ibz_sub(&cornacchia_target, &adjusted_n_gamma, &cornacchia_target);
-        assert(ibz_cmp(&cornacchia_target, &ibz_const_zero) > 0);
+        if (ibz_cmp(&cornacchia_target, &ibz_const_one) <= 0) {
+            continue;
+        }
 
         // applying cornacchia
         if (ibz_probab_prime(&cornacchia_target, params->primality_test_iterations))
@@ -260,16 +267,41 @@ quat_sampling_random_ideal_O0_given_norm(quat_left_ideal_t *lideal,
                                          const quat_represent_integer_params_t *params,
                                          const ibz_t *prime_cofactor)
 {
-
     ibz_t n_temp, norm_d;
     ibz_t disc;
     quat_alg_elem_t gen, gen_rerand;
+    quat_left_ideal_t candidate;
     int found = 0;
+
+    if (lideal == NULL || norm == NULL || params == NULL || params->algebra == NULL || params->order == NULL) {
+        return 0;
+    }
+
     ibz_init(&n_temp);
     ibz_init(&norm_d);
     ibz_init(&disc);
     quat_alg_elem_init(&gen);
     quat_alg_elem_init(&gen_rerand);
+    quat_left_ideal_init(&candidate);
+
+    // Algorithm 3.10 requires a positive odd N, p not dividing N, and O0.
+    if ((is_prime != 0 && is_prime != 1) || ibz_cmp_int32(norm, 0) <= 0 || ibz_is_even(norm) ||
+        params->order->q != 1) {
+        goto cleanup;
+    }
+    ibz_mod(&disc, norm, &params->algebra->p);
+    if (ibz_is_zero(&disc) || (is_prime && ibz_cmp_int32(norm, 3) < 0)) {
+        goto cleanup;
+    }
+
+    // Conservative signed-bit bound for the O0-coordinate HNF path above.
+    // Products before modular reduction and the N-sized modular-HNF
+    // intermediates stay below 8*bits(N)+4*bits(p)+13.
+    const int64_t norm_bits = ibz_bitsize(norm);
+    const int64_t algebra_bits = ibz_bitsize(&params->algebra->p);
+    if (8 * norm_bits + 4 * algebra_bits + 13 > IBZ_BITS - 1) {
+        goto cleanup;
+    }
 
     // when the norm is prime we can be quite efficient
     // by avoiding to run represent integer
@@ -281,8 +313,11 @@ quat_sampling_random_ideal_O0_given_norm(quat_left_ideal_t *lideal,
             // generating a trace-zero element at random
             ibz_set(&gen.coord[0], 0);
             ibz_sub(&n_temp, norm, &ibz_const_one);
-            for (int i = 1; i < 4; i++)
-                ibz_rand_interval(&gen.coord[i], &ibz_const_zero, &n_temp);
+            for (int i = 1; i < 4; i++) {
+                if (!ibz_rand_interval(&gen.coord[i], &ibz_const_zero, &n_temp)) {
+                    goto cleanup;
+                }
+            }
 
             // first, we compute the norm of the gen
             quat_alg_norm(&n_temp, &norm_d, &gen, (params->algebra));
@@ -291,19 +326,37 @@ quat_sampling_random_ideal_O0_given_norm(quat_left_ideal_t *lideal,
             // and finally the negation mod norm
             ibz_neg(&disc, &n_temp);
             ibz_mod(&disc, &disc, norm);
-            // now we check that -n is a square mod norm
-            // and if the square root exists we compute it
-            found = ibz_sqrt_mod_p(&gen.coord[0], &disc, norm);
+            // Legendre(-nrd(gen),N) must be exactly 1.  In particular, zero
+            // is rejected even though the modular-square-root helper accepts it.
+            found = !ibz_is_zero(&disc) && ibz_sqrt_mod_p(&gen.coord[0], &disc, norm);
             found = found && !quat_alg_elem_is_zero(&gen);
         }
     } else {
-        assert(prime_cofactor != NULL);
+        if (prime_cofactor == NULL || ibz_is_even(prime_cofactor) || ibz_cmp(prime_cofactor, norm) <= 0) {
+            goto cleanup;
+        }
+        ibz_gcd(&disc, prime_cofactor, norm);
+        if (!ibz_is_one(&disc)) {
+            goto cleanup;
+        }
+        ibz_gcd(&disc, prime_cofactor, &params->algebra->p);
+        if (!ibz_is_one(&disc)) {
+            goto cleanup;
+        }
+        const int64_t cofactor_bits = ibz_bitsize(prime_cofactor);
+        const int64_t represent_bound = norm_bits + cofactor_bits + 3;
+        const int64_t product_bound = algebra_bits + norm_bits + (cofactor_bits + norm_bits + 1) / 2 + 4;
+        if (2 * represent_bound > IBZ_BITS - 1 || product_bound > IBZ_BITS - 1) {
+            goto cleanup;
+        }
         // if it is not prime or we don't know if it is prime, we may just use represent integer
         // and use a precomputed prime as cofactor
-        assert(!ibz_is_zero(norm));
         ibz_mul(&n_temp, prime_cofactor, norm);
         found = quat_represent_integer(&gen, &n_temp, 0, params);
         found = found && !quat_alg_elem_is_zero(&gen);
+        if (!found) {
+            goto cleanup;
+        }
     }
 #ifndef NDEBUG
     if (found) {
@@ -315,11 +368,13 @@ quat_sampling_random_ideal_O0_given_norm(quat_left_ideal_t *lideal,
     }
 #endif
 
-    // now we just have to rerandomize the class of the ideal generated by gen
-    /*found = 0;
+    // Rerandomize the ideal class with a uniform unit of O0/N*O0.
+    found = 0;
     while (!found) {
         for (int i = 0; i < 4; i++) {
-            ibz_rand_interval(&gen_rerand.coord[i], &ibz_const_one, norm);
+            if (!ibz_rand_interval(&gen_rerand.coord[i], &ibz_const_one, norm)) {
+                goto cleanup;
+            }
         }
         quat_alg_norm(&n_temp, &norm_d, &gen_rerand, (params->algebra));
         assert(ibz_is_one(&norm_d));
@@ -328,19 +383,26 @@ quat_sampling_random_ideal_O0_given_norm(quat_left_ideal_t *lideal,
         found = found && !quat_alg_elem_is_zero(&gen_rerand);
     }
 
-    quat_alg_mul(&gen, &gen, &gen_rerand, (params->algebra));*/
-    // in both cases, whether norm is prime or not prime,
-    // gen is not divisible by any integer factor of the target norm
-    // therefore the call below will yield an ideal of the correct norm
-    quat_lideal_create(lideal, &gen, norm, &((params->order)->order), (params->algebra));
-    assert(ibz_cmp(norm, &(lideal->norm)) == 0);
+    quat_alg_mul(&gen, &gen, &gen_rerand, (params->algebra));
 
+    // In both cases gen is primitive at every prime dividing the target norm.
+    // Build the exact same ideal in O0 coordinates modulo N so that the HNF
+    // operations remain within the selected fixed-precision budget.
+    found = !quat_alg_elem_is_zero(&gen) && quat_lideal_create_from_generator_mod_N(
+                                                   &candidate, &gen, norm, &params->order->order, params->algebra);
+    found = found && (ibz_cmp(&candidate.norm, norm) == 0);
+    if (found) {
+        quat_lideal_copy(lideal, &candidate);
+    }
+
+cleanup:
     ibz_finalize(&n_temp);
     quat_alg_elem_finalize(&gen);
     quat_alg_elem_finalize(&gen_rerand);
+    quat_left_ideal_finalize(&candidate);
     ibz_finalize(&norm_d);
     ibz_finalize(&disc);
-    return (found);
+    return found;
 }
 
 void

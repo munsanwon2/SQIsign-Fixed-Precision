@@ -12,10 +12,45 @@ FOREACH(SVARIANT ${SVARIANT_S})
 
     if (ENABLE_SIGN)
 
+        add_executable(sqisign_test_random_ideal_precision_${SVARIANT} test_random_ideal_precision.c)
+        target_link_libraries(sqisign_test_random_ideal_precision_${SVARIANT}
+            ${LIB_QUATERNION_${SVARIANT_UPPER}}
+            ${LIB_PRECOMP_${SVARIANT_UPPER}}
+            sqisign_common_test)
+        target_include_directories(sqisign_test_random_ideal_precision_${SVARIANT} PRIVATE
+            ${INC_PUBLIC}
+            ${INC_COMMON}
+            ${INC_QUATERNION}
+            ${INC_PRECOMP_${SVARIANT_UPPER}}
+            ${PROJECT_SOURCE_DIR}/src/quaternion/ref/generic/internal_quaternion_headers)
+        if (SVARIANT STREQUAL "lvl1")
+            target_compile_definitions(sqisign_test_random_ideal_precision_${SVARIANT} PRIVATE
+                EXPECTED_IBZ_LIMBS=110 THEORETICAL_IBZ_BITS=7026)
+        elseif (SVARIANT STREQUAL "lvl3")
+            target_compile_definitions(sqisign_test_random_ideal_precision_${SVARIANT} PRIVATE
+                EXPECTED_IBZ_LIMBS=168 THEORETICAL_IBZ_BITS=10713)
+        elseif (SVARIANT STREQUAL "lvl5")
+            target_compile_definitions(sqisign_test_random_ideal_precision_${SVARIANT} PRIVATE
+                EXPECTED_IBZ_LIMBS=222 THEORETICAL_IBZ_BITS=14150)
+        endif()
+        add_test(NAME sqisign_${SVARIANT}_RANDOM_IDEAL_PRECISION
+                 COMMAND sqisign_test_random_ideal_precision_${SVARIANT})
+        set_tests_properties(sqisign_${SVARIANT}_RANDOM_IDEAL_PRECISION PROPERTIES TIMEOUT 180)
+
         add_executable(sqisign_test_scheme_${SVARIANT} test_sqisign.c)
-        target_link_libraries(sqisign_test_scheme_${SVARIANT} sqisign_${SVARIANT_LOWER})
+        # Use the deterministic test RNG so --seed reproduces the complete
+        # KeyGen/Sign/Verify transcript.
+        target_link_libraries(sqisign_test_scheme_${SVARIANT} sqisign_${SVARIANT_LOWER}_test)
         target_include_directories(sqisign_test_scheme_${SVARIANT} PUBLIC ${PROJECT_SOURCE_DIR}/src/common ${INC_PUBLIC} ${PROJECT_SOURCE_DIR}/src/nistapi/${SVARIANT_LOWER})
-        add_test(sqisign_${SVARIANT}_SELFTEST sqisign_test_scheme_${SVARIANT})
+        if(APPLE)
+            # find_uv uses parameter-sized VLAs.  lvl3/lvl5 exceed macOS's
+            # default 8 MiB (and shell hard 64 MiB) stack; encode the stack
+            # required by the reference self-test in LC_MAIN.
+            target_link_options(sqisign_test_scheme_${SVARIANT} PRIVATE "-Wl,-stack_size,0x20000000")
+        endif()
+        add_test(NAME sqisign_${SVARIANT}_SELFTEST
+                 COMMAND sqisign_test_scheme_${SVARIANT} --seed=1 --msglen=32)
+        set_tests_properties(sqisign_${SVARIANT}_SELFTEST PROPERTIES TIMEOUT 7200)
 
     endif()
 

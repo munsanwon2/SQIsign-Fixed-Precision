@@ -647,6 +647,19 @@ void quat_lideal_create_principal(quat_left_ideal_t *lideal,
                                   const quat_alg_t *alg); // ideal, test/ideal
 
 /**
+ * @brief Fixed-precision construction of O<x,N> through coordinates relative
+ * to O and an |N|^4 modular HNF.
+ *
+ * @returns 1 on success, 0 if the inputs violate the construction
+ * preconditions or exceed the configured fixed-precision budget.
+ */
+int quat_lideal_create_from_generator_mod_N(quat_left_ideal_t *lideal,
+                                             const quat_alg_elem_t *x,
+                                             const ibz_t *N,
+                                             const quat_lattice_t *order,
+                                             const quat_alg_t *alg);
+
+/**
  * @brief  Equality test for left ideals
  *
  * @returns 1 if both left ideals are equal, 0 otherwise

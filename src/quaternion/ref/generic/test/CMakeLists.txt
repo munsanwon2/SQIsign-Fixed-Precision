@@ -31,14 +31,14 @@ FOREACH(SVARIANT ${SVARIANT_S})
     set(TEST_NAME sqisign_test_quaternion_${SVARIANT_LOWER})
 
     add_executable(${TEST_NAME} ${SOURCE_FILES_QUATERNION_GENERIC_REF_TESTS} test_quaternions.c)
-    target_link_libraries(${TEST_NAME} ${LIB_QUATERNION_${SVARIANT_UPPER}} sqisign_common_sys)
+    target_link_libraries(${TEST_NAME} ${LIB_QUATERNION_${SVARIANT_UPPER}} sqisign_common_test)
     target_include_directories(${TEST_NAME} PRIVATE ../internal_quaternion_headers ${INC_COMMON} ${INC_QUATERNION} ${INC_PUBLIC} ${PROJECT_SOURCE_DIR}/src/mini-gmp)
     target_compile_definitions(${TEST_NAME} PUBLIC SQISIGN_VARIANT=${SVARIANT_LOWER})
 
     # MSAN and GMP lead to false positives, see
     # https://gmplib.org/list-archives/gmp-bugs/2019-March/004529.html
     if(NOT CMAKE_BUILD_TYPE STREQUAL "MSAN")
-        add_test(${TEST_NAME} ${TEST_NAME})
+        add_test(NAME ${TEST_NAME} COMMAND ${TEST_NAME} --seed=1)
     endif()
 ENDFOREACH()
 

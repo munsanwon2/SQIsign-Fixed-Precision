@@ -712,8 +712,10 @@ quat_test_lattice_hnf(void)
 {
     int res = 0;
     quat_lattice_t lat, cmp;
+    ibz_t scale;
     quat_lattice_init(&lat);
     quat_lattice_init(&cmp);
+    ibz_init(&scale);
 
     for (int i = 0; i < 4; i++) {
         for (int j = 0; j < 4; j++) {
@@ -738,9 +740,21 @@ quat_test_lattice_hnf(void)
     res = res || (!ibz_mat_4x4_equal(&(lat.basis), &(cmp.basis)));
     res = res || ibz_cmp(&(lat.denom), &(cmp.denom));
 
+    /* A large common numerator/denominator scale represents the same rational
+     * lattice.  This exercises the pre-HNF content reduction that is required
+     * by the fixed-precision implementation. */
+    ibz_set(&scale, 1);
+    ibz_mul_2exp(&scale, &scale, IBZ_BITS / 8);
+    ibz_mat_4x4_scalar_mul(&(lat.basis), &scale, &(cmp.basis));
+    ibz_mul(&(lat.denom), &scale, &(cmp.denom));
+    quat_lattice_hnf(&lat);
+    res = res || (!ibz_mat_4x4_equal(&(lat.basis), &(cmp.basis)));
+    res = res || ibz_cmp(&(lat.denom), &(cmp.denom));
+
     if (res != 0) {
         printf("Quaternion unit test lattice_hnf failed\n");
     }
+    ibz_finalize(&scale);
     quat_lattice_finalize(&lat);
     quat_lattice_finalize(&cmp);
     return (res);

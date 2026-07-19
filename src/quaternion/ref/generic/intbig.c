@@ -6,6 +6,56 @@
 
 #include "intbig.h"
 
+/* The paper bounds magnitude bits, while an IBZ_BITS-bit two's-complement
+ * value has only IBZ_BITS-1 bits of symmetric usable magnitude.  The
+ * asymmetric minimum cannot be counted because its absolute value and
+ * negation are not representable. */
+#define _SQI_PAPER_MAG_BITS_lvl1 7026
+#define _SQI_PAPER_MAG_BITS_lvl3 10713
+#define _SQI_PAPER_MAG_BITS_lvl5 14150
+#define _SQI_PAPER_MAG_BITS_(v)  _SQI_PAPER_MAG_BITS_##v
+#define _SQI_PAPER_MAG_BITS(v)   _SQI_PAPER_MAG_BITS_(v)
+
+_Static_assert(IBZ_BITS == 64 * IBZ_LIMBS, "IBZ_BITS must match ibz_t storage");
+_Static_assert(IBZ_BITS - 1 >= _SQI_PAPER_MAG_BITS(SQISIGN_VARIANT),
+               "ibz_t is below the SQIsign paper precision budget");
+
+#ifdef IBZ_ENABLE_OVERFLOW_CHECKS
+#include <stdlib.h>
+
+/* Checked builds may exercise several protocol instances concurrently.  Keep
+ * peak accounting local to each thread so instrumentation itself does not
+ * introduce a C data race. */
+static _Thread_local int ibz_overflow_checks_peak_bits = 0;
+
+static void
+ibz_overflow_checks_fail(const char *operation)
+{
+    fprintf(stderr, "fixed-precision overflow in %s (IBZ_BITS=%d)\n", operation, IBZ_BITS);
+    abort();
+}
+
+static void
+ibz_overflow_checks_record(int bits)
+{
+    if (bits > ibz_overflow_checks_peak_bits) {
+        ibz_overflow_checks_peak_bits = bits;
+    }
+}
+
+void
+ibz_overflow_checks_reset_peak(void)
+{
+    ibz_overflow_checks_peak_bits = 0;
+}
+
+int
+ibz_overflow_checks_get_peak(void)
+{
+    return ibz_overflow_checks_peak_bits;
+}
+#endif
+
 const uint64_t ibz_const_zero[IBZ_LIMBS] = { 0 };
 const uint64_t ibz_const_one[IBZ_LIMBS] = { 1 };
 const uint64_t ibz_const_two[IBZ_LIMBS] = { 2 };
@@ -152,6 +202,17 @@ ibz_is_negative(const ibz_t *x)
 void
 ibz_neg(ibz_t *neg, const ibz_t *a)
 {
+#ifdef IBZ_ENABLE_OVERFLOW_CHECKS
+    if ((*a)[IBZ_LIMBS - 1] == (UINT64_C(1) << 63)) {
+        int is_min = 1;
+        for (int i = 0; i < IBZ_LIMBS - 1; i++) {
+            is_min &= ((*a)[i] == 0);
+        }
+        if (is_min) {
+            ibz_overflow_checks_fail("ibz_neg");
+        }
+    }
+#endif
     uint64_t carry = 1;
     for (int i = 0; i < IBZ_LIMBS; i++) {
         uint64_t tmp = ~(*a)[i];
@@ -175,6 +236,10 @@ ibz_abs(ibz_t *abs, const ibz_t *a)
 void
 ibz_add(ibz_t *sum, const ibz_t *a, const ibz_t *b)
 {
+#ifdef IBZ_ENABLE_OVERFLOW_CHECKS
+    const int a_neg = ibz_is_negative(a);
+    const int b_neg = ibz_is_negative(b);
+#endif
     uint64_t carry = 0;
     for (int i = 0; i < IBZ_LIMBS; i++) {
         uint64_t tmp = (*a)[i] + carry;
@@ -182,12 +247,22 @@ ibz_add(ibz_t *sum, const ibz_t *a, const ibz_t *b)
         (*sum)[i] = tmp + (*b)[i];
         carry += ((*sum)[i] < tmp) ? 1 : 0;
     }
+#ifdef IBZ_ENABLE_OVERFLOW_CHECKS
+    if (a_neg == b_neg && ibz_is_negative(sum) != a_neg) {
+        ibz_overflow_checks_fail("ibz_add");
+    }
+    ibz_overflow_checks_record(ibz_bitsize(sum));
+#endif
 }
 
 // Subtraction
 void
 ibz_sub(ibz_t *diff, const ibz_t *a, const ibz_t *b)
 {
+#ifdef IBZ_ENABLE_OVERFLOW_CHECKS
+    const int a_neg = ibz_is_negative(a);
+    const int b_neg = ibz_is_negative(b);
+#endif
     uint64_t borrow = 0;
     for (int i = 0; i < IBZ_LIMBS; i++) {
         uint64_t tmp = (*a)[i] - borrow;
@@ -196,6 +271,12 @@ ibz_sub(ibz_t *diff, const ibz_t *a, const ibz_t *b)
         borrow += (tmp2 > tmp) ? 1 : 0;
         (*diff)[i] = tmp2;
     }
+#ifdef IBZ_ENABLE_OVERFLOW_CHECKS
+    if (a_neg != b_neg && ibz_is_negative(diff) != a_neg) {
+        ibz_overflow_checks_fail("ibz_sub");
+    }
+    ibz_overflow_checks_record(ibz_bitsize(diff));
+#endif
 }
 
 // static void
@@ -361,7 +442,10 @@ ibz_mul(ibz_t *prod, const ibz_t *a, const ibz_t *b)
     while (a_size > 1 && aa[a_size - 1] == 0) a_size--;
     while (b_size > 1 && bb[b_size - 1] == 0) b_size--;
 
-    static uint64_t temp_result[2 * IBZ_LIMBS];
+    /* Per-call scratch: a shared static buffer would make independent
+     * multiplications from different protocol threads race and corrupt one
+     * another. */
+    uint64_t temp_result[2 * IBZ_LIMBS];
     memset(temp_result, 0, sizeof(temp_result));
 
     for (int i = 0; i < a_size; i++) {
@@ -398,6 +482,20 @@ ibz_mul(ibz_t *prod, const ibz_t *a, const ibz_t *b)
             }
         }
     }
+
+#ifdef IBZ_ENABLE_OVERFLOW_CHECKS
+    int full_bits = 0;
+    for (int i = 2 * IBZ_LIMBS - 1; i >= 0; i--) {
+        if (temp_result[i] != 0) {
+            full_bits = i * 64 + (64 - clz64(temp_result[i]));
+            break;
+        }
+    }
+    ibz_overflow_checks_record(full_bits);
+    if (full_bits > IBZ_BITS - 1) {
+        ibz_overflow_checks_fail("ibz_mul");
+    }
+#endif
 
     // write low limbs
     for (int i = 0; i < IBZ_LIMBS; i++) {
@@ -449,6 +547,17 @@ ibz_mul_2exp(ibz_t *result, const ibz_t *a, size_t shift)
         ibz_copy(&a_copy, a);
         src = &a_copy;
     }
+
+#ifdef IBZ_ENABLE_OVERFLOW_CHECKS
+    const int source_bits = ibz_bitsize(src);
+    if (source_bits != 0 && shift > (size_t)(IBZ_BITS - 1 - source_bits)) {
+        ibz_overflow_checks_fail("ibz_mul_2exp");
+    }
+    /* Shifting zero by any amount is still zero.  Besides being the exact
+     * mathematical bit length, handling it separately avoids narrowing an
+     * otherwise unbounded size_t shift into the peak's int representation. */
+    ibz_overflow_checks_record(source_bits == 0 ? 0 : source_bits + (int)shift);
+#endif
 
     if (shift == 0) {
         ibz_copy(result, src);
@@ -758,17 +867,32 @@ ibz_get(const ibz_t *i)
 int
 ibz_rand_interval(ibz_t *rand, const ibz_t *a, const ibz_t *b)
 {
-    ibz_t range;
+    ibz_t range, lower;
+
+    // Check ordering before subtraction so that an invalid, extremely wide
+    // reversed interval cannot wrap into an apparently positive span.
+    if (ibz_cmp(a, b) > 0) {
+        return 0;
+    }
+    // Keep the lower endpoint stable when the output aliases an input.
+    ibz_copy(&lower, a);
     ibz_sub(&range, b, a);
 
-    if (ibz_cmp_int32(&range, 0) <= 0) {
-        ibz_copy(rand, a);
+    if (ibz_is_negative(&range)) {
+        return 0;
+    }
+    if (ibz_is_zero(&range)) {
+        ibz_copy(rand, &lower);
         return 1;
     }
 
     int len_bits = ibz_bitsize(&range);
     int len_bytes = (len_bits + 7) / 8;
     int len_limbs = (len_bytes + 7) / 8;
+
+    if (len_limbs <= 0 || len_limbs > IBZ_LIMBS) {
+        return 0;
+    }
 
     uint64_t mask = (len_bits % 64 == 0) ? UINT64_MAX : ((1ULL << (len_bits % 64)) - 1);
 
@@ -780,12 +904,10 @@ ibz_rand_interval(ibz_t *rand, const ibz_t *a, const ibz_t *b)
             return 0;
         }
 
-        if (len_limbs > 0 && len_limbs <= IBZ_LIMBS) {
-            (*rand)[len_limbs - 1] &= mask;
-        }
+        (*rand)[len_limbs - 1] &= mask;
 
-        if (ibz_cmp(rand, &range) < 0) {
-            ibz_add(rand, rand, a);
+        if (ibz_cmp(rand, &range) <= 0) {
+            ibz_add(rand, rand, &lower);
             return 1;
         }
     }
@@ -815,6 +937,11 @@ int
 ibz_rand_interval_bits(ibz_t *rand, uint32_t m)
 {
     ibz_t max_val, min_val;
+    // The interval span is 2^(m+1), which must itself remain a positive
+    // signed ibz_t for ibz_rand_interval's rejection bound.
+    if (m >= IBZ_BITS - 2) {
+        return 0;
+    }
     ibz_set(&max_val, 1);
     ibz_mul_2exp(&max_val, &max_val, m);
     ibz_neg(&min_val, &max_val);
@@ -1162,7 +1289,11 @@ ibz_probab_prime(const ibz_t *n, int reps)
         ibz_t two, n_minus_2;
         ibz_set(&two, 2);
         ibz_sub(&n_minus_2, n, &two);
-        ibz_rand_interval(&a, &two, &n_minus_2);
+        if (!ibz_rand_interval(&a, &two, &n_minus_2)) {
+            // A randomness failure must never turn a composite candidate into
+            // a probable prime.  The boolean API conservatively rejects it.
+            return 0;
+        }
 
         // x = a^d mod n
         ibz_pow_mod(&x, &a, &d, n);
@@ -1503,7 +1634,13 @@ ibz_sqrt(ibz_t *sqrt, const ibz_t *a)
 
     ibz_t x, x_prev, temp;
 
-    ibz_copy(&x, a);
+    // Start from a power-of-two upper bound on sqrt(a).  Starting from a
+    // itself needs roughly bitsize(a)/2 Newton steps; that exceeded the old
+    // 1000-step cap for level-5 ideal indices (about 2050 bits) and falsely
+    // reported that an exact square was not a square.
+    const int bits = ibz_bitsize(a);
+    ibz_set(&x, 1);
+    ibz_mul_2exp(&x, &x, (bits + 1) / 2);
 
     // Newton-Raphson: x_new = (x + a/x) / 2
     for (int iter = 0; iter < 1000; iter++) {

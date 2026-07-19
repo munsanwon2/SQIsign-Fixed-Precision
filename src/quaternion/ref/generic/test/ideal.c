@@ -264,6 +264,73 @@ quat_test_lideal_create_from_primitive(void)
     return (res);
 }
 
+static int
+quat_test_lideal_create_relative_edge_cases(void)
+{
+    int res = 0;
+    quat_alg_t alg;
+    quat_lattice_t order, expected;
+    quat_alg_elem_t x;
+    quat_left_ideal_t ideal_pos, ideal_neg, principal;
+    ibz_t N, neg_N, expected_norm, zero;
+
+    quat_alg_init_set_ui(&alg, 103);
+    quat_lattice_init(&order);
+    quat_lattice_init(&expected);
+    quat_alg_elem_init(&x);
+    quat_left_ideal_init(&ideal_pos);
+    quat_left_ideal_init(&ideal_neg);
+    quat_left_ideal_init(&principal);
+    ibz_init(&N);
+    ibz_init(&neg_N);
+    ibz_init(&expected_norm);
+    ibz_init(&zero);
+    quat_lattice_O0_set(&order);
+    ibz_set(&N, 5);
+    ibz_set(&neg_N, -5);
+
+    // O<1,N> = O and has norm 1.
+    quat_alg_elem_set(&x, 1, 1, 0, 0, 0);
+    quat_lideal_create(&ideal_pos, &x, &N, &order, &alg);
+    res |= !ibz_is_one(&ideal_pos.norm);
+    res |= !quat_lattice_equal(&ideal_pos.lattice, &order);
+
+    // O<N,N> = N*O and has norm N^2.  A negative integer generator
+    // produces the same ideal.
+    quat_alg_elem_set(&x, 1, 5, 0, 0, 0);
+    quat_lideal_create(&ideal_pos, &x, &N, &order, &alg);
+    quat_lideal_create(&ideal_neg, &x, &neg_N, &order, &alg);
+    ibz_mul(&expected_norm, &N, &N);
+    res |= ibz_cmp(&ideal_pos.norm, &expected_norm);
+    res |= !quat_lideal_equals(&ideal_pos, &ideal_neg, &alg);
+    ibz_mat_4x4_scalar_mul(&expected.basis, &N, &order.basis);
+    ibz_copy(&expected.denom, &order.denom);
+    quat_lattice_hnf(&expected);
+    res |= !quat_lattice_equal(&ideal_pos.lattice, &expected);
+
+    // Preserve the generic API's N=0 behavior: O<x,0> is O*x.
+    quat_lideal_create(&ideal_pos, &x, &zero, &order, &alg);
+    quat_lideal_create_principal(&principal, &x, &order, &alg);
+    res |= !quat_lideal_equals(&ideal_pos, &principal, &alg);
+
+    if (res != 0) {
+        printf("Quaternion unit test relative-coordinate lideal_create edge cases failed\n");
+    }
+
+    ibz_finalize(&zero);
+    ibz_finalize(&expected_norm);
+    ibz_finalize(&neg_N);
+    ibz_finalize(&N);
+    quat_left_ideal_finalize(&principal);
+    quat_left_ideal_finalize(&ideal_neg);
+    quat_left_ideal_finalize(&ideal_pos);
+    quat_alg_elem_finalize(&x);
+    quat_lattice_finalize(&expected);
+    quat_lattice_finalize(&order);
+    quat_alg_finalize(&alg);
+    return res;
+}
+
 // int quat_lideal_generator(quat_alg_elem_t *gen, const quat_left_ideal_t *lideal, const quat_alg_t
 // *alg)
 int
@@ -918,6 +985,7 @@ quat_test_lideal(void)
     res = res | quat_test_lideal_copy();
     res = res | quat_test_lideal_create_principal();
     res = res | quat_test_lideal_create_from_primitive();
+    res = res | quat_test_lideal_create_relative_edge_cases();
     res = res | quat_test_lideal_generator();
     res = res | quat_test_lideal_mul();
     res = res | quat_test_lideal_conj_without_hnf();

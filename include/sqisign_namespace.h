@@ -606,6 +606,7 @@
 #undef quat_lideal_conjugate_without_hnf
 #undef quat_lideal_copy
 #undef quat_lideal_create
+#undef quat_lideal_create_from_generator_mod_N
 #undef quat_lideal_create_principal
 #undef quat_lideal_equals
 #undef quat_lideal_generator
@@ -623,6 +624,7 @@
 #define quat_lideal_conjugate_without_hnf               SQISIGN_NAMESPACE_GENERIC(quat_lideal_conjugate_without_hnf)
 #define quat_lideal_copy                                SQISIGN_NAMESPACE_GENERIC(quat_lideal_copy)
 #define quat_lideal_create                              SQISIGN_NAMESPACE_GENERIC(quat_lideal_create)
+#define quat_lideal_create_from_generator_mod_N         SQISIGN_NAMESPACE_GENERIC(quat_lideal_create_from_generator_mod_N)
 #define quat_lideal_create_principal                    SQISIGN_NAMESPACE_GENERIC(quat_lideal_create_principal)
 #define quat_lideal_equals                              SQISIGN_NAMESPACE_GENERIC(quat_lideal_equals)
 #define quat_lideal_generator                           SQISIGN_NAMESPACE_GENERIC(quat_lideal_generator)
@@ -662,6 +664,8 @@
 #undef ibz_mod_ui
 #undef ibz_mul
 #undef ibz_neg
+#undef ibz_overflow_checks_get_peak
+#undef ibz_overflow_checks_reset_peak
 #undef ibz_pow
 #undef ibz_pow_mod
 #undef ibz_print
@@ -707,6 +711,8 @@
 #define ibz_mod_ui                                      SQISIGN_NAMESPACE_GENERIC(ibz_mod_ui)
 #define ibz_mul                                         SQISIGN_NAMESPACE_GENERIC(ibz_mul)
 #define ibz_neg                                         SQISIGN_NAMESPACE_GENERIC(ibz_neg)
+#define ibz_overflow_checks_get_peak                    SQISIGN_NAMESPACE_GENERIC(ibz_overflow_checks_get_peak)
+#define ibz_overflow_checks_reset_peak                  SQISIGN_NAMESPACE_GENERIC(ibz_overflow_checks_reset_peak)
 #define ibz_pow                                         SQISIGN_NAMESPACE_GENERIC(ibz_pow)
 #define ibz_pow_mod                                     SQISIGN_NAMESPACE_GENERIC(ibz_pow_mod)
 #define ibz_print                                       SQISIGN_NAMESPACE_GENERIC(ibz_print)
@@ -1019,4 +1025,3 @@
 
 
 #endif
-

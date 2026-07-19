@@ -20,9 +20,13 @@ extern "C"
  * silently picked lvl1's limb count for every variant. Fix: dispatch via
  * token paste. The two-level _SQI_LIMBS / _SQI_LIMBS_ indirection forces
  * SQISIGN_VARIANT to be expanded before the ## paste. */
-#define _SQI_LIMBS_lvl1 110  /* NIST Level I */
-#define _SQI_LIMBS_lvl3 168  /* NIST Level III */
-#define _SQI_LIMBS_lvl5 222  /* NIST Level V */
+/* The paper's uniform magnitude bounds are 7026, 10713, and 14150 bits.
+ * Rounding to 64-bit limbs gives raw widths 7040, 10752, and 14208; after
+ * reserving the two's-complement sign bit, the usable positive capacities
+ * remain 7039, 10751, and 14207 bits respectively. */
+#define _SQI_LIMBS_lvl1 110  /* 7040 raw bits; NIST Level I */
+#define _SQI_LIMBS_lvl3 168  /* 10752 raw bits; NIST Level III */
+#define _SQI_LIMBS_lvl5 222  /* 14208 raw bits; NIST Level V */
 #define _SQI_LIMBS_(v)  _SQI_LIMBS_##v
 #define _SQI_LIMBS(v)   _SQI_LIMBS_(v)
 #define IBZ_LIMBS       _SQI_LIMBS(SQISIGN_VARIANT)
@@ -70,11 +74,18 @@ extern "C"
 
     int ibz_cmp_int32(const ibz_t *x, int32_t y);
     int ibz_bitsize(const ibz_t *a);
+
+#ifdef IBZ_ENABLE_OVERFLOW_CHECKS
+    /** Reset/read peak mathematical bit length observed by checked fixed-precision operations. */
+    void ibz_overflow_checks_reset_peak(void);
+    int ibz_overflow_checks_get_peak(void);
+#endif
     void ibz_to_digits(digit_t *digits, const ibz_t *a);
 
-    /** @brief generate random value in [a, b]
-     *  assumed that a >= 0 and b >= 0 and a < b
-     * @returns 1 on success, 0 on failiure
+    /** @brief Generate a uniformly random value in the inclusive interval [a, b]
+     *  Assumes a <= b and that the nonnegative span b-a is representable. Negative endpoints
+     *  are supported.
+     * @returns 1 on success, 0 on failure or for an invalid interval
      */
     int ibz_rand_interval(ibz_t *rand, const ibz_t *a, const ibz_t *b);
 

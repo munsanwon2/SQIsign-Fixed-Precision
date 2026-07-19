@@ -258,6 +258,25 @@ ibz_test_mul_sqrt()
     ibz_sqrt_floor(&d, &m);
     res = res | (0 != ibz_cmp(&d, &c));
 
+    // Regression for level-5 ideal indices: their exact square roots are
+    // about 1025 bits, so the squared input is larger than 2000 bits.
+    ibz_set(&a, 1);
+    ibz_mul_2exp(&a, &a, 1024);
+    ibz_mul(&m, &a, &a);
+    res = res | !ibz_sqrt(&d, &m);
+    res = res | (0 != ibz_cmp(&d, &a));
+    ibz_add(&m, &m, &ibz_const_one);
+    res = res | ibz_sqrt(&d, &m);
+
+#ifdef IBZ_ENABLE_OVERFLOW_CHECKS
+    // Zero remains zero for any shift and must not inflate peak-bit tracking.
+    ibz_set(&a, 0);
+    ibz_overflow_checks_reset_peak();
+    ibz_mul_2exp(&m, &a, SIZE_MAX);
+    res = res | !ibz_is_zero(&m);
+    res = res | (ibz_overflow_checks_get_peak() != 0);
+#endif
+
     if (res) {
         printf("Quaternion module integer group test ibz_test_mul_sqrt failed\n");
     }
@@ -706,6 +725,48 @@ ibz_test_rand_interval(int reps)
             res = 1;
             goto err;
         }
+    }
+
+    // Endpoint regression: [0,1] must produce both values.  The probability
+    // that a correct sampler misses either endpoint in 128 trials is 2^-127.
+    ibz_set(&low, 0);
+    ibz_set(&high, 1);
+    int seen_low = 0, seen_high = 0;
+    for (int i = 0; i < 128; i++) {
+        if (!ibz_rand_interval(&rand, &low, &high)) {
+            res = 1;
+            goto err;
+        }
+        seen_low |= ibz_is_zero(&rand);
+        seen_high |= ibz_is_one(&rand);
+    }
+    if (!seen_low || !seen_high) {
+        res = 1;
+        goto err;
+    }
+
+    // Degenerate intervals succeed; reversed intervals fail.
+    ibz_set(&low, 7);
+    ibz_set(&high, 7);
+    if (!ibz_rand_interval(&rand, &low, &high) || ibz_cmp_int32(&rand, 7) != 0) {
+        res = 1;
+        goto err;
+    }
+    ibz_set(&low, 8);
+    if (ibz_rand_interval(&rand, &low, &high)) {
+        res = 1;
+        goto err;
+    }
+    ibz_set(&low, 7);
+    ibz_set(&high, 8);
+    if (!ibz_rand_interval(&low, &low, &high) || ibz_cmp_int32(&low, 7) < 0 ||
+        ibz_cmp_int32(&low, 8) > 0) {
+        res = 1;
+        goto err;
+    }
+    if (ibz_rand_interval_bits(&rand, IBZ_BITS - 2)) {
+        res = 1;
+        goto err;
     }
 err:
     if (res) {

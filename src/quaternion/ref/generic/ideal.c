@@ -7,8 +7,11 @@ void
 quat_lideal_norm(quat_left_ideal_t *lideal)
 {
     quat_lattice_index(&(lideal->norm), &(lideal->lattice), (lideal->parent_order));
-    int ok UNUSED = ibz_sqrt(&(lideal->norm), &(lideal->norm));
-    assert(ok);
+    if (!ibz_sqrt(&(lideal->norm), &(lideal->norm))) {
+        // A left ideal of a maximal order has square relative index.  Treat a
+        // violation as malformed arithmetic state in both debug and release.
+        abort();
+    }
 }
 
 // assumes parent order and lattice correctly set, recomputes and verifies its norm
@@ -19,8 +22,7 @@ quat_lideal_norm_verify(const quat_left_ideal_t *lideal)
     ibz_t index;
     ibz_init(&index);
     quat_lattice_index(&index, &(lideal->lattice), (lideal->parent_order));
-    ibz_sqrt(&index, &index);
-    res = (ibz_cmp(&(lideal->norm), &index) == 0);
+    res = ibz_sqrt(&index, &index) && (ibz_cmp(&(lideal->norm), &index) == 0);
     ibz_finalize(&index);
     return (res);
 }
@@ -67,6 +69,157 @@ quat_lideal_create_principal(quat_left_ideal_t *lideal,
     ibz_finalize(&norm_d);
 }
 
+/* Construct O<x,N> in coordinates relative to O.
+ *
+ * The former implementation first built the principal ideal O*x in ambient
+ * coordinates and canonicalized it before adding N*O.  In the fixed-width
+ * implementation that creates HNF row-reduction values much larger than the
+ * final ideal (for example, about 7911 bits in the level-1 signing path while
+ * an ibz_t has only 7039 signed magnitude bits).
+ *
+ * If phi: Z^4 -> O maps standard coordinates to the order basis and C contains
+ * the O-coordinates of e_i*x, then
+ *
+ *     O*x + N*O = phi(C Z^4 + N Z^4).
+ *
+ * Hence C may first be reduced modulo |N| and the relative HNF can be taken on
+ * [ C | |N| I ].  The latter contains |N| Z^4, so |N|^4 is a valid HNF
+ * modulus.  This keeps the HNF input tied to N instead of to the much larger
+ * determinant of an ambient principal-ideal basis.
+ */
+int
+quat_lideal_create_from_generator_mod_N(quat_left_ideal_t *lideal,
+                                         const quat_alg_elem_t *x,
+                                         const ibz_t *N,
+                                         const quat_lattice_t *order,
+                                         const quat_alg_t *alg)
+{
+    int ok = 0;
+    ibz_vec_4_t generators[8], absolute_generators[8], x_relative;
+    ibz_mat_4x4_t relative_hnf;
+    quat_alg_elem_t x_reduced, order_basis_elem, product;
+    quat_left_ideal_t candidate;
+    ibz_t abs_N, hnf_mod, absolute_hnf_mod, order_basis_det, relative_index;
+
+    for (int i = 0; i < 8; i++) {
+        ibz_vec_4_init(&generators[i]);
+        ibz_vec_4_init(&absolute_generators[i]);
+    }
+    ibz_vec_4_init(&x_relative);
+    ibz_mat_4x4_init(&relative_hnf);
+    quat_alg_elem_init(&x_reduced);
+    quat_alg_elem_init(&order_basis_elem);
+    quat_alg_elem_init(&product);
+    quat_left_ideal_init(&candidate);
+    ibz_init(&abs_N);
+    ibz_init(&hnf_mod);
+    ibz_init(&absolute_hnf_mod);
+    ibz_init(&order_basis_det);
+    ibz_init(&relative_index);
+
+    if (quat_alg_elem_is_zero(x) || !quat_lattice_contains(&x_relative, order, x)) {
+        goto cleanup;
+    }
+
+    ibz_abs(&abs_N, N);
+    if (ibz_is_zero(&abs_N)) {
+        // O<x,0> is the principal ideal O*x; preserve the public API's old
+        // behavior for this non-protocol edge case.
+        quat_lideal_create_principal(&candidate, x, order, alg);
+        quat_lideal_copy(lideal, &candidate);
+        ok = 1;
+        goto cleanup;
+    }
+
+    const size_t norm_bits = (size_t)ibz_bitsize(&abs_N);
+    const size_t algebra_bits = (size_t)ibz_bitsize(&alg->p);
+    if (8 * norm_bits + 4 * algebra_bits + 13 > (size_t)(IBZ_BITS - 1)) {
+        goto cleanup;
+    }
+
+    // O<x,N> depends only on the O-coordinates of x modulo N.  Reducing x
+    // before multiplying by the order basis also bounds the algebra products.
+    for (int row = 0; row < 4; row++) {
+        ibz_mod(&x_relative[row], &x_relative[row], &abs_N);
+    }
+    ibz_mat_4x4_eval(&x_reduced.coord, &order->basis, &x_relative);
+    ibz_copy(&x_reduced.denom, &order->denom);
+    quat_alg_normalize(&x_reduced);
+
+    for (int column = 0; column < 4; column++) {
+        for (int row = 0; row < 4; row++) {
+            ibz_copy(&order_basis_elem.coord[row], &order->basis[row][column]);
+        }
+        ibz_copy(&order_basis_elem.denom, &order->denom);
+        quat_alg_mul(&product, &order_basis_elem, &x_reduced, alg);
+        if (!quat_lattice_contains(&generators[column], order, &product)) {
+            goto cleanup;
+        }
+        for (int row = 0; row < 4; row++) {
+            ibz_mod(&generators[column][row], &generators[column][row], &abs_N);
+        }
+        ibz_copy(&generators[4 + column][column], &abs_N);
+    }
+
+    ibz_mul(&hnf_mod, &abs_N, &abs_N);
+    ibz_mul(&hnf_mod, &hnf_mod, &hnf_mod);
+    ibz_mat_4xn_hnf_mod_core(&relative_hnf, 8, generators, &hnf_mod);
+
+    // For a left ideal of a maximal order, its relative index is the square
+    // of its norm.  Do not assume the norm is N: non-primitive x may yield a
+    // proper divisor (and x=N yields norm N^2).
+    ibz_mat_4x4_inv_with_det_as_denom(NULL, &relative_index, &relative_hnf);
+    ibz_abs(&relative_index, &relative_index);
+    if (!ibz_sqrt(&candidate.norm, &relative_index)) {
+        goto cleanup;
+    }
+
+    /* Mapping the already-computed relative HNF through order->basis and then
+     * running a second generic HNF still permits very large exact column
+     * reductions: a level-1 signing case reached 7911 bits.  Instead, map the
+     * original, N-sized generators and take the ambient HNF directly:
+     *
+     *   B (C Z^4 + N Z^4) = (B C) Z^4 + (N B) Z^4.
+     *
+     * The second summand has determinant |det(B)| N^4, which is therefore a
+     * valid HNF modulus and is covered by the budget guard above.
+     */
+    for (int column = 0; column < 8; column++) {
+        ibz_mat_4x4_eval(&absolute_generators[column], &order->basis, &generators[column]);
+    }
+    ibz_mat_4x4_inv_with_det_as_denom(NULL, &order_basis_det, &order->basis);
+    ibz_abs(&order_basis_det, &order_basis_det);
+    ibz_mul(&absolute_hnf_mod, &order_basis_det, &hnf_mod);
+    ibz_mat_4xn_hnf_mod_core(&candidate.lattice.basis, 8, absolute_generators, &absolute_hnf_mod);
+    ibz_copy(&candidate.lattice.denom, &order->denom);
+    quat_lattice_reduce_denom(&candidate.lattice, &candidate.lattice);
+    candidate.parent_order = order;
+    if (!quat_lideal_norm_verify(&candidate)) {
+        goto cleanup;
+    }
+
+    quat_lideal_copy(lideal, &candidate);
+    ok = 1;
+
+cleanup:
+    ibz_finalize(&relative_index);
+    ibz_finalize(&order_basis_det);
+    ibz_finalize(&absolute_hnf_mod);
+    ibz_finalize(&hnf_mod);
+    ibz_finalize(&abs_N);
+    quat_left_ideal_finalize(&candidate);
+    quat_alg_elem_finalize(&product);
+    quat_alg_elem_finalize(&order_basis_elem);
+    quat_alg_elem_finalize(&x_reduced);
+    ibz_mat_4x4_finalize(&relative_hnf);
+    ibz_vec_4_finalize(&x_relative);
+    for (int i = 0; i < 8; i++) {
+        ibz_vec_4_finalize(&absolute_generators[i]);
+        ibz_vec_4_finalize(&generators[i]);
+    }
+    return ok;
+}
+
 void
 quat_lideal_create(quat_left_ideal_t *lideal,
                    const quat_alg_elem_t *x,
@@ -76,25 +229,15 @@ quat_lideal_create(quat_left_ideal_t *lideal,
 {
     assert(quat_order_is_maximal(order, alg));
     assert(!quat_alg_elem_is_zero(x));
+    assert(quat_lattice_contains(NULL, order, x));
 
-    quat_lattice_t ON;
-    quat_lattice_init(&ON);
-
-    // Compute ideal generated by x
-    quat_lideal_create_principal(lideal, x, order, alg);
-
-    // Compute ideal generated by N (without reducing denominator)
-    ibz_mat_4x4_scalar_mul(&ON.basis, N, &order->basis);
-    ibz_copy(&ON.denom, &order->denom);
-
-    // Add lattices (reduces denominators)
-    quat_lattice_add(&lideal->lattice, &lideal->lattice, &ON);
-    // Set order
-    lideal->parent_order = order;
-    // Compute norm
-    quat_lideal_norm(lideal);
-
-    quat_lattice_finalize(&ON);
+    // Failure means that the requested inputs exceed the configured fixed
+    // precision budget or violate the documented ideal-construction
+    // preconditions.  Do not continue with a silently truncated lattice in a
+    // release build.
+    if (!quat_lideal_create_from_generator_mod_N(lideal, x, N, order, alg)) {
+        abort();
+    }
 }
 
 int

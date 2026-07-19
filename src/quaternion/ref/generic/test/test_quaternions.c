@@ -47,9 +47,12 @@ main(int argc, char *argv[])
     }
 #endif
 
+    // The test RNG is deterministic once initialized with the displayed seed.
+    randombytes_init((unsigned char *)seed, NULL, 256);
+
     printf("Running quaternion module unit tests\n");
 
-    // res = res | ibz_test_intbig();
+    res = res | ibz_test_intbig();
     // // res = res | mini_gmp_test();
     // res = res | quat_test_finit();
     // res = res | quat_test_dim4();
@@ -58,10 +61,10 @@ main(int argc, char *argv[])
 
     // res = res | quat_test_hnf();
     // res = res | quat_test_algebra();
-    // res = res | quat_test_lattice();
+    res = res | quat_test_lattice();
     // res = res | quat_test_lll();
-    // res = res | quat_test_lideal();
-    // res = res | quat_test_normeq();
+    res = res | quat_test_lideal();
+    res = res | quat_test_normeq();
     // res = res | quat_test_lat_ball();
     // res = res | quat_test_with_randomization();
     if (res != 0) {

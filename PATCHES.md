@@ -1,9 +1,26 @@
 # Patches applied to upstream SQIsign-Fixed-Precision
 
 This is a patched copy of the upstream **SQIsign-Fixed-Precision** baseline used
-to produce the KLKL25 numbers in our bench. The patches below preserve the
-original algorithm (no cryptographic change) and address build correctness,
-observability, and a latent sign-loop bug. All patches are minimal.
+to produce the KLKL25 numbers in our bench. The patches below align
+`RandomIdealGivenNorm` and ideal construction with the SQIsign specification,
+enforce the fixed-precision assumptions, and address build and arithmetic
+correctness issues.
+
+## Precision budgets
+
+The paper's uniform worst-case magnitude bounds are 7,026, 10,713, and 14,150
+bits for levels I, III, and V. The implementation stores signed integers in
+64-bit limbs:
+
+| Level | Uniform bound | Limbs | Raw width | Positive signed capacity |
+| --- | ---: | ---: | ---: | ---: |
+| I | 7,026 | 110 | 7,040 | 7,039 |
+| III | 10,713 | 168 | 10,752 | 10,751 |
+| V | 14,150 | 222 | 14,208 | 14,207 |
+
+The selected limb counts are therefore the minimum 64-bit allocations that
+also reserve a two's-complement sign bit. The per-level precision test contains
+compile-time assertions for both the limb count and the paper bound.
 
 ## Patch list
 
@@ -44,15 +61,13 @@ During a sign-retry storm these can dominate stdout and drift the measured
 cycle counts by roughly 10 %. Replaced each with `(void)0;`. Behavior of
 the sign protocol is unchanged.
 
-### 3. `sign.c` — `sign_retries` counter + `[SIGN_RETRIES]` stderr emit
+### 3. `sign.c` — robust, silent retry cleanup
 
 `src/signature/ref/lvlx/sign.c`
 
-Inside `protocols_sign`, every `continue` of the outer sign loop now
-increments a `sign_retries` counter; one `fprintf(stderr, "[SIGN_RETRIES]
-%d\n", sign_retries)` is emitted before `return ret`. The bench driver
-reads this so a single sign that took many retries can be distinguished
-from a sign that took one fast attempt. Observability only.
+The signing retry loop no longer emits diagnostic output on `stderr`, so the
+library stays silent. Auxiliary ideals are finalized on both sampler success
+and failure, avoiding retry-path leaks.
 
 ### 4. `intbig.c` `ibz_probab_prime` — trial-division precheck
 
@@ -114,6 +129,49 @@ upstream behavior of timing all three phases in one process).
 Used by the bench driver so that a sign timeout cannot discard the
 KeyGen / Verify samples in the same iteration.
 
+### 8. `normeq.c` — specification-conformant `RandomIdealGivenNorm`
+
+`src/quaternion/ref/generic/normeq.c`
+
+Validates the documented norm/cofactor preconditions, samples the signed
+coefficient intervals required by the specification, retries representation
+failures, and constructs and verifies an ideal whose norm is exactly the
+requested norm. Conservative bit guards reject inputs that cannot fit the
+selected fixed-precision budget instead of allowing wrapped arithmetic.
+
+### 9. `ideal.c` / `lattice.c` — bounded modular-HNF ideal construction
+
+`src/quaternion/ref/generic/ideal.c`
+
+Constructs `O<x,N>` in coordinates relative to `O`, reduces the generator
+modulo `|N|`, and uses modular HNF bounds tied to `N`. This avoids oversized
+ambient-HNF intermediates while preserving the generated ideal. Norm and HNF
+invariants are checked in release builds as well as debug builds.
+
+### 10. `intbig.c` — fixed-width safety and API correctness
+
+`src/quaternion/ref/generic/intbig.c`
+
+- Makes `ibz_rand_interval` inclusive, signed-endpoint aware, alias safe, and
+  rejecting of invalid intervals.
+- Rejects the non-representable two's-complement minimum in negation/absolute
+  value paths and validates shifts, products, square roots, and primality edge
+  cases.
+- Uses per-call multiplication scratch rather than a shared static buffer.
+- Adds optional signed-overflow checks and peak-bit tracking via
+  `-DENABLE_IBZ_OVERFLOW_CHECKS=ON`.
+- Enforces the paper's per-level magnitude bounds with production
+  compile-time assertions and keeps zero-shift peak tracking exact.
+
+### 11. Regression and end-to-end tests
+
+The quaternion tests cover interval sampling, integer representation, bounded
+HNF construction, exact ideal norms, and invalid inputs. The top-level
+`RANDOM_IDEAL_PRECISION` test exercises protocol-sized prime and composite
+norms at all three security levels and reports checked peak bit lengths. The
+deterministic self-test checks KeyGen, attached and detached Sign/Verify,
+tamper rejection, and in-place signing/opening.
+
 ## Build & run
 
 ```bash
@@ -130,5 +188,6 @@ ulimit -s unlimited
 ./build/apps/benchmark_lvl1 --iterations=1 --only=verify
 ```
 
-`ulimit -s unlimited` is required (especially at lvl3 / lvl5). Sign
-retries are visible in stderr as `[SIGN_RETRIES] <N>`.
+On macOS, the self-test target requests the stack needed by the reference
+implementation for levels III and V. On other platforms, `ulimit -s unlimited`
+may still be required for these parameter sets.

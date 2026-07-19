@@ -227,10 +227,11 @@ evaluate_random_aux_isogeny_signature(ec_curve_t *E_aux,
         // now we evaluate this isogeny on the basis of E0
         found = dim2id2iso_arbitrary_isogeny_evaluation(B_aux, E_aux, &lideal_aux_resp_com);
 
-        // Clean up
-        quat_left_ideal_finalize(&lideal_aux_resp_com);
-        quat_left_ideal_finalize(&lideal_aux);
     }
+
+    // Clean up on both success and sampler failure.
+    quat_left_ideal_finalize(&lideal_aux_resp_com);
+    quat_left_ideal_finalize(&lideal_aux);
 
     return found;
 }
@@ -494,7 +495,6 @@ protocols_sign(signature_t *sig, const public_key_t *pk, secret_key_t *sk, const
 {
     int ret = 0;
     int reduced_order = 0; // work around false positive gcc warning
-    int sign_retries = 0;  // observability: how many times the outer sign loop retried
 
     uint_fast8_t pow_dim2_deg_resp;
     assert(SQIsign_response_length <= (intmax_t)UINT_FAST8_MAX); // otherwise we might need more bits there
@@ -533,7 +533,6 @@ protocols_sign(signature_t *sig, const public_key_t *pk, secret_key_t *sk, const
 
         // start again if the commitment generation has failed
         if (!ret) {
-            sign_retries++;
             continue;
         }
 
@@ -558,7 +557,6 @@ protocols_sign(signature_t *sig, const public_key_t *pk, secret_key_t *sk, const
         // computing the amount of backtracking we're making
         // and removing it
         if (!compute_backtracking_signature(sig, &resp_quat, &lattice_content, &remain)) {
-            sign_retries++;
             ret = 0;
             continue;
         }
@@ -589,7 +587,6 @@ protocols_sign(signature_t *sig, const public_key_t *pk, secret_key_t *sk, const
 
             // auxiliary isogeny computation failed we must start again
             if (!ret) {
-                sign_retries++;
                 continue;
             }
 
@@ -616,7 +613,6 @@ protocols_sign(signature_t *sig, const public_key_t *pk, secret_key_t *sk, const
                 &Eaux2_Echall2, &Ecom_Eaux, &degree_resp_inv, pow_dim2_deg_resp, sig->two_resp_length, reduced_order);
             (void)0;
             if (!ret) {
-                sign_retries++;
                 continue;
             }
         } else {
@@ -659,8 +655,6 @@ protocols_sign(signature_t *sig, const public_key_t *pk, secret_key_t *sk, const
     ibz_finalize(&remain);
     ibz_finalize(&degree_resp_inv);
     ibz_finalize(&random_aux_norm);
-
-    fprintf(stderr, "[SIGN_RETRIES] %d\n", sign_retries);
 
     return ret;
 }

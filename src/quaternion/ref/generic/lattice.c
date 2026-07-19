@@ -327,6 +327,15 @@ quat_lattice_hnf(quat_lattice_t *lat)
 {
     ibz_t mod;
     ibz_vec_4_t generators[4];
+
+    /* Dividing the basis and denominator by their common content does not
+     * change the rational lattice.  Do it before the modular HNF, rather than
+     * only afterwards: dual/intersection constructions can carry a very large
+     * common scale, and feeding that scale to the HNF creates exact column
+     * reductions larger than the configured fixed-width ibz_t even though the
+     * reduced lattice itself fits comfortably. */
+    quat_lattice_reduce_denom(lat, lat);
+
     ibz_init(&mod);
     ibz_mat_4x4_inv_with_det_as_denom(NULL, &mod, &(lat->basis));
     ibz_abs(&mod, &mod);

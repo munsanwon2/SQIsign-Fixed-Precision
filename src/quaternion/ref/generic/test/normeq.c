@@ -226,6 +226,7 @@ quat_test_sampling_random_ideal_O0_given_norm()
 {
     int res = 0;
     quat_left_ideal_t lideal;
+    quat_left_ideal_t saved;
     quat_lattice_t test;
     quat_represent_integer_params_t params;
     quat_p_extremal_maximal_order_t O0;
@@ -236,6 +237,7 @@ quat_test_sampling_random_ideal_O0_given_norm()
     ibz_init(&p);
     ibz_init(&coprime);
     quat_left_ideal_init(&lideal);
+    quat_left_ideal_init(&saved);
     quat_alg_elem_init(&(O0.z));
     quat_alg_elem_init(&(O0.t));
     quat_lattice_init(&(O0.order));
@@ -253,6 +255,63 @@ quat_test_sampling_random_ideal_O0_given_norm()
     quat_lattice_mul(&test, &(lideal.lattice), &(lideal.lattice), &alg, &(lideal.norm), &(lideal.norm));
     res = res || !quat_lattice_inclusion(&test, &(lideal.lattice));
 
+    // Invalid inputs must fail without clobbering the caller's existing ideal.
+    quat_lideal_copy(&saved, &lideal);
+    ibz_set(&norm, 2);
+    res = res || quat_sampling_random_ideal_O0_given_norm(&lideal, &norm, 1, &params, NULL);
+    res = res || !quat_lideal_equals(&lideal, &saved, &alg);
+    ibz_set(&norm, 8);
+    res = res || quat_sampling_random_ideal_O0_given_norm(&lideal, &norm, 0, &params, &coprime);
+    res = res || !quat_lideal_equals(&lideal, &saved, &alg);
+    ibz_set(&norm, 9);
+    res = res || quat_sampling_random_ideal_O0_given_norm(&lideal, &norm, 0, &params, NULL);
+    res = res || !quat_lideal_equals(&lideal, &saved, &alg);
+    res = res || quat_sampling_random_ideal_O0_given_norm(&lideal, &norm, 2, &params, &coprime);
+    res = res || !quat_lideal_equals(&lideal, &saved, &alg);
+
+#if IBZ_LIMBS == 110
+    // For prime N, Algorithm 3.10 is uniform on the N+1 left O0-ideals of
+    // norm N.  This catches accidental removal of the beta rerandomization.
+    enum { DIST_SAMPLES = 2400, DIST_BUCKETS = 6, DIST_EXPECTED = 400 };
+    quat_left_ideal_t buckets[DIST_BUCKETS];
+    int counts[DIST_BUCKETS] = { 0 };
+    int num_buckets = 0;
+    for (int i = 0; i < DIST_BUCKETS; i++) {
+        quat_left_ideal_init(&buckets[i]);
+    }
+    ibz_set(&norm, 5);
+    for (int sample = 0; sample < DIST_SAMPLES && !res; sample++) {
+        if (!quat_sampling_random_ideal_O0_given_norm(&lideal, &norm, 1, &params, NULL)) {
+            res = 1;
+            break;
+        }
+        int bucket = 0;
+        while (bucket < num_buckets && !quat_lideal_equals(&lideal, &buckets[bucket], &alg)) {
+            bucket++;
+        }
+        if (bucket == num_buckets) {
+            if (num_buckets == DIST_BUCKETS) {
+                res = 1;
+                break;
+            }
+            quat_lideal_copy(&buckets[num_buckets], &lideal);
+            num_buckets++;
+        }
+        counts[bucket]++;
+    }
+    int chi_square_numerator = 0;
+    for (int i = 0; i < num_buckets; i++) {
+        int deviation = counts[i] - DIST_EXPECTED;
+        chi_square_numerator += deviation * deviation;
+    }
+    // chi-square <= 40 (5 degrees of freedom).  With the fixed test seed this
+    // is deterministic, while retaining a very conservative statistical limit.
+    res = res || num_buckets != DIST_BUCKETS || chi_square_numerator > 40 * DIST_EXPECTED;
+    for (int i = 0; i < DIST_BUCKETS; i++) {
+        quat_left_ideal_finalize(&buckets[i]);
+    }
+#endif
+
     ibz_set(&p, 3093 * 59471);
     ibz_set(&coprime, 1533069337);
     res = res || !quat_sampling_random_ideal_O0_given_norm(&lideal, &p, 0, &params, &coprime);
@@ -268,6 +327,7 @@ quat_test_sampling_random_ideal_O0_given_norm()
         printf("Quaternion unit test sampling_random_ideal_O0_given_norm failed\n");
     }
     quat_left_ideal_finalize(&lideal);
+    quat_left_ideal_finalize(&saved);
     quat_alg_elem_finalize(&(O0.z));
     quat_alg_elem_finalize(&(O0.t));
     quat_lattice_finalize(&(O0.order));
@@ -459,9 +519,9 @@ quat_test_normeq(void)
     int res = 0;
     printf("\nRunning quaternion tests of functions for special extremal orders\n");
 
-    // res = res | quat_test_change_to_O0_basis();
+    res = res | quat_test_change_to_O0_basis();
     // res = res | quat_test_order_elem_create();
-    // res = res | quat_test_sampling_random_ideal_O0_given_norm();
+    res = res | quat_test_sampling_random_ideal_O0_given_norm();
     // res = res | quat_test_represent_integer();
 
     return res;

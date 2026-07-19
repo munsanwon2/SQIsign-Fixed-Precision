@@ -88,9 +88,22 @@ static int test_sqisign(unsigned long long in_msglen) {
         goto err;
     }
 
+    // Exercise the detached Verify API in addition to Open, which invokes the
+    // same protocol verifier while recovering the attached message.
+    res = sqisign_verify(msg, in_msglen, sig, CRYPTO_BYTES, pk);
+    if (res != 0) {
+        res = -1;
+        goto err;
+    }
+
     randombytes(msg_open, in_msglen);
 
     sig[0] = ~sig[0];
+    res = sqisign_verify(msg, in_msglen, sig, CRYPTO_BYTES, pk);
+    if (res != 1) {
+        res = -1;
+        goto err;
+    }
     res = sqisign_open(msg_open, &msglen, sig, smlen, pk);
     if (res != 1) {
         res = -1;
@@ -114,6 +127,12 @@ static int test_sqisign(unsigned long long in_msglen) {
 
     res = sqisign_open(msg_open, &msglen, sig, smlen, pk);
     if (res != 0 || msglen != in_msglen || memcmp(msg_open, msg, msglen)) {
+        res = -1;
+        goto err;
+    }
+
+    res = sqisign_verify(msg, in_msglen, sig, CRYPTO_BYTES, pk);
+    if (res != 0) {
         res = -1;
         goto err;
     }
@@ -181,7 +200,7 @@ int main(int argc, char *argv[]) {
     res = test_sqisign(msglen);
 
     if (res != 0) {
-        printf("test failed for %s\n", argv[1]);
+        printf("test failed for %s\n", argc > 1 ? argv[1] : CRYPTO_ALGNAME);
     }
     return res;
 }
