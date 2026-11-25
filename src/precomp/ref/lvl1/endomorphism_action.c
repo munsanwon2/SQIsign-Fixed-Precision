@@ -2,2159 +2,3475 @@
 #include <stdint.h>
 #include <endomorphism_action.h>
 const curve_with_endomorphism_ring_t CURVES_WITH_ENDOMORPHISMS[7] = {{{{
-#if 0
-#elif RADIX == 16
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 32
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 64
 #if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x0, 0x0, 0x0, 0x0}
-#else
-{0x0, 0x0, 0x0, 0x0, 0x0}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 32
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+{{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}
 #elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x0, 0x0, 0x0, 0x0}
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
 #else
-{0x0, 0x0, 0x0, 0x0, 0x0}
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
 #endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}
+#elif RADIX == 64
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#else
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
 #endif
 }, {
-#if 0
-#elif RADIX == 16
-{0x333, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x2}
-#elif RADIX == 32
-{0x666, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x20000}
-#elif RADIX == 64
 #if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x33, 0x0, 0x0, 0x100000000000000}
-#else
-{0x19, 0x0, 0x0, 0x0, 0x300000000000}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 32
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+{{0x555555555555555, 0x0, 0x0, 0x0, 0x0, 0x10}}
 #elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x0, 0x0, 0x0, 0x0}
+{0x15, 0x0, 0x0, 0x0, 0x0, 0x2000000000000}
 #else
-{0x0, 0x0, 0x0, 0x0, 0x0}
+{0x555, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x10000}
 #endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}
+#elif RADIX == 64
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#else
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
 #endif
 }, {{
-#if 0
-#elif RADIX == 16
-{0x199, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x6}
-#elif RADIX == 32
-{0x333, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x10000}
-#elif RADIX == 64
 #if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x19, 0x0, 0x0, 0x300000000000000}
-#else
-{0xc, 0x0, 0x0, 0x0, 0x400000000000}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 32
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+{{0x2aaaaaaaaaaaaaa, 0x0, 0x0, 0x0, 0x0, 0x20}}
 #elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x0, 0x0, 0x0, 0x0}
+{0xa, 0x0, 0x0, 0x0, 0x0, 0x4000000000000}
 #else
-{0x0, 0x0, 0x0, 0x0, 0x0}
+{0x2aa, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x20000}
 #endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}
+#elif RADIX == 64
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#else
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
 #endif
 }, {
-#if 0
-#elif RADIX == 16
-{0x333, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x2}
-#elif RADIX == 32
-{0x666, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x20000}
-#elif RADIX == 64
 #if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x33, 0x0, 0x0, 0x100000000000000}
-#else
-{0x19, 0x0, 0x0, 0x0, 0x300000000000}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 32
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+{{0x555555555555555, 0x0, 0x0, 0x0, 0x0, 0x10}}
 #elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x0, 0x0, 0x0, 0x0}
+{0x15, 0x0, 0x0, 0x0, 0x0, 0x2000000000000}
 #else
-{0x0, 0x0, 0x0, 0x0, 0x0}
+{0x555, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x10000}
 #endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}
+#elif RADIX == 64
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#else
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
 #endif
 }}, true}, {{{
-#if 0
-#elif RADIX == 16
-{0x107, 0xc, 0x1890, 0xf2a, 0x52b, 0xb68, 0x152d, 0xa4c, 0x1054, 0x642, 0x36a, 0x6f8, 0x7ad, 0x146c, 0x1d66, 0x1b67, 0x236, 0x10d, 0x1933, 0x3}
-#elif RADIX == 32
-{0x3020e, 0xb795624, 0x5ab6829, 0x1514995, 0x1b5190a, 0x187ad37c, 0x19facd46, 0x8688db6, 0x3c998}
-#elif RADIX == 64
 #if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x52b795624001810, 0x8c8505452654b56d, 0xf59a8d87ad37c0da, 0x24e4cc21a236db3}
-#else
-{0x5bcab12000c08, 0x452654b56d052, 0x26f81b5190a0a, 0x36cfd66a361eb, 0x12726610d11b}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x1f87, 0x83e, 0x32e, 0xe58, 0xd9d, 0x1416, 0x752, 0x13b4, 0x1efa, 0xe62, 0x12f5, 0x1907, 0x1814, 0x1ddd, 0x1aa6, 0x1420, 0x2cd, 0x1431, 0x1be2, 0x7}
-#elif RADIX == 32
-{0x120fbf0f, 0x1d72c0cb, 0xa54166c, 0x1bea7687, 0x197ab98b, 0x1b814c83, 0x8354ddd, 0x188b368, 0x2df15}
+{{0x15429ebdd6acc6c8, 0x1bb9d347e507e96f, 0x345b16e8f3d297c5, 0x216fa909d6954b0f, 0x34f99a0a51ded6ca, 0xe}}
 #elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0xcd9d72c0cb907df8, 0x5cc5efa9da1d4a82, 0x6a9bbbb814c83cbd, 0x26ef8a8622cda10}
+{0x4d1f941fa5bc55, 0x479e94be28ddce, 0x6954b0f345b16e, 0x5ad9442df5213a, 0x638d3e66829477, 0x3ee1cc2032a2}
 #else
-{0x6b96065c83efc, 0x29da1d4a82cd9, 0x190797ab98bdf, 0x6841aa6eeee05, 0x1377c5431166}
+{0x96f1542, 0x47e507e, 0x51bb9d3, 0xf3d297c, 0x45b16e8, 0x954b0f3, 0xfa909d6, 0xd6ca216, 0xa0a51de, 0x8e34f99, 0x8406545, 0x1dc39}
 #endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0xf8d03b133d9ee6ef, 0xdd0cdd882713e200, 0x7aab08998f08531b, 0x13785435a9b9f681, 0x20f45f7e1ba8367d, 0x9}}
+#elif RADIX == 64
+{0x76209c4f8803e3, 0x4c784298dee866, 0x1b9f6817aab089, 0x6cfa26f0a86b5, 0x36483d17df86ea, 0x18589cdc6e5a6}
+#else
+{0x200f8d0, 0x882713e, 0xbdd0cdd, 0x8f08531, 0xaab0899, 0xb9f6817, 0x85435a9, 0x367d137, 0xf7e1ba8, 0xd920f45, 0xb8dcb4c, 0xb139}
 #endif
 }, {
-#if 0
-#elif RADIX == 16
-{0x333, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x2}
-#elif RADIX == 32
-{0x666, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x20000}
-#elif RADIX == 64
 #if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x33, 0x0, 0x0, 0x100000000000000}
-#else
-{0x19, 0x0, 0x0, 0x0, 0x300000000000}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 32
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+{{0x555555555555555, 0x0, 0x0, 0x0, 0x0, 0x10}}
 #elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x0, 0x0, 0x0, 0x0}
+{0x15, 0x0, 0x0, 0x0, 0x0, 0x2000000000000}
 #else
-{0x0, 0x0, 0x0, 0x0, 0x0}
+{0x555, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x10000}
 #endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}
+#elif RADIX == 64
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#else
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
 #endif
 }}, {{
-#if 0
-#elif RADIX == 16
-{0x5ff, 0x1783, 0xadc, 0x775, 0xad4, 0x593, 0xb4c, 0x21e, 0x1cb2, 0x13d8, 0x179f, 0x680, 0x1a9c, 0x1824, 0x118e, 0x13d9, 0x24, 0x1956, 0x1dd2, 0x9}
-#elif RADIX == 32
-{0x5e0cbff, 0x143baab7, 0x9859356, 0x12c843cb, 0xbcfcf63, 0x9a9c340, 0x16631d82, 0xab00927, 0x4ee96}
-#elif RADIX == 64
 #if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x6ad43baab72f065f, 0xe7b1cb210f2d30b2, 0xc63b049a9c3405e7, 0x4ff74b2ac0249ec}
-#else
-{0x21dd55b97832f, 0x210f2d30b26ad, 0x680bcfcf6396, 0x27b318ec126a7, 0x4ffba5956012}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x1c7f, 0x1117, 0xa4, 0x1164, 0x6e, 0x1e63, 0x1b7b, 0x1305, 0x424, 0x131a, 0x1b61, 0xae3, 0x17b1, 0xe5e, 0x1848, 0x1e81, 0x14a5, 0x1cb5, 0x1d87, 0x8}
-#elif RADIX == 32
-{0x445f8ff, 0xe8b2029, 0xf7e6303, 0x109260bb, 0x1db0cc68, 0x1d7b1571, 0x7090e5, 0x5ad297d, 0x3ec3f}
+{{0x92aa928d45684b84, 0x6287060c7e5e212c, 0x1818aad55dfc3fb0, 0x2c34acd0ee182e1, 0x83223a491fa840d9, 0x21}}
 #elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x606e8b2029222fc7, 0x6634424982edefcc, 0xe121cbd7b1571ed8, 0x4f761f96b4a5f40}
+{0x1831f97884b24a, 0x2aefe1fd831438, 0x6e182e11818aad, 0x81b20586959a1, 0x3860c88e9247ea, 0x3fdbd3e81c714}
 #else
-{0x74590149117e3, 0x4982edefcc606, 0x2ae3db0cc6884, 0x7d0384872f5ec, 0x4fbb0fcb5a52}
+{0x12c92aa, 0xc7e5e2, 0x628706, 0x5dfc3fb, 0x818aad5, 0xe182e11, 0x34acd0e, 0x40d902c, 0xa491fa8, 0xe183223, 0xd038e28, 0x1b7a7}
 #endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x934ae51618b44717, 0x543fa24873173bce, 0x43046078cb60d862, 0x3fa561a4701041fe, 0xfb2a0dfe18c42e16, 0x13}}
+#elif RADIX == 64
+{0x921cc5cef3a4d, 0x465b06c312a1fd, 0x1041fe4304607, 0x5c2c7f4ac348e, 0x18feca837f8631, 0x1057a1250e6aa}
+#else
+{0xbce934a, 0x4873173, 0x2543fa2, 0xcb60d86, 0x3046078, 0x1041fe4, 0x561a470, 0x2e163fa, 0xdfe18c4, 0x63fb2a0, 0x4a1cd54, 0x2af42}
 #endif
 }, {
-#if 0
-#elif RADIX == 16
-{0x333, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x2}
-#elif RADIX == 32
-{0x666, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x20000}
-#elif RADIX == 64
 #if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x33, 0x0, 0x0, 0x100000000000000}
-#else
-{0x19, 0x0, 0x0, 0x0, 0x300000000000}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 32
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+{{0x555555555555555, 0x0, 0x0, 0x0, 0x0, 0x10}}
 #elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x0, 0x0, 0x0, 0x0}
+{0x15, 0x0, 0x0, 0x0, 0x0, 0x2000000000000}
 #else
-{0x0, 0x0, 0x0, 0x0, 0x0}
+{0x555, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x10000}
 #endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}
+#elif RADIX == 64
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#else
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
 #endif
 }}, {{
-#if 0
-#elif RADIX == 16
-{0x342, 0xfb7, 0xed, 0x1d80, 0x17f1, 0x4a2, 0x1c26, 0xb96, 0x1367, 0x3dc, 0x1624, 0x1f2a, 0x5e, 0x1cab, 0x27, 0x1e89, 0x1293, 0x1e24, 0x417, 0x5}
-#elif RADIX == 32
-{0xbedc685, 0x11ec003b, 0x4c4a2bf, 0xd9d72dc, 0xb120f72, 0x1605ef95, 0x2404fca, 0x1124a4fd, 0x20bf}
-#elif RADIX == 64
 #if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x57f1ec003b5f6e34, 0x7b93675cb709894, 0x809f95605ef95589, 0xc905fc49293f44}
-#else
-{0xf6001dafb71a, 0x75cb70989457f, 0x5f2ab120f726c, 0x7d12027e55817, 0x6482fe24949}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0xf3c, 0x1d21, 0xd78, 0xe8e, 0x1f3c, 0x11b, 0x12c, 0x1851, 0x19b1, 0xd9, 0xf3f, 0x759, 0xf47, 0x1e88, 0x56e, 0x8ef, 0x116e, 0x1fa1, 0x1199, 0x0}
-#elif RADIX == 32
-{0x7485e78, 0x1c74735e, 0x5811bf9, 0x6c70a21, 0x179f8367, 0x10f473ac, 0x1bcadde8, 0x1d0c5b91, 0x8ccf}
+{{0x245f9b892806cf8b, 0x8a47e87c43543f5a, 0x57223ceaeed0938d, 0xbd59ffb4e196be32, 0x25541db9b1440732, 0x18}}
 #elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x7f3c74735e3a42f3, 0xc1b39b1c2884b023, 0x95bbd10f473acbcf, 0x3c4667f4316e477}
+{0x21f10d50fd6891, 0x5776849c6c523f, 0x196be3257223ce, 0xe657ab3ff69c, 0xa0955076e6c51, 0x2f694dbc0a375}
 #else
-{0x63a39af1d2179, 0x1c2884b0237f3, 0x675979f836736, 0x11de56ef443d1, 0x462333fa18b7}
+{0xf5a245f, 0x7c43543, 0xd8a47e8, 0xeed0938, 0x7223cea, 0x96be325, 0x9ffb4e1, 0x732bd5, 0xdb9b144, 0x2825541, 0x78146ea, 0x1d29b}
 #endif
-#endif
-}, {
-#if 0
-#elif RADIX == 16
-{0x333, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x2}
-#elif RADIX == 32
-{0x666, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x20000}
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x7ba311b6fe3a5f59, 0x3cc5c53ec94fd36b, 0xbc2283eab8f33a49, 0x6e478ab818551775, 0x180cced31851afb4, 0x2f}}
 #elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x33, 0x0, 0x0, 0x100000000000000}
+{0x14fb253f4dadee, 0x55c799d249e62e, 0x551775bc2283e, 0x35f68dc8f15703, 0x37c60333b4c614, 0x349a927d578f0}
 #else
-{0x19, 0x0, 0x0, 0x0, 0x300000000000}
+{0x36b7ba3, 0x3ec94fd, 0x93cc5c5, 0xb8f33a4, 0xc2283ea, 0x551775b, 0x78ab818, 0xafb46e4, 0xed31851, 0xdf180cc, 0xfaaf1e0, 0x3524}
 #endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 32
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+}, {
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x555555555555555, 0x0, 0x0, 0x0, 0x0, 0x10}}
 #elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x0, 0x0, 0x0, 0x0}
+{0x15, 0x0, 0x0, 0x0, 0x0, 0x2000000000000}
 #else
-{0x0, 0x0, 0x0, 0x0, 0x0}
+{0x555, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x10000}
 #endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}
+#elif RADIX == 64
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#else
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
 #endif
-}}}, {{
-{0xc5d3bda21b5456db, 0x74759780861ddd06, 0x7f9d34b241af33d1, 0xcab471aa8c7f8c}
-, 
-{0x7bfb7d32048b7d7a, 0xa955918263d89bd3, 0x76bf6861034403e1, 0x574ae3eeb45cd0}
-}, {
-{0x856fd6493698444f, 0x189cafdf498f41db, 0xf7e00bffe50bcb5b, 0x1535daa88b47f9}
-, 
-{0x3a2c425de4aba925, 0x8b8a687f79e222f9, 0x8062cb4dbe50cc2e, 0x354b8e55738073}
-}}, {{
-{0x36bad5fd54900abf, 0xd14eea4a59da0f, 0x914606f6a7aea3f0, 0x7da2d2cde65004}
-, 
-{0x611dbde3b7878680, 0x819c9ec8b68a95f, 0xbd7b5e31f73e2361, 0x68240040d72b45}
-}, {
-{0x1f0c9e126d204277, 0x563f9d1cf854977f, 0xe829af54c2ed00db, 0xca7be80d8304fb}
-, 
-{0xc9452a02ab6ff541, 0xff2eb115b5a625f0, 0x6eb9f90958515c0f, 0x825d2d3219affb}
-}}, {{
-{0xb19c16401af2231b, 0xf39a683ee470f713, 0x904ec26e7a543289, 0x4455fc6a0cd5a6}
-, 
-{0x55d2de69b685ad7a, 0x925f591684e85675, 0x83917c511cb68c0a, 0xcd96ce11d1ffce}
-}, {
-{0x959b1b9279bd3724, 0x64a727d46f18b3ec, 0x664bade78c7e9b4b, 0x486a1da287a6d9}
-, 
-{0x4e63e9bfe50ddce5, 0xc6597c11b8f08ec, 0x6fb13d9185abcd76, 0xbbaa0395f32a59}
-}}, {{
-{0xc5d3bda21b5456db, 0x74759780861ddd06, 0x7f9d34b241af33d1, 0xcab471aa8c7f8c}
-, 
-{0x7bfb7d32048b7d7a, 0xa955918263d89bd3, 0x76bf6861034403e1, 0x574ae3eeb45cd0}
-}, {
-{0x856fd6493698444f, 0x189cafdf498f41db, 0xf7e00bffe50bcb5b, 0x1535daa88b47f9}
-, 
-{0x3a2c425de4aba925, 0x8b8a687f79e222f9, 0x8062cb4dbe50cc2e, 0x354b8e55738073}
-}}, {{
-{0xfe4749cfb7f230cd, 0xbaa37335683bdb8a, 0x88719dd474aeebe0, 0x242ba23c3967c8}
-, 
-{0x6e8c9d8ade0981fd, 0x58b7adb777a0a299, 0x1a1d63497d4113a1, 0xdfb77217c5c40b}
-}, {
-{0x523e3a2dd1dc4363, 0x376e267e20f1ecad, 0xf004ddaa53fc661b, 0x6fd8e15b07267a}
-, 
-{0x1b8b630480dcf33, 0x455c8cca97c42475, 0x778e622b8b51141f, 0xdbd45dc3c69837}
-}}, {{
-{0xd8ce0b200d79118e, 0xf9cd341f72387b89, 0x482761373d2a1944, 0x222afe35066ad3}
-, 
-{0xaae96f34db42d6bd, 0x492fac8b42742b3a, 0x41c8be288e5b4605, 0x66cb6708e8ffe7}
-}, {
-{0x4acd8dc93cde9b92, 0xb25393ea378c59f6, 0xb325d6f3c63f4da5, 0x24350ed143d36c}
-, 
-{0x2731f4dff286ee73, 0x632cbe08dc78476, 0xb7d89ec8c2d5e6bb, 0xddd501caf9952c}
 }}}, {{{
-#if 0
-#elif RADIX == 16
-{0x19e1, 0x1d98, 0x1de9, 0x1dfc, 0x922, 0x1fb8, 0x476, 0xd05, 0xc85, 0x1788, 0x1967, 0x155d, 0x1f93, 0x629, 0x188f, 0x119, 0x1f6f, 0x241, 0x1378, 0x0}
-#elif RADIX == 32
-{0xf6633c2, 0x2efe77a, 0xedfb849, 0x1215a0a4, 0x1cb3de21, 0x13f93aae, 0x6711e62, 0x120fdbc2, 0x9bc0}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x922efe77a7b319e, 0xef10c8568291dbf7, 0xe23cc53f93aaee59, 0x54de0483f6f08c}
-#else
-{0x177f3bd3d98cf, 0x568291dbf7092, 0x755dcb3de2190, 0x423388f314fe4, 0x2a6f0241fb7}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 32
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x0, 0x0, 0x0, 0x0}
-#else
-{0x0, 0x0, 0x0, 0x0, 0x0}
-#endif
-#endif
+    UINT64_C(0x322beb5e60469e6d), UINT64_C(0x526024d24f509054), UINT64_C(0x354d65dc452cb133), UINT64_C(0x68b1539d6abf5d9b), UINT64_C(0xa13b93638dd194fd), UINT64_C(0xa), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
 }, {
-#if 0
-#elif RADIX == 16
-{0x333, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x2}
-#elif RADIX == 32
-{0x666, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x20000}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x33, 0x0, 0x0, 0x100000000000000}
-#else
-{0x19, 0x0, 0x0, 0x0, 0x300000000000}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 32
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x0, 0x0, 0x0, 0x0}
-#else
-{0x0, 0x0, 0x0, 0x0, 0x0}
-#endif
-#endif
-}, {{
-#if 0
-#elif RADIX == 16
-{0x811, 0xf66, 0x77a, 0x177f, 0x248, 0x17ee, 0x91d, 0xb41, 0x321, 0x1de2, 0xe59, 0x1d57, 0xfe4, 0x198a, 0xe23, 0x1846, 0xfdb, 0x90, 0x14de, 0x8}
-#elif RADIX == 32
-{0x13d99023, 0x8bbf9de, 0x3b7ee12, 0xc856829, 0x172cf788, 0x14fe4eab, 0x119c4798, 0x483f6f0, 0x3a6f0}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0xc248bbf9de9ecc81, 0x7bc43215a0a476fd, 0x388f314fe4eabb96, 0x95378120fdbc23}
-#else
-{0x45dfcef4f6640, 0x15a0a476fdc24, 0x1d5772cf78864, 0x708ce23cc53f9, 0x2ca9bc0907ed}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 32
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x0, 0x0, 0x0, 0x0}
-#else
-{0x0, 0x0, 0x0, 0x0, 0x0}
-#endif
-#endif
-}, {
-#if 0
-#elif RADIX == 16
-{0x333, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x2}
-#elif RADIX == 32
-{0x666, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x20000}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x33, 0x0, 0x0, 0x100000000000000}
-#else
-{0x19, 0x0, 0x0, 0x0, 0x300000000000}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 32
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x0, 0x0, 0x0, 0x0}
-#else
-{0x0, 0x0, 0x0, 0x0, 0x0}
-#endif
-#endif
-}}, true}, {{{
-#if 0
-#elif RADIX == 16
-{0x869, 0x197b, 0xcdb, 0x1d89, 0xf9b, 0x1d79, 0x18ec, 0xafe, 0x1d41, 0x77, 0x9d4, 0x1a3f, 0x2b, 0x46d, 0x173e, 0xedd, 0x172, 0x1c77, 0x8a6, 0x8}
-#elif RADIX == 32
-{0x1e5ed0d3, 0x1bec4b36, 0x1d9d797c, 0x15055fd8, 0x14ea01df, 0x1a02bd1f, 0x176e7c46, 0x3b85c9d, 0x34537}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x2f9bec4b36f2f686, 0xefd4157f63b3af, 0xdcf88da02bd1fa75, 0x31229b8ee17276e}
-#else
-{0x5f6259b797b43, 0x157f63b3af2f9, 0x7a3f4ea01dfa8, 0x1dbb73e23680a, 0x18914dc770b9}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x124b, 0xed4, 0x1706, 0x32d, 0x1541, 0x11b8, 0x2b0, 0xbe4, 0x1ee8, 0x1a3c, 0x16e3, 0x1d25, 0x19bb, 0xb63, 0x1fc1, 0x5fa, 0xf03, 0xfa, 0x1ec, 0x9}
-#elif RADIX == 32
-{0x13b52497, 0x1196dc1, 0x1611b8aa, 0x1ba17c82, 0x1b71e8f3, 0x79bbe92, 0x1ebf82b6, 0x7d3c0cb, 0x40f60}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x1541196dc19da924, 0xf479ee85f20ac237, 0x7f056c79bbe92db8, 0x3b87b01f4f032fd}
-#else
-{0x8cb6e0ced492, 0x5f20ac237154, 0x7d25b71e8f3dd, 0x4bf5fc15b1e6e, 0x1dc3d80fa781}
-#endif
-#endif
-}, {
-#if 0
-#elif RADIX == 16
-{0x333, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x2}
-#elif RADIX == 32
-{0x666, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x20000}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x33, 0x0, 0x0, 0x100000000000000}
-#else
-{0x19, 0x0, 0x0, 0x0, 0x300000000000}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 32
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x0, 0x0, 0x0, 0x0}
-#else
-{0x0, 0x0, 0x0, 0x0, 0x0}
-#endif
-#endif
+    UINT64_C(0xec69680df262c1ba), UINT64_C(0x70a53f7c91113c33), UINT64_C(0x46323737ad5faaee), UINT64_C(0xea5ca9028ef5f98c), UINT64_C(0x2880b5ef20ea83fd), UINT64_C(0x7), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
 }}, {{
-#if 0
-#elif RADIX == 16
-{0x1e71, 0xd67, 0x13da, 0x19eb, 0x137a, 0x1d27, 0x1ba7, 0x1996, 0x755, 0xe3d, 0x1139, 0x1764, 0x18ac, 0x1020, 0x3c4, 0x150e, 0x1ffd, 0x14fe, 0xa16, 0x6}
-#elif RADIX == 32
-{0x1359fce3, 0x1acf5cf6, 0x14fd279b, 0x1d5732db, 0x89cb8f4, 0x18acbb2, 0x3878902, 0x7f7ff6a, 0x150b5}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0xf37acf5cf69acfe7, 0x5c7a755ccb6e9fa4, 0xf120418acbb244e, 0x8285a9fdffda87}
-#else
-{0x567ae7b4d67f3, 0x5ccb6e9fa4f37, 0x176489cb8f4ea, 0x6a1c3c481062b, 0x2c142d4feffe}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x13ec, 0x10a3, 0x1e69, 0x106f, 0x619, 0x1cb5, 0x9aa, 0x362, 0x53a, 0x1af5, 0x1bae, 0x60a, 0x2a4, 0x448, 0x3d0, 0x535, 0xeb1, 0x1a6e, 0x978, 0x5}
-#elif RADIX == 32
-{0xc28e7d9, 0x19837f9a, 0x155cb530, 0x14e86c49, 0xdd76bd4, 0x102a4305, 0xd47a044, 0x1373ac4a, 0x4bc6}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0xa619837f9a61473e, 0xb5ea53a1b126ab96, 0x8f408902a43056eb, 0x3ea5e34dceb129a}
-#else
-{0x4c1bfcd30a39f, 0x21b126ab96a61, 0x60add76bd4a7, 0x4a6a3d02240a9, 0x1f52f1a6e758}
-#endif
-#endif
+    UINT64_C(0x822b261335eac3c7), UINT64_C(0x72106a16d914e980), UINT64_C(0x895b73a5d9601a78), UINT64_C(0x9ccb5ba67dfe600d), UINT64_C(0xf28bcabec2b4a795), UINT64_C(0x6), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
 }, {
-#if 0
-#elif RADIX == 16
-{0x333, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x2}
-#elif RADIX == 32
-{0x666, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x20000}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x33, 0x0, 0x0, 0x100000000000000}
-#else
-{0x19, 0x0, 0x0, 0x0, 0x300000000000}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 32
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x0, 0x0, 0x0, 0x0}
-#else
-{0x0, 0x0, 0x0, 0x0, 0x0}
-#endif
-#endif
-}}, {{
-#if 0
-#elif RADIX == 16
-{0x77a, 0x201, 0x168d, 0x8fe, 0x780, 0x1ccb, 0x52b, 0x1c83, 0x18dd, 0xcef, 0x11f5, 0x1446, 0x301, 0xb63, 0xe3f, 0x1b72, 0x1, 0x1da9, 0x1281, 0x8}
-#elif RADIX == 32
-{0x8804ef5, 0x47f5a3, 0x57ccb3c, 0x3779065, 0x8fab3bf, 0x6301a23, 0x1c9c7eb6, 0xd480076, 0x3940f}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x678047f5a3440277, 0x59df8dde4194af99, 0x38fd6c6301a2347d, 0x364a07b52001db9}
-#else
-{0x23fad1a2013b, 0x5e4194af99678, 0x34468fab3bf1b, 0x76e4e3f5b18c0, 0x432503da9000}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x1, 0xb39, 0x969, 0x1324, 0xbe6, 0x86e, 0x1021, 0x29a, 0x1ff0, 0xd23, 0x7d5, 0x72a, 0x1e33, 0x1fd9, 0x10af, 0x15bc, 0x1d56, 0x928, 0x1d49, 0x0}
-#elif RADIX == 32
-{0xace4002, 0x699225a, 0x4286e5f, 0x1fc05350, 0x3eab48f, 0x13e33395, 0xf215ffd, 0x94755ab, 0xea4a}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0xcbe699225a567200, 0x5a47ff014d40850d, 0x42bffb3e333951f5, 0x57525251d56ade}
-#else
-{0x34c912d2b3900, 0x14d40850dcbe, 0x672a3eab48ffe, 0x2b790affecf8c, 0x2ba92928eab}
-#endif
-#endif
-}, {
-#if 0
-#elif RADIX == 16
-{0x333, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x2}
-#elif RADIX == 32
-{0x666, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x20000}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x33, 0x0, 0x0, 0x100000000000000}
-#else
-{0x19, 0x0, 0x0, 0x0, 0x300000000000}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 32
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x0, 0x0, 0x0, 0x0}
-#else
-{0x0, 0x0, 0x0, 0x0, 0x0}
-#endif
-#endif
-}}}, {{
-{0xe4058ceba8dcef13, 0x3bbe28acfda5e2f5, 0x5f5cb0ffee9141e5, 0x95ef671e331920}
-, 
-{0xb1b6fbce9e936b6e, 0x6bcd20ae14b880bb, 0xceb3c4a7feffb7f4, 0xe9e00365bfd874}
-}, {
-{0x523646b6c98847ff, 0x7d56d563ec049694, 0xe1958b0ac48f6833, 0xdb58b2e957b64e}
-, 
-{0x1bfa7314572310ed, 0xc441d753025a1d0a, 0xa0a34f00116ebe1a, 0x6a1098e1cce6df}
-}}, {{
-{0xb19c16401af2231b, 0xf39a683ee470f713, 0x904ec26e7a543289, 0x4455fc6a0cd5a6}
-, 
-{0x55d2de69b685ad7a, 0x925f591684e85675, 0x83917c511cb68c0a, 0xcd96ce11d1ffce}
-}, {
-{0x959b1b9279bd3724, 0x64a727d46f18b3ec, 0x664bade78c7e9b4b, 0x486a1da287a6d9}
-, 
-{0x4e63e9bfe50ddce5, 0xc6597c11b8f08ec, 0x6fb13d9185abcd76, 0xbbaa0395f32a59}
-}}, {{
-{0xe776f94c38f88d79, 0x867742422d2e2bdf, 0x8ee7a2e31736ddf0, 0xa4bb554bb152ac}
-, 
-{0xd49dc0b8e2806774, 0x7a5dc53f25773b88, 0x3ed5d6b24cfb3032, 0xfc85b1584c27b8}
-}, {
-{0xadb9d25b25cfc139, 0x4e7a8867aa20bd39, 0xacfc412aa81f8b24, 0x201d50ab0cee2d}
-, 
-{0x188906b3c7077287, 0x7988bdbdd2d1d420, 0x71185d1ce8c9220f, 0x5b44aab44ead53}
-}}, {{
-{0xe4058ceba8dcef13, 0x3bbe28acfda5e2f5, 0x5f5cb0ffee9141e5, 0x95ef671e331920}
-, 
-{0xb1b6fbce9e936b6e, 0x6bcd20ae14b880bb, 0xceb3c4a7feffb7f4, 0xe9e00365bfd874}
-}, {
-{0x523646b6c98847ff, 0x7d56d563ec049694, 0xe1958b0ac48f6833, 0xdb58b2e957b64e}
-, 
-{0x1bfa7314572310ed, 0xc441d753025a1d0a, 0xa0a34f00116ebe1a, 0x6a1098e1cce6df}
-}}, {{
-{0xd8ce0b200d79118e, 0xf9cd341f72387b89, 0x482761373d2a1944, 0x222afe35066ad3}
-, 
-{0xaae96f34db42d6bd, 0x492fac8b42742b3a, 0x41c8be288e5b4605, 0x66cb6708e8ffe7}
-}, {
-{0x4acd8dc93cde9b92, 0xb25393ea378c59f6, 0xb325d6f3c63f4da5, 0x24350ed143d36c}
-, 
-{0x2731f4dff286ee73, 0x632cbe08dc78476, 0xb7d89ec8c2d5e6bb, 0xddd501caf9952c}
-}}, {{
-{0x994175298b307029, 0x4553e3d77b3f2be8, 0xc80bb49c7bef7065, 0x181ece950cfa3e}
-, 
-{0x7c8285e892ceb399, 0x64f18924b18686eb, 0x419631655e9a0d93, 0x3155d501585e79}
-}, {
-{0xaa0c720929f8da47, 0x517c6e1939c9fc22, 0x1edc20fccfa4c94e, 0xdf85f0396de0d0}
-, 
-{0x66be8ad674cf8fd7, 0xbaac1c2884c0d417, 0x37f44b6384108f9a, 0xe7e1316af305c1}
+    UINT64_C(0xcdd414a19fb96193), UINT64_C(0xad9fdb2db0af6fab), UINT64_C(0xcab29a23bad34ecc), UINT64_C(0x974eac629540a264), UINT64_C(0x5ec46c9c722e6b02), UINT64_C(0x5), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
 }}}, {{{
-#if 0
-#elif RADIX == 16
-{0x13f5, 0x8b7, 0x1873, 0x144a, 0x1a89, 0x13f9, 0xd49, 0x6f2, 0x3bb, 0x102, 0x1ecb, 0x180b, 0x4d5, 0x608, 0x119, 0x5e6, 0x751, 0x961, 0xd37, 0x5}
-#elif RADIX == 32
-{0x1a2de7eb, 0x9a2561c, 0x933f9d4, 0xeecde4d, 0x1f658408, 0x104d5c05, 0x19823260, 0xb09d44b, 0x69ba}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x3a89a2561cd16f3f, 0xc2043bb37935267f, 0x464c104d5c05fb2, 0x1bb4dd2c27512f3}
-#else
-{0x4d12b0e68b79f, 0x337935267f3a8, 0x380bf65840877, 0x4bcc119304135, 0x35da6e9613a8}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 32
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x0, 0x0, 0x0, 0x0}
-#else
-{0x0, 0x0, 0x0, 0x0, 0x0}
-#endif
-#endif
+    UINT64_C(0x322beb5e60469e6d), UINT64_C(0x526024d24f509054), UINT64_C(0x354d65dc452cb133), UINT64_C(0x68b1539d6abf5d9b), UINT64_C(0xa13b93638dd194fd), UINT64_C(0x2), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
 }, {
-#if 0
-#elif RADIX == 16
-{0x333, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x2}
-#elif RADIX == 32
-{0x666, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x20000}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x33, 0x0, 0x0, 0x100000000000000}
-#else
-{0x19, 0x0, 0x0, 0x0, 0x300000000000}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 32
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x0, 0x0, 0x0, 0x0}
-#else
-{0x0, 0x0, 0x0, 0x0, 0x0}
-#endif
-#endif
-}, {{
-#if 0
-#elif RADIX == 16
-{0x1e96, 0x1a2d, 0x161c, 0xd12, 0xea2, 0xcfe, 0x1352, 0x19bc, 0x10ee, 0x1840, 0x1fb2, 0xe02, 0x135, 0x982, 0x1046, 0x979, 0x9d4, 0x1a58, 0x1b4d, 0x9}
-#elif RADIX == 32
-{0x68b7d2d, 0x2689587, 0xa4cfe75, 0x3bb3793, 0xfd96102, 0x4135701, 0x1e608c98, 0x12c27512, 0x4da6e}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0xcea2689587345be9, 0xb0810eecde4d499f, 0xc1193041357017ec, 0x22ed374b09d44bc}
-#else
-{0x1344ac39a2df4, 0x6cde4d499fcea, 0x2e02fd961021d, 0x12f30464c104d, 0x39769ba584ea}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 32
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x0, 0x0, 0x0, 0x0}
-#else
-{0x0, 0x0, 0x0, 0x0, 0x0}
-#endif
-#endif
-}, {
-#if 0
-#elif RADIX == 16
-{0x333, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x2}
-#elif RADIX == 32
-{0x666, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x20000}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x33, 0x0, 0x0, 0x100000000000000}
-#else
-{0x19, 0x0, 0x0, 0x0, 0x300000000000}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 32
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x0, 0x0, 0x0, 0x0}
-#else
-{0x0, 0x0, 0x0, 0x0, 0x0}
-#endif
-#endif
-}}, true}, {{{
-#if 0
-#elif RADIX == 16
-{0xa82, 0x1d2d, 0x15b8, 0x404, 0x1a32, 0xaf9, 0xa86, 0xddf, 0x14bf, 0x100c, 0xc42, 0xa89, 0x1df, 0x82f, 0x1f07, 0x782, 0x664, 0x1ba5, 0x5d7, 0x2}
-#elif RADIX == 32
-{0x74b5504, 0x1220256e, 0x10caf9d1, 0x12fdbbea, 0x16214032, 0x1e1df544, 0xbe0e82, 0x1d29990f, 0x22ebe}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x3a3220256e3a5aa8, 0xa0194bf6efaa195f, 0x7c1d05e1df544b10, 0xb175f74a6643c1}
-#else
-{0x11012b71d2d54, 0x76efaa195f3a3, 0x6a89621403297, 0xf05f07417877, 0x58bafba5332}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x5a1, 0x46a, 0x17ab, 0x1cfa, 0x547, 0x1b9c, 0xda5, 0x141e, 0x216, 0x1f49, 0xaca, 0x15a1, 0xfe0, 0x1afb, 0x1a47, 0x133d, 0x1887, 0x590, 0xbc2, 0x1}
-#elif RADIX == 32
-{0x191a8b42, 0x7e7d5ea, 0x14bb9c2a, 0x85a83cd, 0x15657d24, 0x16fe0ad0, 0xf748faf, 0xc8621e6, 0x15e11}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x8547e7d5eac8d45a, 0xbe92216a0f369773, 0xe91f5f6fe0ad0ab2, 0x5af08b2188799e}
-#else
-{0x3f3eaf5646a2d, 0x6a0f369773854, 0x15a15657d2442, 0x667ba47d7dbf8, 0x2d784590c43}
-#endif
-#endif
-}, {
-#if 0
-#elif RADIX == 16
-{0x333, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x2}
-#elif RADIX == 32
-{0x666, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x20000}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x33, 0x0, 0x0, 0x100000000000000}
-#else
-{0x19, 0x0, 0x0, 0x0, 0x300000000000}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 32
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x0, 0x0, 0x0, 0x0}
-#else
-{0x0, 0x0, 0x0, 0x0, 0x0}
-#endif
-#endif
+    UINT64_C(0xf18550703c8adda8), UINT64_C(0x25a768893a1516f3), UINT64_C(0x12455097910ac333), UINT64_C(0xbee4dc2f68bf0fc5), UINT64_C(0x3d020c6e13403648), UINT64_C(0x6), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
 }}, {{
-#if 0
-#elif RADIX == 16
-{0x1311, 0x910, 0x413, 0x1d16, 0x14f7, 0x19c9, 0x14d3, 0x1504, 0x776, 0x1c2c, 0x15b0, 0xc6e, 0x36b, 0x1777, 0x1ed2, 0xb34, 0x1281, 0x1281, 0xd0f, 0x4}
-#elif RADIX == 32
-{0x1a442622, 0x17e8b104, 0x1a79c9a7, 0x1ddaa094, 0xad870b0, 0xe36b637, 0xd3da577, 0x140ca056, 0x4687c}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x34f7e8b104d22131, 0x3858776a82534f39, 0x7b4aeee36b63756c, 0x7343e50328159a}
-#else
-{0x3f45882691098, 0x6a82534f3934f, 0x6c6ead870b0ee, 0x5669ed2bbb8da, 0x2b9a1f281940}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x12d2, 0x6d8, 0x1e2c, 0x6f9, 0x5e8, 0x4e5, 0x32c, 0x58d, 0x1bda, 0x16f9, 0x8b5, 0x3c0, 0x10c, 0xb18, 0x450, 0x834, 0x3b7, 0x8d7, 0x15bf, 0x0}
-#elif RADIX == 32
-{0x1b625a4, 0x837cf8b, 0x584e52f, 0xf68b1a3, 0x45adbe7, 0x1010c1e0, 0xd08a0b1, 0x6b8edd0, 0xadfa}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0xa5e837cf8b0db12d, 0x6df3bda2c68cb09c, 0x114163010c1e022d, 0xa56fd1ae3b741a}
-#else
-{0x41be7c586d896, 0x22c68cb09ca5e, 0x3c045adbe77b, 0x506845058c043, 0x2d2b7e8d71db}
-#endif
-#endif
+    UINT64_C(0x822b261335eac3c7), UINT64_C(0x72106a16d914e980), UINT64_C(0x895b73a5d9601a78), UINT64_C(0x9ccb5ba67dfe600d), UINT64_C(0xf28bcabec2b4a795), UINT64_C(0xe), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
 }, {
-#if 0
-#elif RADIX == 16
-{0x333, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x2}
-#elif RADIX == 32
-{0x666, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x20000}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x33, 0x0, 0x0, 0x100000000000000}
-#else
-{0x19, 0x0, 0x0, 0x0, 0x300000000000}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 32
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x0, 0x0, 0x0, 0x0}
-#else
-{0x0, 0x0, 0x0, 0x0, 0x0}
-#endif
-#endif
-}}, {{
-#if 0
-#elif RADIX == 16
-{0x5f, 0x444, 0x49e, 0xae7, 0x248, 0x1a37, 0x9b6, 0xc28, 0x464, 0x19b7, 0x1560, 0xd7a, 0x2e3, 0x81a, 0x6f5, 0x5f9, 0x1818, 0x164c, 0x1713, 0x7}
-#elif RADIX == 32
-{0x111100bf, 0x8573927, 0x16da3712, 0x11918509, 0xab066dc, 0x142e36bd, 0x1e4dea81, 0x1266060b, 0x2b89d}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0xe248573927888805, 0x336e46461426db46, 0x9bd50342e36bd558, 0x4edc4ec998182fc}
-#else
-{0x42b9c93c44402, 0x461426db46e24, 0x6d7aab066dc8c, 0xbf26f540d0b8, 0x4f6e2764cc0c}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x19b1, 0x1912, 0x1eb, 0x1cbc, 0x210, 0x17cf, 0x1b9e, 0x754, 0x38c, 0x816, 0x1431, 0x79a, 0xa57, 0x15ff, 0x756, 0xa60, 0x1064, 0x162f, 0x1e5e, 0x0}
-#elif RADIX == 32
-{0x1e44b362, 0x10e5e07a, 0x13d7cf10, 0xe30ea9b, 0xa18a058, 0x1ea573cd, 0x180ead5f, 0x117c1914, 0xf2f5}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0xe210e5e07af2259b, 0x502c38c3aa6e7af9, 0x1d5abfea573cd50c, 0x5797ac5f064530}
-#else
-{0x72f03d7912cd, 0x43aa6e7af9e21, 0x679aa18a05871, 0x14c0756affa95, 0x2abcbd62f832}
-#endif
-#endif
-}, {
-#if 0
-#elif RADIX == 16
-{0x333, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x2}
-#elif RADIX == 32
-{0x666, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x20000}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x33, 0x0, 0x0, 0x100000000000000}
-#else
-{0x19, 0x0, 0x0, 0x0, 0x300000000000}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 32
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x0, 0x0, 0x0, 0x0}
-#else
-{0x0, 0x0, 0x0, 0x0, 0x0}
-#endif
-#endif
-}}}, {{
-{0xe75d52b3a5945ff1, 0xd9767d25d267dd09, 0x10bf9aaec1a80bc5, 0x70ae848de3e894}
-, 
-{0xa6d796c0b9e011e6, 0xf4c52f4404b6ee81, 0xebb65b93e75d4597, 0x163084c08e59c6}
-}, {
-{0x479f60313463f41d, 0x404e1e6b159f6fe7, 0xad84c1f788a8e302, 0xab3d6631758b50}
-, 
-{0x18a2ad4c5a6ba00f, 0x268982da2d9822f6, 0xef4065513e57f43a, 0x8f517b721c176b}
-}}, {{
-{0xb19c16401af2231b, 0xf39a683ee470f713, 0x904ec26e7a543289, 0x4455fc6a0cd5a6}
-, 
-{0x55d2de69b685ad7a, 0x925f591684e85675, 0x83917c511cb68c0a, 0xcd96ce11d1ffce}
-}, {
-{0x959b1b9279bd3724, 0x64a727d46f18b3ec, 0x664bade78c7e9b4b, 0x486a1da287a6d9}
-, 
-{0x4e63e9bfe50ddce5, 0xc6597c11b8f08ec, 0x6fb13d9185abcd76, 0xbbaa0395f32a59}
-}}, {{
-{0x56c4c7ef1fbeffc3, 0x1ced36aafa5c2834, 0xe528890a31d9076, 0xc298bcef6887d2}
-, 
-{0x8109b5c6d7404098, 0xc0d081c23a8c0299, 0x656a89969243e848, 0x4cb9f56c998c87}
-}, {
-{0xc5fe55b5feed712b, 0x7814177577a9e867, 0x397386b173b14780, 0xb001fa7f0b797a}
-, 
-{0xa93b3810e041003d, 0xe312c95505a3d7cb, 0xf1ad776f5ce26f89, 0x3d67431097782d}
-}}, {{
-{0xe75d52b3a5945ff1, 0xd9767d25d267dd09, 0x10bf9aaec1a80bc5, 0x70ae848de3e894}
-, 
-{0xa6d796c0b9e011e6, 0xf4c52f4404b6ee81, 0xebb65b93e75d4597, 0x163084c08e59c6}
-}, {
-{0x479f60313463f41d, 0x404e1e6b159f6fe7, 0xad84c1f788a8e302, 0xab3d6631758b50}
-, 
-{0x18a2ad4c5a6ba00f, 0x268982da2d9822f6, 0xef4065513e57f43a, 0x8f517b721c176b}
-}}, {{
-{0xd8ce0b200d79118e, 0xf9cd341f72387b89, 0x482761373d2a1944, 0x222afe35066ad3}
-, 
-{0xaae96f34db42d6bd, 0x492fac8b42742b3a, 0x41c8be288e5b4605, 0x66cb6708e8ffe7}
-}, {
-{0x4acd8dc93cde9b92, 0xb25393ea378c59f6, 0xb325d6f3c63f4da5, 0x24350ed143d36c}
-, 
-{0x2731f4dff286ee73, 0x632cbe08dc78476, 0xb7d89ec8c2d5e6bb, 0xddd501caf9952c}
-}}, {{
-{0x7e74cc3f1bd65d2b, 0xd6d49f84fba04fea, 0x4f4e68b188d142a1, 0x2eb13ba60c13ec}
-, 
-{0x649aaa1694487b4f, 0x8df1d3fd3bc2e4b4, 0xe8968caa4078931e, 0x7c166ebed5deec}
-}, {
-{0x2b40d32d51aa101d, 0xb323257ac5f807ba, 0x2c3ddc8f20c59bde, 0x9917b954a64e7b}
-, 
-{0x818b33c0e429a2d5, 0x292b607b045fb015, 0xb0b1974e772ebd5e, 0xd14ec459f3ec13}
+    UINT64_C(0xcdd414a19fb96193), UINT64_C(0xad9fdb2db0af6fab), UINT64_C(0xcab29a23bad34ecc), UINT64_C(0x974eac629540a264), UINT64_C(0x5ec46c9c722e6b02), UINT64_C(0xd), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
 }}}, {{{
-#if 0
-#elif RADIX == 16
-{0xa72, 0x186f, 0x81c, 0x105c, 0x151, 0x1451, 0x1b96, 0x4d1, 0x12be, 0x3bf, 0x996, 0x1130, 0x1460, 0x1ed8, 0xc2a, 0x1c23, 0x1ee, 0x3f4, 0xbe2, 0x9}
-#elif RADIX == 32
-{0x61bd4e5, 0x1182e207, 0x12d4510a, 0xaf89a3b, 0x4cb0efe, 0x11460898, 0x8d855ed, 0x1fa07bb8, 0x45f10}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x215182e20730dea7, 0x877f2be268ee5a8a, 0xb0abdb1460898265, 0xeaf887e81eee11}
-#else
-{0xc17103986f53, 0x6268ee5a8a215, 0x11304cb0efe57, 0x3846c2af6c518, 0x2f57c43f40f7}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 32
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x0, 0x0, 0x0, 0x0}
-#else
-{0x0, 0x0, 0x0, 0x0, 0x0}
-#endif
-#endif
+    UINT64_MAX, UINT64_MAX, UINT64_MAX, UINT64_MAX, UINT64_MAX, UINT64_C(0x7), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
 }, {
-#if 0
-#elif RADIX == 16
-{0x333, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x2}
-#elif RADIX == 32
-{0x666, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x20000}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x33, 0x0, 0x0, 0x100000000000000}
-#else
-{0x19, 0x0, 0x0, 0x0, 0x300000000000}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 32
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x0, 0x0, 0x0, 0x0}
-#else
-{0x0, 0x0, 0x0, 0x0, 0x0}
-#endif
-#endif
-}, {{
-#if 0
-#elif RADIX == 16
-{0x1c36, 0x61b, 0x207, 0xc17, 0x854, 0x1514, 0xee5, 0x1134, 0x1caf, 0x10ef, 0x265, 0x44c, 0x518, 0x17b6, 0x1b0a, 0x1708, 0x7b, 0x10fd, 0xaf8, 0x3}
-#elif RADIX == 32
-{0x1986f86c, 0x1460b881, 0x1cb51442, 0x12be268e, 0x132c3bf, 0xc518226, 0x236157b, 0x7e81eee, 0x357c4}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x885460b881cc37c3, 0x61dfcaf89a3b96a2, 0x6c2af6c518226099, 0x1fabe21fa07bb84}
-#else
-{0x2305c40e61be1, 0x789a3b96a2885, 0x44c132c3bf95, 0x6e11b0abdb146, 0x37d5f10fd03d}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 32
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x0, 0x0, 0x0, 0x0}
-#else
-{0x0, 0x0, 0x0, 0x0, 0x0}
-#endif
-#endif
-}, {
-#if 0
-#elif RADIX == 16
-{0x333, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x2}
-#elif RADIX == 32
-{0x666, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x20000}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x33, 0x0, 0x0, 0x100000000000000}
-#else
-{0x19, 0x0, 0x0, 0x0, 0x300000000000}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 32
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x0, 0x0, 0x0, 0x0}
-#else
-{0x0, 0x0, 0x0, 0x0, 0x0}
-#endif
-#endif
-}}, true}, {{{
-#if 0
-#elif RADIX == 16
-{0x1c07, 0x15d6, 0x526, 0xde7, 0x149b, 0x719, 0x1786, 0x1272, 0x18b, 0x1bac, 0xf74, 0x1588, 0xe6f, 0x24c, 0x1204, 0x1e9d, 0x13bb, 0x1ccb, 0x78d, 0x9}
-#elif RADIX == 32
-{0x1575b80f, 0x1b6f3949, 0x10c719a4, 0x62e4e57, 0x7ba6eb0, 0x18e6fac4, 0x7640824, 0x65ceefd, 0x43c6f}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x349b6f3949abadc0, 0x375818b9395e18e3, 0xc810498e6fac43dd, 0x279e379973bbf4e}
-#else
-{0x5b79ca4d5d6e0, 0x39395e18e3349, 0x75887ba6eb031, 0x7d3b20412639b, 0x13cf1bccb9dd}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0xddf, 0x238, 0xe4b, 0x1958, 0xe6e, 0x1059, 0x133, 0x1e11, 0x5ae, 0x2ab, 0x1044, 0xdd, 0xe9d, 0x1aa8, 0x15e2, 0xc9b, 0xaa6, 0x3c8, 0x10ac, 0x0}
-#elif RADIX == 32
-{0x188e1bbe, 0xecac392, 0x6705973, 0x16bbc221, 0x18220aac, 0x10e9d06e, 0x6ebc5aa, 0x1e42a999, 0x8560}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x2e6ecac392c470dd, 0x5565aef0884ce0b, 0xd78b550e9d06ec11, 0x4b42b0790aa664d}
-#else
-{0x76561c962386e, 0x6f0884ce0b2e6, 0x20dd8220aacb5, 0x19375e2d543a7, 0x4da1583c8553}
-#endif
-#endif
-}, {
-#if 0
-#elif RADIX == 16
-{0x333, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x2}
-#elif RADIX == 32
-{0x666, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x20000}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x33, 0x0, 0x0, 0x100000000000000}
-#else
-{0x19, 0x0, 0x0, 0x0, 0x300000000000}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 32
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x0, 0x0, 0x0, 0x0}
-#else
-{0x0, 0x0, 0x0, 0x0, 0x0}
-#endif
-#endif
+    UINT64_C(0x655a8733764c856), UINT64_C(0xba1f5269f4e16623), UINT64_C(0xc50cd0df306419e5), UINT64_C(0x8f3cce1d3cc98d0), UINT64_C(0xadd57fbcfc3325dd), UINT64_C(0x2), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
 }}, {{
-#if 0
-#elif RADIX == 16
-{0x192, 0x1c6d, 0x18a4, 0x152, 0x1aa9, 0xec4, 0x1be8, 0x1209, 0x7f, 0x797, 0x1295, 0x1433, 0x1a75, 0x15a, 0x1d64, 0x146c, 0x12df, 0x10af, 0x188f, 0x1}
-#elif RADIX == 32
-{0x71b4324, 0x90a9629, 0x1d0ec4d5, 0x1fe413b, 0x194a9e5c, 0x15a75a19, 0x1b3ac815, 0x57cb7e8, 0x1c47c}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x9aa90a962938da19, 0x4f2e07f904efa1d8, 0x75902b5a75a19ca5, 0xae23e15f2dfa36}
-#else
-{0x4854b149c6d0c, 0x7904efa1d89aa, 0x343394a9e5c0f, 0x68d9d640ad69d, 0x2d711f0af96f}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x129c, 0xe1d, 0x1bd3, 0xf2a, 0x937, 0xf81, 0xa47, 0x186b, 0x1bbe, 0x1c6d, 0x1edd, 0x1b51, 0xa10, 0x167a, 0x1f0b, 0x374, 0x720, 0x1547, 0x726, 0x1}
-#elif RADIX == 32
-{0x1b876538, 0x177956f4, 0x8ef8149, 0xefb0d6a, 0x1f6ef1b7, 0x14a10da8, 0x1d3e1767, 0xa39c806, 0x13935}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x29377956f4dc3b29, 0x78dbbbec35a91df0, 0x7c2ecf4a10da8fb7, 0x3c9c9aa8e7201ba}
-#else
-{0x3bcab7a6e1d94, 0x6c35a91df0293, 0x1b51f6ef1b777, 0x6e9f0bb3d284, 0x464e4d547390}
-#endif
-#endif
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
 }, {
-#if 0
-#elif RADIX == 16
-{0x333, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x2}
-#elif RADIX == 32
-{0x666, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x20000}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x33, 0x0, 0x0, 0x100000000000000}
-#else
-{0x19, 0x0, 0x0, 0x0, 0x300000000000}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 32
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x0, 0x0, 0x0, 0x0}
-#else
-{0x0, 0x0, 0x0, 0x0, 0x0}
-#endif
-#endif
-}}, {{
-#if 0
-#elif RADIX == 16
-{0x12cc, 0x495, 0x1a14, 0x1db0, 0xb66, 0x76a, 0x1a77, 0xaf6, 0x1656, 0x1ad7, 0xb35, 0x4b1, 0xffa, 0x37b, 0xabf, 0xa5c, 0xdc9, 0x1a74, 0x11c9, 0x8}
-#elif RADIX == 32
-{0x1256599, 0x6ed8685, 0xee76a5b, 0x19595eda, 0x159aeb5e, 0x16ffa258, 0x17157e37, 0x13a37254, 0x38e4e}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x4b66ed8685092b2c, 0x75af65657b69dced, 0x2afc6f6ffa258acd, 0x4047274e8dc952e}
-#else
-{0x376c342849596, 0x657b69dced4b6, 0x44b159aeb5eca, 0x54b8abf1bdbfe, 0x202393a746e4}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x1379, 0x125e, 0x1c56, 0x1811, 0x144, 0x2a8, 0xbb3, 0x2ca, 0x6d2, 0x565, 0x91e, 0x1280, 0x1b4f, 0x51a, 0x1eb7, 0x35a, 0x14fe, 0x1b59, 0x182e, 0x2}
-#elif RADIX == 32
-{0x1497a6f2, 0x4c08f15, 0x1662a80a, 0x1b48594b, 0x48f1594, 0x15b4f940, 0x16bd6e51, 0x1acd3f86, 0x2c176}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x144c08f15a4bd37, 0x8aca6d21652ecc55, 0x7adca35b4f940247, 0x2e60bb6b34fe1ad}
-#else
-{0x260478ad25e9b, 0x21652ecc55014, 0x728048f1594da, 0x6b5eb728d6d3, 0x3f305db59a7f}
-#endif
-#endif
-}, {
-#if 0
-#elif RADIX == 16
-{0x333, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x2}
-#elif RADIX == 32
-{0x666, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x20000}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x33, 0x0, 0x0, 0x100000000000000}
-#else
-{0x19, 0x0, 0x0, 0x0, 0x300000000000}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 32
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x0, 0x0, 0x0, 0x0}
-#else
-{0x0, 0x0, 0x0, 0x0, 0x0}
-#endif
-#endif
-}}}, {{
-{0x415c44557ed2323f, 0xcc1176ef42825876, 0x340547291142bdab, 0xc57c1f17791155}
-, 
-{0x8a694faca958c9ce, 0x8c191a17999731e1, 0x8113c0eb68c7d118, 0x3fc94ef8c862fd}
-}, {
-{0x127c8ea0ed4741cb, 0x3826ce8cf74c69d5, 0xe695056b6bf33da2, 0xd0581784acc45c}
-, 
-{0xbea3bbaa812dcdc1, 0x33ee8910bd7da789, 0xcbfab8d6eebd4254, 0x3a83e0e886eeaa}
-}}, {{
-{0x4e63e9bfe50ddce5, 0xc6597c11b8f08ec, 0x6fb13d9185abcd76, 0xbbaa0395f32a59}
-, 
-{0xaa2d2196497a5286, 0x6da0a6e97b17a98a, 0x7c6e83aee34973f5, 0x326931ee2e0031}
-}, {
-{0x6a64e46d8642c8dc, 0x9b58d82b90e74c13, 0x99b45218738164b4, 0xb795e25d785926}
-, 
-{0xb19c16401af2231b, 0xf39a683ee470f713, 0x904ec26e7a543289, 0x4455fc6a0cd5a6}
-}}, {{
-{0xb6e0c901be7a7363, 0xd659bc42779d6a56, 0x923a12f438683476, 0x3d5f954126fa8}
-, 
-{0x14b5c144fd4edb4, 0x4bb9c11d6bef702, 0x5085b159de259f10, 0x1dc4d36f42b0a9}
-}, {
-{0x6b01c7ed4974e873, 0x20d6c641f3d4affb, 0x451e9f012d69ca22, 0xdeb43bef65fa05}
-, 
-{0x491f36fe41858c9d, 0x29a643bd886295a9, 0x6dc5ed0bc797cb89, 0xfc2a06abed9057}
-}}, {{
-{0x415c44557ed2323f, 0xcc1176ef42825876, 0x340547291142bdab, 0xc57c1f17791155}
-, 
-{0x8a694faca958c9ce, 0x8c191a17999731e1, 0x8113c0eb68c7d118, 0x3fc94ef8c862fd}
-}, {
-{0x127c8ea0ed4741cb, 0x3826ce8cf74c69d5, 0xe695056b6bf33da2, 0xd0581784acc45c}
-, 
-{0xbea3bbaa812dcdc1, 0x33ee8910bd7da789, 0xcbfab8d6eebd4254, 0x3a83e0e886eeaa}
-}}, {{
-{0x2731f4dff286ee73, 0x632cbe08dc78476, 0xb7d89ec8c2d5e6bb, 0xddd501caf9952c}
-, 
-{0x551690cb24bd2943, 0xb6d05374bd8bd4c5, 0xbe3741d771a4b9fa, 0x993498f7170018}
-}, {
-{0xb5327236c321646e, 0x4dac6c15c873a609, 0x4cda290c39c0b25a, 0xdbcaf12ebc2c93}
-, 
-{0xd8ce0b200d79118e, 0xf9cd341f72387b89, 0x482761373d2a1944, 0x222afe35066ad3}
-}}, {{
-{0x490c34a61036ca5b, 0x1c171590771bc0ed, 0xdb988054977e4855, 0xfe77221175b26f}
-, 
-{0xb0cbae0a821cf543, 0x2340d2bf5a80642d, 0xdace4e38e1ce0c8f, 0x59bc4807e3445}
-}, {
-{0x39a70fd4c3dc6e85, 0xb0fe0b83777b5158, 0x53dc103f45b355de, 0x12b18b6cb27e2}
-, 
-{0xb6f3cb59efc935a5, 0xe3e8ea6f88e43f12, 0x24677fab6881b7aa, 0x188ddee8a4d90}
+    UINT64_C(0x1), 0, 0, 0, 0, UINT64_C(0x8), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
 }}}, {{{
-#if 0
-#elif RADIX == 16
-{0x102e, 0x4c4, 0x1586, 0x1184, 0xa12, 0x9ce, 0x1866, 0x433, 0x5ef, 0x82a, 0x13a5, 0xbc6, 0x591, 0x175b, 0x10bc, 0xfa5, 0x109d, 0x8d4, 0x1325, 0x9}
-#elif RADIX == 32
-{0x1131205d, 0x128c2561, 0xcc9ce50, 0x17bc8678, 0x9d2a0a8, 0x165915e3, 0x9617975, 0x6a4275f, 0x4992a}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0xca128c2561898902, 0x50545ef219e19939, 0xc2f2eb65915e34e9, 0x4acc951a909d7d2}
-#else
-{0x14612b0c4c481, 0x7219e19939ca1, 0x2bc69d2a0a8bd, 0x5f4b0bcbad964, 0x25664a8d484e}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 32
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x0, 0x0, 0x0, 0x0}
-#else
-{0x0, 0x0, 0x0, 0x0, 0x0}
-#endif
-#endif
+    UINT64_C(0x322beb5e60469e6d), UINT64_C(0x526024d24f509054), UINT64_C(0x354d65dc452cb133), UINT64_C(0x68b1539d6abf5d9b), UINT64_C(0xa13b93638dd194fd), UINT64_C(0xa), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
 }, {
-#if 0
-#elif RADIX == 16
-{0x333, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x2}
-#elif RADIX == 32
-{0x666, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x20000}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x33, 0x0, 0x0, 0x100000000000000}
-#else
-{0x19, 0x0, 0x0, 0x0, 0x300000000000}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 32
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x0, 0x0, 0x0, 0x0}
-#else
-{0x0, 0x0, 0x0, 0x0, 0x0}
-#endif
-#endif
-}, {{
-#if 0
-#elif RADIX == 16
-{0x5a5, 0x1131, 0x561, 0x1461, 0x1284, 0x1273, 0x1e19, 0x190c, 0x117b, 0xa0a, 0x14e9, 0xaf1, 0x1964, 0x5d6, 0xc2f, 0xbe9, 0x427, 0xa35, 0xcc9, 0x3}
-#elif RADIX == 32
-{0xc4c4b4a, 0x4a30958, 0x3327394, 0x5ef219e, 0x1a74a82a, 0xd964578, 0x1a585e5d, 0x11a909d7, 0x3664a}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x7284a3095862625a, 0x541517bc8678664e, 0xb0bcbad964578d3a, 0x1ab32546a4275f4}
-#else
-{0x25184ac31312d, 0x3c8678664e728, 0xaf1a74a82a2f, 0x57d2c2f2eb659, 0xd5992a35213}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 32
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x0, 0x0, 0x0, 0x0}
-#else
-{0x0, 0x0, 0x0, 0x0, 0x0}
-#endif
-#endif
-}, {
-#if 0
-#elif RADIX == 16
-{0x333, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x2}
-#elif RADIX == 32
-{0x666, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x20000}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x33, 0x0, 0x0, 0x100000000000000}
-#else
-{0x19, 0x0, 0x0, 0x0, 0x300000000000}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 32
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x0, 0x0, 0x0, 0x0}
-#else
-{0x0, 0x0, 0x0, 0x0, 0x0}
-#endif
-#endif
-}}, true}, {{{
-#if 0
-#elif RADIX == 16
-{0x1b4a, 0xf6a, 0xadd, 0x302, 0x196b, 0x366, 0x1399, 0xe83, 0x1540, 0xcd, 0x169d, 0x1007, 0xfe6, 0x1fd2, 0xebb, 0x808, 0x1725, 0x1c1e, 0x1009, 0x8}
-#elif RADIX == 32
-{0xbdab695, 0xb1812b7, 0x132366cb, 0x1501d073, 0x1b4e8336, 0x4fe6803, 0x21d77fd, 0xf5c950, 0x3804f}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0xd96b1812b75ed5b4, 0x419b540741ce646c, 0x3aeffa4fe6803da7, 0x36402783d725404}
-#else
-{0x58c095baf6ada, 0x741ce646cd96, 0x5007b4e8336a8, 0x5010ebbfe93f9, 0x1b2013c1eb92}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x122a, 0x94e, 0x1927, 0x1701, 0x58e, 0x79, 0x134e, 0xecc, 0xa0f, 0x7be, 0xc39, 0xfb2, 0x1df0, 0x79a, 0x154a, 0x1a4a, 0x23f, 0x3de, 0x1be1, 0x9}
-#elif RADIX == 32
-{0x1a53a455, 0xeb80e49, 0x9c0792c, 0x83dd993, 0x61c9ef9, 0x15df07d9, 0x12aa9479, 0x1ef08ff4, 0x4df08}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x258eb80e49d29d22, 0x4f7ca0f7664d380f, 0x5528f35df07d930e, 0x36ef847bc23fd25}
-#else
-{0x75c0724e94e91, 0x77664d380f258, 0xfb261c9ef941, 0x749554a3cd77c, 0x1b77c23de11f}
-#endif
-#endif
-}, {
-#if 0
-#elif RADIX == 16
-{0x333, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x2}
-#elif RADIX == 32
-{0x666, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x20000}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x33, 0x0, 0x0, 0x100000000000000}
-#else
-{0x19, 0x0, 0x0, 0x0, 0x300000000000}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 32
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x0, 0x0, 0x0, 0x0}
-#else
-{0x0, 0x0, 0x0, 0x0, 0x0}
-#endif
-#endif
+    UINT64_C(0xec69680df262c1ba), UINT64_C(0x70a53f7c91113c33), UINT64_C(0x46323737ad5faaee), UINT64_C(0xea5ca9028ef5f98c), UINT64_C(0x2880b5ef20ea83fd), UINT64_C(0x7), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
 }}, {{
-#if 0
-#elif RADIX == 16
-{0x1943, 0x2e1, 0x677, 0x614, 0x19e, 0x11e6, 0xde2, 0x104d, 0x551, 0x1455, 0x1d7e, 0xdd, 0x15e0, 0x14c5, 0xeeb, 0x14b5, 0x168f, 0x1a03, 0xa9d, 0x4}
-#elif RADIX == 32
-{0x18b87286, 0x1e30a19d, 0x1c51e60c, 0x154609ad, 0x1ebf5154, 0xb5e006e, 0xd5dd74c, 0x101da3e9, 0x454ee}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0xc19e30a19dc5c394, 0xa8aa551826b78a3c, 0xbbae98b5e006ef5f, 0x112a7740768fa5a}
-#else
-{0x71850cee2e1ca, 0x1826b78a3cc19, 0xddebf5154aa, 0x696aeeba62d78, 0x8953ba03b47}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x512, 0xda9, 0x31a, 0x1711, 0x1b65, 0x9f0, 0xe54, 0x1d4a, 0xe1c, 0xc90, 0x1837, 0x1728, 0x15fa, 0xa40, 0xf21, 0x1b43, 0x1716, 0x1277, 0x11a8, 0x9}
-#elif RADIX == 32
-{0x136a4a25, 0x5b888c6, 0xa89f0db, 0x1873a94e, 0xc1bb241, 0x15fab94, 0x10de42a4, 0x13bdc5b6, 0x48d44}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x1b65b888c69b5251, 0xd920e1cea539513e, 0xbc854815fab9460d, 0xec6a24ef716da1}
-#else
-{0x2dc44634da928, 0x4ea539513e1b6, 0x5728c1bb241c3, 0x3686f2152057e, 0x2f6351277b8b}
-#endif
-#endif
+    UINT64_C(0x822b261335eac3c7), UINT64_C(0x72106a16d914e980), UINT64_C(0x895b73a5d9601a78), UINT64_C(0x9ccb5ba67dfe600d), UINT64_C(0xf28bcabec2b4a795), UINT64_C(0x6), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
 }, {
-#if 0
-#elif RADIX == 16
-{0x333, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x2}
-#elif RADIX == 32
-{0x666, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x20000}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x33, 0x0, 0x0, 0x100000000000000}
-#else
-{0x19, 0x0, 0x0, 0x0, 0x300000000000}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 32
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x0, 0x0, 0x0, 0x0}
-#else
-{0x0, 0x0, 0x0, 0x0, 0x0}
-#endif
-#endif
-}}, {{
-#if 0
-#elif RADIX == 16
-{0x822, 0x1a13, 0x11d, 0x10e0, 0x2b9, 0x1d20, 0x19f9, 0x1dc2, 0x1770, 0x135e, 0x1c13, 0x1cba, 0x14df, 0x5c8, 0x1f31, 0x215, 0x16ed, 0x1f7a, 0xc6c, 0x5}
-#elif RADIX == 32
-{0xe84d045, 0x19870047, 0x1f3d2015, 0x1dc3b859, 0xe09cd7a, 0x114dfe5d, 0x57e625c, 0x1bd5bb44, 0x6367}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x2b9870047742682, 0xe6bd770ee167e7a4, 0xfcc4b914dfe5d704, 0xcb1b3ef56ed10a}
-#else
-{0x4c38023ba1341, 0xee167e7a402b, 0x7cbae09cd7aee, 0x442bf312e4537, 0x658d9f7ab76}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x2cc, 0xd50, 0xeda, 0x1c3c, 0x8a6, 0x1659, 0xffb, 0x1cee, 0x1f14, 0x17fe, 0x1860, 0x427, 0x132c, 0x5c0, 0xb9f, 0x143d, 0x639, 0x19f0, 0x1551, 0x7}
-#elif RADIX == 32
-{0x13540599, 0x6e1e3b6, 0x1f765945, 0x1c539dcf, 0x1c305ffb, 0x132c213, 0xf573e5c, 0xf818e68, 0x2aa8e}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x28a6e1e3b69aa02c, 0x2ffdf14e773feecb, 0xae7cb8132c213e18, 0x3fd5473e0639a1e}
-#else
-{0x370f1db4d5016, 0x4e773feecb28a, 0x427c305ffbe2, 0x687ab9f2e04cb, 0x1feaa39f031c}
-#endif
-#endif
-}, {
-#if 0
-#elif RADIX == 16
-{0x333, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x2}
-#elif RADIX == 32
-{0x666, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x20000}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x33, 0x0, 0x0, 0x100000000000000}
-#else
-{0x19, 0x0, 0x0, 0x0, 0x300000000000}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 32
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x0, 0x0, 0x0, 0x0}
-#else
-{0x0, 0x0, 0x0, 0x0, 0x0}
-#endif
-#endif
-}}}, {{
-{0x206ab453d052900d, 0xfb21c57931f2e61d, 0xf9c1f38f02bbc870, 0xeb58d147f183aa}
-, 
-{0x9e04ebc3a5e8727e, 0x8ea968e038d7f1eb, 0x82c048eb83318f77, 0x54f2213583b0a3}
-}, {
-{0x34e9c9b349e4dba9, 0xcfb0cae0d8767ab9, 0x1e302c9826b36177, 0x713bdc53cc4a38}
-, 
-{0xdf954bac2fad6ff3, 0x4de3a86ce0d19e2, 0x63e0c70fd44378f, 0x14a72eb80e7c55}
-}}, {{
-{0xb19c16401af2231b, 0xf39a683ee470f713, 0x904ec26e7a543289, 0x4455fc6a0cd5a6}
-, 
-{0x55d2de69b685ad7a, 0x925f591684e85675, 0x83917c511cb68c0a, 0xcd96ce11d1ffce}
-}, {
-{0x959b1b9279bd3724, 0x64a727d46f18b3ec, 0x664bade78c7e9b4b, 0x486a1da287a6d9}
-, 
-{0x4e63e9bfe50ddce5, 0xc6597c11b8f08ec, 0x6fb13d9185abcd76, 0xbbaa0395f32a59}
-}}, {{
-{0x89600cfe1b002417, 0x222cc00f42d2662e, 0xbcac863f278b7671, 0x1b4c5a6e5edb9c}
-, 
-{0xef865a2dd92b21e8, 0x6b378ae01483f492, 0xf4ec69c57b907f78, 0xf8829616602fb9}
-}, {
-{0xbc0e9aea5dc538ff, 0xc311447b775dbea5, 0x162a15fdb63af01c, 0xc52a0d9defab76}
-, 
-{0x769ff301e4ffdbe9, 0xddd33ff0bd2d99d1, 0x435379c0d874898e, 0xe4b3a591a12463}
-}}, {{
-{0x206ab453d052900d, 0xfb21c57931f2e61d, 0xf9c1f38f02bbc870, 0xeb58d147f183aa}
-, 
-{0x9e04ebc3a5e8727e, 0x8ea968e038d7f1eb, 0x82c048eb83318f77, 0x54f2213583b0a3}
-}, {
-{0x34e9c9b349e4dba9, 0xcfb0cae0d8767ab9, 0x1e302c9826b36177, 0x713bdc53cc4a38}
-, 
-{0xdf954bac2fad6ff3, 0x4de3a86ce0d19e2, 0x63e0c70fd44378f, 0x14a72eb80e7c55}
-}}, {{
-{0xd8ce0b200d79118e, 0xf9cd341f72387b89, 0x482761373d2a1944, 0x222afe35066ad3}
-, 
-{0xaae96f34db42d6bd, 0x492fac8b42742b3a, 0x41c8be288e5b4605, 0x66cb6708e8ffe7}
-}, {
-{0x4acd8dc93cde9b92, 0xb25393ea378c59f6, 0xb325d6f3c63f4da5, 0x24350ed143d36c}
-, 
-{0x2731f4dff286ee73, 0x632cbe08dc78476, 0xb7d89ec8c2d5e6bb, 0xddd501caf9952c}
-}}, {{
-{0x731aacbf269320f0, 0xf8361bcdd8ceb0f3, 0xd3aad60444d58469, 0x3f9086cdc34aa8}
-, 
-{0x9534932fe55acc11, 0x614f2956af432895, 0x25560c6e4b24e84, 0x13c61ed70dbb14}
-}, {
-{0x54e4d24f450d28d6, 0xadbe9b71081d6e67, 0x4b684ebf61481088, 0xe5e1a665c8829e}
-, 
-{0x8ce55340d96cdf10, 0x7c9e43227314f0c, 0x2c5529fbbb2a7b96, 0xc06f79323cb557}
+    UINT64_C(0xcdd414a19fb96193), UINT64_C(0xad9fdb2db0af6fab), UINT64_C(0xcab29a23bad34ecc), UINT64_C(0x974eac629540a264), UINT64_C(0x5ec46c9c722e6b02), UINT64_C(0x5), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
 }}}, {{{
-#if 0
-#elif RADIX == 16
-{0x6b9, 0xd4c, 0x1d8d, 0x1f99, 0x1be4, 0x1f53, 0x5c1, 0x1937, 0x9c, 0xe68, 0x61e, 0x14e8, 0x352, 0x3d6, 0x174, 0x133, 0x18a6, 0x1b19, 0x94b, 0x9}
-#elif RADIX == 32
-{0xb530d73, 0x4fccf63, 0x183f53df, 0x27326e5, 0x30f39a0, 0xc352a74, 0xcc2e83d, 0x18ce2982, 0x44a5e}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x7be4fccf635a986b, 0x9cd009cc9b9707ea, 0x85d07ac352a74187, 0x31a52f6338a6099}
-#else
-{0x27e67b1ad4c35, 0x4c9b9707ea7be, 0x54e830f39a013, 0x2661741eb0d4, 0x40d297b19c53}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 32
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x0, 0x0, 0x0, 0x0}
-#else
-{0x0, 0x0, 0x0, 0x0, 0x0}
-#endif
-#endif
+    UINT64_C(0x322beb5e60469e6d), UINT64_C(0x526024d24f509054), UINT64_C(0x354d65dc452cb133), UINT64_C(0x68b1539d6abf5d9b), UINT64_C(0xa13b93638dd194fd), UINT64_C(0x6), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
 }, {
-#if 0
-#elif RADIX == 16
-{0x333, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x2}
-#elif RADIX == 32
-{0x666, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x20000}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x33, 0x0, 0x0, 0x100000000000000}
-#else
-{0x19, 0x0, 0x0, 0x0, 0x300000000000}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 32
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x0, 0x0, 0x0, 0x0}
-#else
-{0x0, 0x0, 0x0, 0x0, 0x0}
-#endif
-#endif
-}, {{
-#if 0
-#elif RADIX == 16
-{0x348, 0xb53, 0xf63, 0x7e6, 0x1ef9, 0xfd4, 0x1970, 0x64d, 0x27, 0x139a, 0x187, 0x153a, 0x10d4, 0xf5, 0x185d, 0x104c, 0xe29, 0x1ec6, 0x1a52, 0x0}
-#elif RADIX == 32
-{0x1ad4c690, 0x193f33d8, 0xe0fd4f7, 0x9cc9b9, 0xc3ce68, 0xb0d4a9d, 0x1330ba0f, 0x16338a60, 0xd297}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x9ef93f33d8d6a634, 0xe734027326e5c1fa, 0x61741eb0d4a9d061, 0x28694bd8ce29826}
-#else
-{0x49f99ec6b531a, 0x7326e5c1fa9ef, 0x153a0c3ce6804, 0x609985d07ac35, 0x1434a5ec6714}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 32
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x0, 0x0, 0x0, 0x0}
-#else
-{0x0, 0x0, 0x0, 0x0, 0x0}
-#endif
-#endif
-}, {
-#if 0
-#elif RADIX == 16
-{0x333, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x2}
-#elif RADIX == 32
-{0x666, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x20000}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x33, 0x0, 0x0, 0x100000000000000}
-#else
-{0x19, 0x0, 0x0, 0x0, 0x300000000000}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 32
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x0, 0x0, 0x0, 0x0}
-#else
-{0x0, 0x0, 0x0, 0x0, 0x0}
-#endif
-#endif
-}}, true}, {{{
-#if 0
-#elif RADIX == 16
-{0x18af, 0xb6e, 0x124d, 0xa49, 0xa8c, 0x11f5, 0xea9, 0x298, 0xa55, 0x1738, 0xb61, 0x2b9, 0x8a, 0x167a, 0x17e6, 0x2b0, 0x1290, 0x16ad, 0x1505, 0x2}
-#elif RADIX == 32
-{0xadbb15e, 0xc524c93, 0x1531f554, 0x954530e, 0x15b0dce1, 0x1408a15c, 0xc2fcd67, 0x156ca405, 0x2a82d}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0xaa8c524c9356dd8a, 0x6e70a5514c3aa63e, 0x5f9acf408a15cad8, 0x4c5416d5b290158}
-#else
-{0x6292649ab6ec5, 0x514c3aa63eaa8, 0x42b95b0dce14a, 0x5617e6b3d022, 0x262a0b6ad948}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x1390, 0x1895, 0x9b7, 0xa5a, 0x1030, 0x16c1, 0xd21, 0x1053, 0x327, 0x1a4c, 0x1a22, 0x11e4, 0x16ba, 0x13a1, 0x1dbc, 0x1aac, 0x148c, 0x5c8, 0x15d2, 0x0}
-#elif RADIX == 32
-{0x1e256720, 0x1052d26d, 0x436c181, 0xc9e0a6d, 0xd116930, 0x36ba8f2, 0xb3b793a, 0xe452335, 0xae91}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x303052d26df12b39, 0xb498327829b486d8, 0x76f27436ba8f2688, 0x5748b9148cd56}
-#else
-{0x296936f8959c, 0x7829b486d8303, 0x51e4d11693064, 0x3559dbc9d0dae, 0x282ba45c8a46}
-#endif
-#endif
-}, {
-#if 0
-#elif RADIX == 16
-{0x333, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x2}
-#elif RADIX == 32
-{0x666, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x20000}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x33, 0x0, 0x0, 0x100000000000000}
-#else
-{0x19, 0x0, 0x0, 0x0, 0x300000000000}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 32
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x0, 0x0, 0x0, 0x0}
-#else
-{0x0, 0x0, 0x0, 0x0, 0x0}
-#endif
-#endif
+    UINT64_C(0xeef75c3f1776cfb1), UINT64_C(0xcb265402e5932993), UINT64_C(0xac3bc3e79f353710), UINT64_C(0x54a0c298fbda84a8), UINT64_C(0xb2c1612e9a155d23), UINT64_C(0x6), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
 }}, {{
-#if 0
-#elif RADIX == 16
-{0x1be6, 0x11b3, 0x14ba, 0xf43, 0x1bd1, 0x215, 0x1e9a, 0x137a, 0x7b2, 0x15, 0x126, 0x148, 0x1c2b, 0x1b70, 0xf1c, 0x1e48, 0x1259, 0x188a, 0x1e44, 0x7}
-#elif RADIX == 32
-{0x146cf7cd, 0x117a1d2e, 0x134215de, 0x1eca6f5e, 0x930054, 0x1c2b0a4, 0x121e39b7, 0x454967c, 0x2f226}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0xbbd17a1d2ea367be, 0x802a7b29bd7a6842, 0x3c736e1c2b0a4049, 0x21f913115259f24}
-#else
-{0xbd0e9751b3df, 0x29bd7a6842bbd, 0x61480930054f6, 0x7c90f1cdb870a, 0x10fc8988a92c}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x4c5, 0x37e, 0xafa, 0x1b90, 0x13d, 0x8d3, 0xaa7, 0x489, 0x1d4a, 0x17bc, 0x168, 0x37f, 0x1ed6, 0x666, 0x1889, 0x1a4e, 0xa57, 0xeb7, 0xd37, 0x7}
-#elif RADIX == 32
-{0x10df898b, 0x1ddc82be, 0x14e8d309, 0x1528912a, 0x10b45ef3, 0xded61bf, 0x13b11266, 0x15ba95f4, 0x269bb}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x613ddc82be86fc4c, 0x2f79d4a244aa9d1a, 0x6224ccded61bf85a, 0x1cb4ddd6ea57d27}
-#else
-{0x6ee415f437e26, 0x2244aa9d1a613, 0x437f0b45ef3a9, 0x749d8893337b5, 0xe5a6eeb752b}
-#endif
-#endif
+    UINT64_C(0x822b261335eac3c7), UINT64_C(0x72106a16d914e980), UINT64_C(0x895b73a5d9601a78), UINT64_C(0x9ccb5ba67dfe600d), UINT64_C(0xf28bcabec2b4a795), UINT64_C(0x2), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
 }, {
-#if 0
-#elif RADIX == 16
-{0x333, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x2}
-#elif RADIX == 32
-{0x666, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x20000}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x33, 0x0, 0x0, 0x100000000000000}
-#else
-{0x19, 0x0, 0x0, 0x0, 0x300000000000}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 32
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x0, 0x0, 0x0, 0x0}
-#else
-{0x0, 0x0, 0x0, 0x0, 0x0}
-#endif
-#endif
-}}, {{
-#if 0
-#elif RADIX == 16
-{0x447, 0x1b87, 0x1cf0, 0x155, 0xb1, 0x804, 0x97a, 0x64a, 0x886, 0x3a3, 0x126f, 0x1553, 0x74d, 0xde9, 0x941, 0x39c, 0x8f, 0x1bbb, 0xf3, 0x1}
-#elif RADIX == 32
-{0x6e1c88e, 0x110aaf3c, 0xf480405, 0x218c949, 0x19378e8d, 0x1274daa9, 0x71282de, 0x1dd823c7, 0x1079e}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x80b10aaf3c370e44, 0xc74688632525e900, 0x2505bd274daa9c9b, 0x2383cf77608f1ce}
-#else
-{0x85579e1b8722, 0x632525e90080b, 0x35539378e8d10, 0x47389416f49d3, 0x11c1e7bbb047}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0xf9d, 0x552, 0x797, 0x19fc, 0x166, 0x7a8, 0x1ee5, 0xc77, 0x1ee7, 0x15ef, 0x340, 0x10df, 0x1d5f, 0x170, 0xf2, 0x123, 0x1bb1, 0xd23, 0x3fc, 0x6}
-#elif RADIX == 32
-{0x19549f3b, 0x6cfe1e5, 0x1ca7a80b, 0x1b9d8efe, 0x11a057bf, 0x1d5f86f, 0x8c1e417, 0x91eec42, 0x11fe3}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x166cfe1e5caa4f9, 0x2bdfee763bfb94f5, 0x83c82e1d5f86f8d0, 0x440ff1a47bb1091}
-#else
-{0x367f0f2e5527c, 0x763bfb94f5016, 0x70df1a057bfdc, 0x42460f20b8757, 0x4a07f8d23dd8}
-#endif
-#endif
-}, {
-#if 0
-#elif RADIX == 16
-{0x333, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x2}
-#elif RADIX == 32
-{0x666, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x20000}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x33, 0x0, 0x0, 0x100000000000000}
-#else
-{0x19, 0x0, 0x0, 0x0, 0x300000000000}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 32
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x0, 0x0, 0x0, 0x0}
-#else
-{0x0, 0x0, 0x0, 0x0, 0x0}
-#endif
-#endif
-}}}, {{
-{0xcd7513e0493127cb, 0x9ff95a913de76846, 0xb97226eca6d6a270, 0x3f52fce4b80b44}
-, 
-{0x1d16ca745a382d7e, 0xafc28c2916742547, 0x79572c7348562349, 0xad04d33c3e67e1}
-}, {
-{0xcf15321e27fbd8d7, 0x7ed75fbd6f8efbd3, 0xb73c593758d6f394, 0x2264ace0270bfb}
-, 
-{0x328aec1fb6ced835, 0x6006a56ec21897b9, 0x468dd91359295d8f, 0xc0ad031b47f4bb}
-}}, {{
-{0x4e63e9bfe50ddce5, 0xc6597c11b8f08ec, 0x6fb13d9185abcd76, 0xbbaa0395f32a59}
-, 
-{0xaa2d2196497a5286, 0x6da0a6e97b17a98a, 0x7c6e83aee34973f5, 0x326931ee2e0031}
-}, {
-{0x6a64e46d8642c8dc, 0x9b58d82b90e74c13, 0x99b45218738164b4, 0xb795e25d785926}
-, 
-{0xb19c16401af2231b, 0xf39a683ee470f713, 0x904ec26e7a543289, 0x4455fc6a0cd5a6}
-}}, {{
-{0xebb2cd7f6dc794df, 0xc882825811db290, 0xc8c37d64959ad514, 0x321eea106a16a9}
-, 
-{0x19fe1464e778e08c, 0x4af0a98f1d24ef25, 0x95ea2b828e4d70d3, 0xf1695c2673277}
-}, {
-{0x4bc9e2a4b6e1f1df, 0x9a383fca6365dc85, 0x1984ca7fed030ee2, 0x8bc1731efee709}
-, 
-{0x144d328092386b21, 0xf377d7da7ee24d6f, 0x373c829b6a652aeb, 0xcde115ef95e956}
-}}, {{
-{0xcd7513e0493127cb, 0x9ff95a913de76846, 0xb97226eca6d6a270, 0x3f52fce4b80b44}
-, 
-{0x1d16ca745a382d7e, 0xafc28c2916742547, 0x79572c7348562349, 0xad04d33c3e67e1}
-}, {
-{0xcf15321e27fbd8d7, 0x7ed75fbd6f8efbd3, 0xb73c593758d6f394, 0x2264ace0270bfb}
-, 
-{0x328aec1fb6ced835, 0x6006a56ec21897b9, 0x468dd91359295d8f, 0xc0ad031b47f4bb}
-}}, {{
-{0x2731f4dff286ee73, 0x632cbe08dc78476, 0xb7d89ec8c2d5e6bb, 0xddd501caf9952c}
-, 
-{0x551690cb24bd2943, 0xb6d05374bd8bd4c5, 0xbe3741d771a4b9fa, 0x993498f7170018}
-}, {
-{0xb5327236c321646e, 0x4dac6c15c873a609, 0x4cda290c39c0b25a, 0xdbcaf12ebc2c93}
-, 
-{0xd8ce0b200d79118e, 0xf9cd341f72387b89, 0x482761373d2a1944, 0x222afe35066ad3}
-}}, {{
-{0x1ee9a31f187d647, 0x9418bfedeec2193b, 0xae854c740e9a15b6, 0x423f1226773ebe}
-, 
-{0x7bbf416c99be68ff, 0xa8ff7682609fd44f, 0xc0768e77ec03a6bb, 0xf5a15296767873}
-}, {
-{0xa38ebd23f7da3739, 0x1a76b0e76908cf9, 0x51015ac7a2bd77f0, 0x952d3aa9223aae}
-, 
-{0xfe1165ce0e7829b9, 0x6be74012113de6c4, 0x517ab38bf165ea49, 0xbdc0edd988c141}
+    UINT64_C(0xcdd414a19fb96193), UINT64_C(0xad9fdb2db0af6fab), UINT64_C(0xcab29a23bad34ecc), UINT64_C(0x974eac629540a264), UINT64_C(0x5ec46c9c722e6b02), UINT64_C(0x9), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
 }}}, {{{
-#if 0
-#elif RADIX == 16
-{0x1068, 0xf2c, 0x1ada, 0x1f58, 0x1343, 0x5cc, 0x90, 0x1bba, 0x50b, 0x1a35, 0x35f, 0x1388, 0x5ce, 0xc4f, 0x1462, 0x191f, 0x665, 0x843, 0x1cb1, 0x1}
-#elif RADIX == 32
-{0x13cb20d0, 0x3fac6b6, 0x1205cc9a, 0x142f7740, 0x1afe8d4, 0x1e5ce9c4, 0x7e8c4c4, 0x2199972, 0x1e58a}
-#elif RADIX == 64
+    0, 0, 0, 0, 0, UINT64_C(0x4), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0x832ad4399bb2642b), UINT64_C(0xdd0fa934fa70b311), UINT64_C(0x6286686f98320cf2), UINT64_C(0x8479e670e9e64c68), UINT64_C(0x56eabfde7e1992ee), UINT64_C(0x9), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}, {{
+    0, 0, 0, 0, 0, UINT64_C(0x8), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0x1), 0, 0, 0, 0, UINT64_C(0xc), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}}}, {{{
 #if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x9343fac6b69e5906, 0xf46a50bddd0240b9, 0xd18989e5ce9c40d7, 0x28f2c5086665c8f}
-#else
-{0x1fd635b4f2c83, 0x3ddd0240b9934, 0x53881afe8d4a1, 0x723f462627973, 0x147962843332}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 32
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+{{0xa60f3967bfd6fc6d, 0x981c298885ceb36a, 0x862c0d9b7c5fa8d8, 0x43c47c4616cd177b, 0xe5a6c6f44bf9b54d, 0x28}}
 #elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x0, 0x0, 0x0, 0x0}
+{0x2622173acdaa98, 0x5be2fd46c4c0e1, 0x6cd177b862c0d9, 0x36a9a8788f88c2, 0x263969b1bd12fe, 0x16d61b9fc27aa}
 #else
-{0x0, 0x0, 0x0, 0x0, 0x0}
+{0x36aa60f, 0x8885ceb, 0x8981c29, 0x7c5fa8d, 0x62c0d9b, 0xcd177b8, 0x47c4616, 0xb54d43c, 0x6f44bf9, 0x98e5a6c, 0x3f84f54, 0xac37}
 #endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}
+#elif RADIX == 64
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#else
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
 #endif
 }, {
-#if 0
-#elif RADIX == 16
-{0x333, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x2}
-#elif RADIX == 32
-{0x666, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x20000}
-#elif RADIX == 64
 #if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x33, 0x0, 0x0, 0x100000000000000}
-#else
-{0x19, 0x0, 0x0, 0x0, 0x300000000000}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 32
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+{{0x555555555555555, 0x0, 0x0, 0x0, 0x0, 0x10}}
 #elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x0, 0x0, 0x0, 0x0}
+{0x15, 0x0, 0x0, 0x0, 0x0, 0x2000000000000}
 #else
-{0x0, 0x0, 0x0, 0x0, 0x0}
+{0x555, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x10000}
 #endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}
+#elif RADIX == 64
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#else
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
 #endif
 }, {{
-#if 0
-#elif RADIX == 16
-{0x5b3, 0x13cb, 0x6b6, 0x1fd6, 0x4d0, 0x173, 0x1024, 0x1eee, 0x942, 0x1e8d, 0xd7, 0x14e2, 0x1973, 0x1313, 0x1d18, 0xe47, 0x1999, 0xa10, 0xf2c, 0x6}
-#elif RADIX == 32
-{0x14f2cb67, 0x10feb1ad, 0x4817326, 0x50bddd0, 0x6bfa35, 0x7973a71, 0x11fa3131, 0x1086665c, 0x17962}
-#elif RADIX == 64
 #if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x64d0feb1ada7965b, 0xfd1a942f7740902e, 0xf462627973a71035, 0x123cb1421999723}
-#else
-{0x7f58d6d3cb2d, 0x2f7740902e64d, 0x74e206bfa3528, 0x5c8fd18989e5c, 0x311e58a10ccc}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 32
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+{{0xac2e79049aa069c6, 0x26070a622173acda, 0xe18b0366df17ea36, 0x50f11f1185b345de, 0x3969b1bd12fe6d53, 0x6}}
 #elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x0, 0x0, 0x0, 0x0}
+{0x298885ceb36ab0, 0x36f8bf51b13038, 0x5b345dee18b036, 0x4daa6a1e23e230, 0x498e5a6c6f44bf, 0x45b586e7f09ea}
 #else
-{0x0, 0x0, 0x0, 0x0, 0x0}
+{0xcdaac2e, 0x622173a, 0x626070a, 0xdf17ea3, 0x18b0366, 0xb345dee, 0x11f1185, 0x6d5350f, 0x1bd12fe, 0x263969b, 0xcfe13d5, 0x16b0d}
 #endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}
+#elif RADIX == 64
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#else
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
 #endif
 }, {
-#if 0
-#elif RADIX == 16
-{0x333, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x2}
-#elif RADIX == 32
-{0x666, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x20000}
-#elif RADIX == 64
 #if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x33, 0x0, 0x0, 0x100000000000000}
-#else
-{0x19, 0x0, 0x0, 0x0, 0x300000000000}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 32
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+{{0x555555555555555, 0x0, 0x0, 0x0, 0x0, 0x10}}
 #elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x0, 0x0, 0x0, 0x0}
+{0x15, 0x0, 0x0, 0x0, 0x0, 0x2000000000000}
 #else
-{0x0, 0x0, 0x0, 0x0, 0x0}
+{0x555, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x10000}
 #endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}
+#elif RADIX == 64
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#else
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
 #endif
 }}, true}, {{{
-#if 0
-#elif RADIX == 16
-{0x14ba, 0xa50, 0x219, 0x1ca8, 0x1858, 0xe67, 0x1b19, 0xb09, 0x17fa, 0x89f, 0x10d7, 0x1a55, 0x14de, 0x1f37, 0x12f0, 0x1247, 0x1aa6, 0x109f, 0x493, 0x6}
-#elif RADIX == 32
-{0xa942975, 0x18e54086, 0x32e67c2, 0x1fe9613b, 0x186ba27e, 0xf4ded2a, 0x11e5e1f3, 0x4fea9a4, 0x1249c}
-#elif RADIX == 64
 #if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0xf858e5408654a14b, 0xd13f7fa584ec65cc, 0xcbc3e6f4ded2ac35, 0x35124e13faa6923}
-#else
-{0x472a0432a50a5, 0x2584ec65ccf85, 0x5a5586ba27eff, 0x248f2f0f9bd37, 0x42892709fd53}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x1ba, 0xab8, 0x1ded, 0xdc9, 0xf40, 0xaa3, 0x169, 0x53c, 0x2, 0x848, 0x9a6, 0xbad, 0xb7e, 0x15dc, 0x87, 0x1cf3, 0x1791, 0x1af2, 0x1cdf, 0x7}
-#elif RADIX == 32
-{0xaae0375, 0x6e4f7b, 0xd2aa37a, 0x8a781, 0x14d32120, 0x18b7e5d6, 0x1cc10f5d, 0x1795e479, 0x2e6fe}
+{{0x518dbf20a769bc7e, 0xaaab904829ea6c1e, 0x353bcc921fb98b1a, 0x6386ecf222c1bbc8, 0xf53961bdd2eb34d7, 0x4}}
 #elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x6f406e4f7b55701b, 0x909000229e05a554, 0x821ebb8b7e5d6a69, 0x35f37f5e5791e79}
+{0x4120a7a9b07946, 0x10fdcc58d5555c, 0x2c1bbc8353bcc9, 0x669aec70dd9e44, 0x693d4e586f74ba, 0x149eb0fb1e9ab}
 #else
-{0x3727bdaab80d, 0x229e05a5546f4, 0x4bad4d3212000, 0x79e6087aee2df, 0x42f9bfaf2bc8}
+{0xc1e518d, 0x4829ea6, 0xaaaab90, 0x1fb98b1, 0x53bcc92, 0xc1bbc83, 0x6ecf222, 0x34d7638, 0x1bdd2eb, 0xa4f5396, 0xf63d357, 0x23d61}
 #endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0xcb523ed81be90a5, 0x497073f6bb04b48b, 0x166e5d9ee9ca3725, 0xe19f8a46836a2957, 0x9999a7c6bf8c4ec3, 0x2a}}
+#elif RADIX == 64
+{0x4fdaec12d22c32, 0x774e51b92a4b83, 0x36a2957166e5d9, 0x9d87c33f148d0, 0x46a66669f1afe3, 0x4fb5e4429dd8f}
+#else
+{0x48b0cb5, 0xf6bb04b, 0x5497073, 0xe9ca372, 0x66e5d9e, 0x6a29571, 0xf8a4683, 0x4ec3e19, 0x7c6bf8c, 0x1a9999a, 0x853bb1f, 0x6bc8}
 #endif
 }, {
-#if 0
-#elif RADIX == 16
-{0x333, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x2}
-#elif RADIX == 32
-{0x666, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x20000}
-#elif RADIX == 64
 #if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x33, 0x0, 0x0, 0x100000000000000}
-#else
-{0x19, 0x0, 0x0, 0x0, 0x300000000000}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 32
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+{{0x555555555555555, 0x0, 0x0, 0x0, 0x0, 0x10}}
 #elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x0, 0x0, 0x0, 0x0}
+{0x15, 0x0, 0x0, 0x0, 0x0, 0x2000000000000}
 #else
-{0x0, 0x0, 0x0, 0x0, 0x0}
+{0x555, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x10000}
 #endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}
+#elif RADIX == 64
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#else
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
 #endif
 }}, {{
-#if 0
-#elif RADIX == 16
-{0x5b, 0xad0, 0x69, 0x1038, 0x18d2, 0x180d, 0x1871, 0x46b, 0x26b, 0x1ef2, 0xe46, 0x72d, 0xc0d, 0x15a4, 0x6d7, 0x221, 0x1611, 0x1a89, 0xd3f, 0x8}
-#elif RADIX == 32
-{0xab400b7, 0x1281c01a, 0xe380dc6, 0x9ac8d78, 0x17237bc8, 0x8c0d396, 0x84daf5a, 0x144d8444, 0x369fe}
-#elif RADIX == 64
 #if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0xb8d281c01a55a005, 0xbde426b235e1c701, 0x9b5eb48c0d396b91, 0x3b34ff513611110}
-#else
-{0x140e00d2ad002, 0x3235e1c701b8d, 0x272d7237bc84d, 0x44426d7ad2303, 0x459a7fa89b08}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x1131, 0xac7, 0xa16, 0x918, 0x5d8, 0x1e64, 0x3e5, 0x142c, 0x1f89, 0x1cb7, 0xf96, 0x370, 0x4da, 0xf45, 0x1aa5, 0x1872, 0x1fc, 0xd83, 0x1145, 0x6}
-#elif RADIX == 32
-{0x12b1e263, 0x1848c285, 0x1cbe642e, 0x1e268583, 0x7cb72df, 0xa4da1b8, 0x1cb54af4, 0xc187f30, 0x18a2b}
+{{0x376ae2ed7fc4a0e0, 0xba418de90a973183, 0xcb2b6638e02c6815, 0xe12771265f79b9ce, 0xe44daf2f7c0997ca, 0x2c}}
 #elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x85d848c285958f13, 0xb96ff89a160f97cc, 0x6a95e8a4da1b83e5, 0x84515b061fcc39}
+{0x37a42a5cc60cdd, 0x47016340add20c, 0x779b9cecb2b663, 0x32f95c24ee24cb, 0xb39136bcbdf02, 0x4054643fa6f15}
 #else
-{0x4246142cac789, 0x1a160f97cc85d, 0x43707cb72dff1, 0x30e5aa57a2936, 0x2c228ad830fe}
+{0x183376a, 0xe90a973, 0x5ba418d, 0xe02c681, 0xb2b6638, 0x79b9cec, 0x771265f, 0x97cae12, 0xf2f7c09, 0x2ce44da, 0x7f4de2a, 0x2a8c8}
 #endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0xfbad7bb05e282514, 0x2b312e044ef84c60, 0xb3f9a7f4b048079e, 0x71a9bb9915bc36fe, 0xde4aa34a02c6a8c4, 0x26}}
+#elif RADIX == 64
+{0x38113be13183ee, 0x2582403cf15989, 0x5bc36feb3f9a7f, 0x55188e35377322, 0x79b792a8d280b1, 0x4439888d3c379}
+#else
+{0xc60fbad, 0x44ef84, 0xe2b312e, 0xb048079, 0x3f9a7f4, 0xbc36feb, 0x9bb9915, 0xa8c471a, 0x34a02c6, 0xe6de4aa, 0x1a786f3, 0x17311}
 #endif
 }, {
-#if 0
-#elif RADIX == 16
-{0x333, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x2}
-#elif RADIX == 32
-{0x666, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x20000}
-#elif RADIX == 64
 #if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x33, 0x0, 0x0, 0x100000000000000}
-#else
-{0x19, 0x0, 0x0, 0x0, 0x300000000000}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 32
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+{{0x555555555555555, 0x0, 0x0, 0x0, 0x0, 0x10}}
 #elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x0, 0x0, 0x0, 0x0}
+{0x15, 0x0, 0x0, 0x0, 0x0, 0x2000000000000}
 #else
-{0x0, 0x0, 0x0, 0x0, 0x0}
+{0x555, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x10000}
 #endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}
+#elif RADIX == 64
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#else
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
 #endif
 }}, {{
-#if 0
-#elif RADIX == 16
-{0x7a4, 0x388, 0xd00, 0x66c, 0x1a9a, 0xabc, 0x97b, 0xadc, 0xaab, 0x1601, 0x287, 0xb2a, 0x1ab7, 0x1803, 0x1d06, 0x81c, 0x890, 0x11e0, 0x1e19, 0x0}
-#elif RADIX == 32
-{0xe20f48, 0x1a336340, 0xf6abcd4, 0xaad5b89, 0x143d805, 0x7ab7595, 0x73a0d80, 0xf022410, 0xf0cc}
-#elif RADIX == 64
 #if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x9a9a33634007107a, 0xec02aab56e25ed57, 0x741b007ab75950a1, 0x1478663c089040e}
-#else
-{0x519b1a003883d, 0x356e25ed579a9, 0x6b2a143d80555, 0x1039d06c01ead, 0xa3c331e0448}
-#endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x1e68, 0xcde, 0x29, 0x1777, 0x1ef8, 0x1a1c, 0x204, 0x148, 0x14ba, 0x1c39, 0x175, 0x1263, 0x4de, 0x1032, 0x1649, 0x5a4, 0xad, 0xcfb, 0x870, 0x3}
-#elif RADIX == 32
-{0xb37bcd0, 0x18bbb80a, 0x9a1cf7, 0x12e82902, 0x10baf0e6, 0x44de931, 0x92c9303, 0x7d82b4b, 0x34383}
+{{0x293aaef4058e5f3b, 0xae023e0b3adfa6bb, 0x9c9a3de1c8aba525, 0x8ef95d6502013e53, 0x2c7427a4a4488ec5, 0xf}}
 #elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x9ef8bbb80a59bde6, 0x78734ba0a4081343, 0x59260644de93185d, 0x29a1c19f60ad2d2}
+{0x782ceb7e9aeca4, 0xe455d292d7011, 0x2013e539c9a3de, 0x11d8b1df2baca0, 0x47cb1d09e92912, 0x58066e08558ed}
 #else
-{0x45ddc052cdef3, 0x20a40813439ef, 0x52630baf0e697, 0x4b49649819137, 0x14d0e0cfb056}
+{0x6bb293a, 0xb3adfa, 0x5ae023e, 0xc8aba52, 0xc9a3de1, 0x13e539, 0x95d6502, 0x8ec58ef, 0x7a4a448, 0x1f2c742, 0x10ab1db, 0x20cdc}
 #endif
-#endif
-}, {
-#if 0
-#elif RADIX == 16
-{0x333, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x2}
-#elif RADIX == 32
-{0x666, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x20000}
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x6ea157165efb1f60, 0xd6577aeb55fc16f7, 0x90c01a06e7128f6b, 0xfab3aa5e875a1c5f, 0x4d94db405f34736d, 0x1e}}
 #elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x33, 0x0, 0x0, 0x100000000000000}
+{0x6bad57f05bddba, 0x3738947b5eb2bb, 0x75a1c5f90c01a0, 0xe6dbf56754bd0, 0x7936536d017cd, 0x3202a18e78af1}
 #else
-{0x19, 0x0, 0x0, 0x0, 0x300000000000}
+{0x6f76ea1, 0xeb55fc1, 0xbd6577a, 0xe7128f6, 0xc01a06, 0x5a1c5f9, 0x3aa5e87, 0x736dfab, 0xb405f34, 0x1e4d94d, 0x1cf15e2, 0x10543}
 #endif
-#endif
-, 
-#if 0
-#elif RADIX == 16
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
-#elif RADIX == 32
-{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+}, {
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x555555555555555, 0x0, 0x0, 0x0, 0x0, 0x10}}
 #elif RADIX == 64
-#if defined(SQISIGN_GF_IMPL_BROADWELL)
-{0x0, 0x0, 0x0, 0x0}
+{0x15, 0x0, 0x0, 0x0, 0x0, 0x2000000000000}
 #else
-{0x0, 0x0, 0x0, 0x0, 0x0}
+{0x555, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x10000}
 #endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}
+#elif RADIX == 64
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#else
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
 #endif
-}}}, {{
-{0xc57273deb1867177, 0xfe177031c0ee9802, 0xed41e2a741c5bc2e, 0x1ef5bc9ff91cbf}
-, 
-{0x75c232b6bae3726a, 0x382ad1726e79e003, 0x6a39a56379628a51, 0xa0f6f0c9109cdd}
+}}}, {{{
+    UINT64_C(0x1478d8602e83aee1), UINT64_C(0x3e5868bf0261103f), UINT64_C(0xe290ff05184dcac2), UINT64_C(0xe2bbfec3898a6070), UINT64_C(0x40136fb9a80bcb27), UINT64_C(0x7), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
 }, {
-{0xbd8754e69fa9246b, 0x25fa64701c7015b5, 0x7eb5a6e989403f5c, 0x16a8df54a16109}
-, 
-{0x3a8d8c214e798e89, 0x1e88fce3f1167fd, 0x12be1d58be3a43d1, 0xe10a436006e340}
+    UINT64_C(0xbd2d0c95cd6842fa), UINT64_C(0x3322977131cd3171), UINT64_C(0xeba11d6ac5d4e529), UINT64_C(0x39a742e235d23feb), UINT64_C(0x22d21d22ee9a6b73), UINT64_C(0x6), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
 }}, {{
-{0xb19c16401af2231b, 0xf39a683ee470f713, 0x904ec26e7a543289, 0x4455fc6a0cd5a6}
-, 
-{0x55d2de69b685ad7a, 0x925f591684e85675, 0x83917c511cb68c0a, 0xcd96ce11d1ffce}
+    UINT64_C(0x956e3e1cd1b07723), UINT64_C(0xf8c8f47d93330ca2), UINT64_C(0x34ba76aa1c5f6431), UINT64_C(0x5957193a74ee0080), UINT64_C(0x1865921137587586), UINT64_C(0x7), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
 }, {
-{0x959b1b9279bd3724, 0x64a727d46f18b3ec, 0x664bade78c7e9b4b, 0x486a1da287a6d9}
-, 
-{0x4e63e9bfe50ddce5, 0xc6597c11b8f08ec, 0x6fb13d9185abcd76, 0xbbaa0395f32a59}
+    UINT64_C(0xeb87279fd17c511f), UINT64_C(0xc1a79740fd9eefc0), UINT64_C(0x1d6f00fae7b2353d), UINT64_C(0x1d44013c76759f8f), UINT64_C(0xbfec904657f434d8), UINT64_C(0x8), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}}, {{{
+    UINT64_C(0x1), 0, 0, 0, 0, UINT64_C(0x8), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0xf9aa578cc89b37aa), UINT64_C(0x45e0ad960b1e99dc), UINT64_C(0x3af32f20cf9be61a), UINT64_C(0xf70c331e2c33672f), UINT64_C(0x522a804303ccda22), UINT64_C(0xd), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
 }}, {{
-{0x9cbe086c2b021975, 0x737ed9a7b1c37576, 0xf9bf7652a2454de1, 0x8eaa1dc2c4bf8}
-, 
-{0x337c717746bcee88, 0x3366b65740dc92b6, 0x114640eb2b986c8a, 0xe3a22fb00ae116}
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
 }, {
-{0x40b9e24864d3f28d, 0xcf3582ea82bb5141, 0x6e88d71f0003faf0, 0xcc6b9ef4c97ac9}
-, 
-{0x6341f793d4fde68b, 0x8c8126584e3c8a89, 0x64089ad5dbab21e, 0xf7155e23d3b407}
+    UINT64_MAX, UINT64_MAX, UINT64_MAX, UINT64_MAX, UINT64_MAX, UINT64_C(0x7), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}}, {{{
+    UINT64_C(0x1478d8602e83aee1), UINT64_C(0x3e5868bf0261103f), UINT64_C(0xe290ff05184dcac2), UINT64_C(0xe2bbfec3898a6070), UINT64_C(0x40136fb9a80bcb27), UINT64_C(0xf), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0x22fe71ae0ad73570), UINT64_C(0x7ca4cac5b21db35d), UINT64_C(0xe0e3900483a69f03), UINT64_C(0x5416fbd3113166f6), UINT64_C(0xc68b162c2106affa), 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
 }}, {{
-{0xc57273deb1867177, 0xfe177031c0ee9802, 0xed41e2a741c5bc2e, 0x1ef5bc9ff91cbf}
-, 
-{0x75c232b6bae3726a, 0x382ad1726e79e003, 0x6a39a56379628a51, 0xa0f6f0c9109cdd}
+    UINT64_C(0x956e3e1cd1b07723), UINT64_C(0xf8c8f47d93330ca2), UINT64_C(0x34ba76aa1c5f6431), UINT64_C(0x5957193a74ee0080), UINT64_C(0x1865921137587586), UINT64_C(0xf), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
 }, {
-{0xbd8754e69fa9246b, 0x25fa64701c7015b5, 0x7eb5a6e989403f5c, 0x16a8df54a16109}
-, 
-{0x3a8d8c214e798e89, 0x1e88fce3f1167fd, 0x12be1d58be3a43d1, 0xe10a436006e340}
+    UINT64_C(0xeb87279fd17c511f), UINT64_C(0xc1a79740fd9eefc0), UINT64_C(0x1d6f00fae7b2353d), UINT64_C(0x1d44013c76759f8f), UINT64_C(0xbfec904657f434d8), 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}}, {{{
+    UINT64_C(0x1478d8602e83aee1), UINT64_C(0x3e5868bf0261103f), UINT64_C(0xe290ff05184dcac2), UINT64_C(0xe2bbfec3898a6070), UINT64_C(0x40136fb9a80bcb27), UINT64_C(0x7), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0xbd2d0c95cd6842fa), UINT64_C(0x3322977131cd3171), UINT64_C(0xeba11d6ac5d4e529), UINT64_C(0x39a742e235d23feb), UINT64_C(0x22d21d22ee9a6b73), UINT64_C(0x6), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
 }}, {{
-{0xd8ce0b200d79118e, 0xf9cd341f72387b89, 0x482761373d2a1944, 0x222afe35066ad3}
-, 
-{0xaae96f34db42d6bd, 0x492fac8b42742b3a, 0x41c8be288e5b4605, 0x66cb6708e8ffe7}
+    UINT64_C(0x956e3e1cd1b07723), UINT64_C(0xf8c8f47d93330ca2), UINT64_C(0x34ba76aa1c5f6431), UINT64_C(0x5957193a74ee0080), UINT64_C(0x1865921137587586), UINT64_C(0x7), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
 }, {
-{0x4acd8dc93cde9b92, 0xb25393ea378c59f6, 0xb325d6f3c63f4da5, 0x24350ed143d36c}
-, 
-{0x2731f4dff286ee73, 0x632cbe08dc78476, 0xb7d89ec8c2d5e6bb, 0xddd501caf9952c}
+    UINT64_C(0xeb87279fd17c511f), UINT64_C(0xc1a79740fd9eefc0), UINT64_C(0x1d6f00fae7b2353d), UINT64_C(0x1d44013c76759f8f), UINT64_C(0xbfec904657f434d8), UINT64_C(0x8), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}}, {{{
+    UINT64_C(0x1), 0, 0, 0, 0, UINT64_C(0xc), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0x7cd52bc6644d9bd5), UINT64_C(0x22f056cb058f4cee), UINT64_C(0x9d79979067cdf30d), UINT64_C(0x7b86198f1619b397), UINT64_C(0xa915402181e66d11), UINT64_C(0x6), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
 }}, {{
-{0xc440bcc48ad184a0, 0x784e15c646ea94e1, 0x2bee0630d26f0190, 0x3ce06193ce74b1}
-, 
-{0xa69bfa45dafe1e2b, 0xa0f9927df670b77e, 0x5f229607c897ccb5, 0xd9f781086747bf}
+    0, 0, 0, 0, 0, UINT64_C(0x8), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
 }, {
-{0x19bd02adbd3f2aa2, 0xd17e3fff3b95e6f0, 0x3b21da467888f3a6, 0xc43e505301cc57}
-, 
-{0x3bbf433b752e7b60, 0x87b1ea39b9156b1e, 0xd411f9cf2d90fe6f, 0xc31f9e6c318b4e}
-}}}};
+    0, 0, 0, 0, 0, UINT64_C(0x4), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}}, {{{
+    UINT64_C(0xbd22b372e5f9fcb7), UINT64_C(0x46d91c126a6433dd), UINT64_C(0x7b68e17a9189719b), UINT64_C(0xa8a7c34174dea02e), UINT64_C(0xfc443d103622f94c), UINT64_C(0x6), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0x345027db16898ceb), UINT64_C(0x4011f18e01ac79f3), UINT64_C(0x59cf72277186333f), UINT64_C(0x4baaff833ce2d568), UINT64_C(0xeb67aa51e0c3edfe), UINT64_C(0x6), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}, {{
+    UINT64_C(0x97e219936566c7a5), UINT64_C(0x2a34a0e869c9b9e8), UINT64_C(0x42e35e09cf7292ab), UINT64_C(0x33d891eae4da78ad), UINT64_C(0x4647f0d9e99ce519), UINT64_C(0x1), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0x42dd4c8d1a060349), UINT64_C(0xb926e3ed959bcc22), UINT64_C(0x84971e856e768e64), UINT64_C(0x57583cbe8b215fd1), UINT64_C(0x3bbc2efc9dd06b3), UINT64_C(0x9), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}}}, {{{
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0xd60175df3e19b619, 0x158b0f328fd3105a, 0xd335591954e56926, 0x3ade5ba414bb9f0b, 0x22b5aa9d31b584c2, 0x27}}
+#elif RADIX == 64
+{0x3cca3f4c416b58, 0x4aa72b4930ac58, 0x4bb9f0bd335591, 0x3098475bcb7482, 0x35c8ad6aa74c6d, 0x230cedd26912}
+#else
+{0x5ad601, 0x328fd31, 0x6158b0f, 0x54e5692, 0x3355919, 0xbb9f0bd, 0xe5ba414, 0x84c23ad, 0xa9d31b5, 0xd722b5a, 0xba4d224, 0x1619d}
+#endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}
+#elif RADIX == 64
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#else
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#endif
+}, {
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x555555555555555, 0x0, 0x0, 0x0, 0x0, 0x10}}
+#elif RADIX == 64
+{0x15, 0x0, 0x0, 0x0, 0x0, 0x2000000000000}
+#else
+{0x555, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x10000}
+#endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}
+#elif RADIX == 64
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#else
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#endif
+}, {{
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0xb82b08227a311831, 0x8562c3cca3f4c416, 0xf4cd564655395a49, 0x8eb796e9052ee7c2, 0xc8ad6aa74c6d6130, 0x5}}
+#elif RADIX == 64
+{0xf328fd3105ae0, 0x32a9cad24c2b16, 0x52ee7c2f4cd564, 0x2c2611d6f2dd20, 0x4d722b5aa9d31b, 0x408c33b749a44}
+#else
+{0x416b82b, 0xcca3f4c, 0x98562c3, 0x55395a4, 0x4cd5646, 0x2ee7c2f, 0x796e905, 0x61308eb, 0xaa74c6d, 0x35c8ad6, 0x6e93489, 0x1867}
+#endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}
+#elif RADIX == 64
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#else
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#endif
+}, {
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x555555555555555, 0x0, 0x0, 0x0, 0x0, 0x10}}
+#elif RADIX == 64
+{0x15, 0x0, 0x0, 0x0, 0x0, 0x2000000000000}
+#else
+{0x555, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x10000}
+#endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}
+#elif RADIX == 64
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#else
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#endif
+}}, true}, {{{
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x2cd17079a9a316ee, 0xb31a168125405c64, 0x47ebb0eb7fb79941, 0x56d6aa20d1b03f0b, 0x6f8aa2f9736193e6, 0x1}}
+#elif RADIX == 64
+{0x5a0495017190b3, 0x5bfdbcca0d98d0, 0x1b03f0b47ebb0e, 0x327ccadad5441a, 0x285be2a8be5cd8, 0x1a28b67e74a26}
+#else
+{0xc642cd1, 0x8125405, 0x1b31a16, 0x7fb7994, 0x7ebb0eb, 0xb03f0b4, 0x6aa20d1, 0x93e656d, 0x2f97361, 0xa16f8aa, 0xfce944c, 0x1516c}
+#endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0xe36a7b1ac182f15f, 0x91aaa45db8fec04f, 0x992161da0dd84f8, 0xbc357ba247b5ff95, 0xf2738b4fcd594091, 0x12}}
+#elif RADIX == 64
+{0x1176e3fb013f8d, 0x6d06ec27c48d55, 0x7b5ff950992161, 0x28123786af7448, 0x78bc9ce2d3f356, 0x3fb8a822446a0}
+#else
+{0x4fe36a, 0x5db8fec, 0x891aaa4, 0xa0dd84f, 0x992161d, 0xb5ff950, 0x57ba247, 0x4091bc3, 0xb4fcd59, 0xe2f2738, 0x4488d41, 0x17150}
+#endif
+}, {
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x555555555555555, 0x0, 0x0, 0x0, 0x0, 0x10}}
+#elif RADIX == 64
+{0x15, 0x0, 0x0, 0x0, 0x0, 0x2000000000000}
+#else
+{0x555, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x10000}
+#endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}
+#elif RADIX == 64
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#else
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#endif
+}}, {{
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x55b2bd90e60fa816, 0x5084c04c802a4791, 0x2504edcf6d78e14c, 0x8fa70668d8a320f4, 0xed2721c8e0beeee7, 0x2e}}
+#elif RADIX == 64
+{0x13200a91e4556, 0x7b6bc70a628426, 0xa320f42504edc, 0x5ddcf1f4e0cd1b, 0x13bb49c872382f, 0x4c1c5959177c2}
+#else
+{0x79155b2, 0x4c802a4, 0xc5084c0, 0x6d78e14, 0x504edcf, 0xa320f42, 0x70668d8, 0xeee78fa, 0x1c8e0be, 0x4eed272, 0xb22ef84, 0x238b2}
+#endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x9b08b6f180e4d04a, 0x16a6890bad88d7e3, 0xade886c7b1102d5c, 0x59020236dbe3f4cd, 0xf745280726487de2, 0x10}}
+#elif RADIX == 64
+{0x242eb6235f8e6c, 0x3d88816ae0b534, 0x3e3f4cdade886c, 0xfbc4b204046db, 0x7c3dd14a01c992, 0xd126a4157386}
+#else
+{0x7e39b08, 0xbad88d, 0xc16a689, 0xb1102d5, 0xde886c7, 0xe3f4cda, 0x20236db, 0x7de2590, 0x8072648, 0xf0f7452, 0x82ae70d, 0x224d4}
+#endif
+}, {
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x555555555555555, 0x0, 0x0, 0x0, 0x0, 0x10}}
+#elif RADIX == 64
+{0x15, 0x0, 0x0, 0x0, 0x0, 0x2000000000000}
+#else
+{0x555, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x10000}
+#endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}
+#elif RADIX == 64
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#else
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#endif
+}}, {{
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x8cec5100190e1a23, 0x3692711d57dd202c, 0x44037341b601e6a, 0xb870b298e05463a4, 0x30fec32632708933, 0x2e}}
+#elif RADIX == 64
+{0x44755f7480b233, 0x20db00f351b493, 0x5463a40440373, 0x1126770e16531c, 0x2f8c3fb0c98c9c, 0x4279802595273}
+#else
+{0x2c8cec, 0x1d57dd2, 0xa369271, 0x1b601e6, 0x4403734, 0x5463a40, 0xb298e0, 0x8933b87, 0x3263270, 0xbe30fec, 0x4b2a4e6, 0xf300}
+#endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x216867b2ce3540ea, 0x800a65fed326faa2, 0x7052e1c1bce65404, 0x183ab493d525da20, 0xf72bb654c62dd83e, 0x1e}}
+#elif RADIX == 64
+{0x17fb4c9bea8885, 0xde732a0240053, 0x525da207052e1c, 0x3b07c30756927a, 0x7fbdcaed95318b, 0x3c9b8c354fe15}
+#else
+{0xaa22168, 0xfed326f, 0x4800a65, 0xbce6540, 0x52e1c1, 0x25da207, 0xab493d5, 0xd83e183, 0x654c62d, 0xfef72bb, 0x6a9fc2b, 0x13718}
+#endif
+}, {
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x555555555555555, 0x0, 0x0, 0x0, 0x0, 0x10}}
+#elif RADIX == 64
+{0x15, 0x0, 0x0, 0x0, 0x0, 0x2000000000000}
+#else
+{0x555, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x10000}
+#endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}
+#elif RADIX == 64
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#else
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#endif
+}}}, {{{
+    UINT64_C(0xcee01331cc1368f1), UINT64_C(0x91aea304894cbeae), UINT64_C(0x2a4c41a90ee0104b), UINT64_C(0x267c2c4594c68e34), UINT64_C(0xfeab60184e8324eb), UINT64_C(0xe), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0x4400bfe67a81dcb6), UINT64_C(0xc9810adbafde5a58), UINT64_C(0xa834019440bcbebc), UINT64_C(0xf4b5ad115903ebf4), UINT64_C(0x201b7859abe4db7c), UINT64_C(0x4), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}, {{
+    UINT64_C(0xa99cd0d7e1544d53), UINT64_C(0x8be399694b128243), UINT64_C(0x70ba58651786022), UINT64_C(0xd6c053fccbeb6a16), UINT64_C(0x9593684053ca405f), UINT64_C(0x1), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0x311fecce33ec970f), UINT64_C(0x6e515cfb76b34151), UINT64_C(0xd5b3be56f11fefb4), UINT64_C(0xd983d3ba6b3971cb), UINT64_C(0x1549fe7b17cdb14), UINT64_C(0x1), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}}, {{{
+    UINT64_C(0x1), 0, 0, 0, 0, UINT64_C(0x8), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0xf9aa578cc89b37aa), UINT64_C(0x45e0ad960b1e99dc), UINT64_C(0x3af32f20cf9be61a), UINT64_C(0xf70c331e2c33672f), UINT64_C(0x522a804303ccda22), UINT64_C(0xd), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}, {{
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_MAX, UINT64_MAX, UINT64_MAX, UINT64_MAX, UINT64_MAX, UINT64_C(0x7), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}}, {{{
+    UINT64_C(0xcee01331cc1368f1), UINT64_C(0x91aea304894cbeae), UINT64_C(0x2a4c41a90ee0104b), UINT64_C(0x267c2c4594c68e34), UINT64_C(0xfeab60184e8324eb), UINT64_C(0x6), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0x13d2b68c07d89a54), UINT64_C(0x1b61a53818cb2e82), UINT64_C(0xe594f16480e48f32), UINT64_C(0xc4ee5e2bf0b5f9ce), UINT64_C(0xd1835e0fa69899c6), UINT64_C(0x6), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}, {{
+    UINT64_C(0xa99cd0d7e1544d53), UINT64_C(0x8be399694b128243), UINT64_C(0x70ba58651786022), UINT64_C(0xd6c053fccbeb6a16), UINT64_C(0x9593684053ca405f), UINT64_C(0x9), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0x311fecce33ec970f), UINT64_C(0x6e515cfb76b34151), UINT64_C(0xd5b3be56f11fefb4), UINT64_C(0xd983d3ba6b3971cb), UINT64_C(0x1549fe7b17cdb14), UINT64_C(0x9), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}}, {{{
+    UINT64_C(0xcee01331cc1368f1), UINT64_C(0x91aea304894cbeae), UINT64_C(0x2a4c41a90ee0104b), UINT64_C(0x267c2c4594c68e34), UINT64_C(0xfeab60184e8324eb), UINT64_C(0xe), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0x4400bfe67a81dcb6), UINT64_C(0xc9810adbafde5a58), UINT64_C(0xa834019440bcbebc), UINT64_C(0xf4b5ad115903ebf4), UINT64_C(0x201b7859abe4db7c), UINT64_C(0x4), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}, {{
+    UINT64_C(0xa99cd0d7e1544d53), UINT64_C(0x8be399694b128243), UINT64_C(0x70ba58651786022), UINT64_C(0xd6c053fccbeb6a16), UINT64_C(0x9593684053ca405f), UINT64_C(0x1), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0x311fecce33ec970f), UINT64_C(0x6e515cfb76b34151), UINT64_C(0xd5b3be56f11fefb4), UINT64_C(0xd983d3ba6b3971cb), UINT64_C(0x1549fe7b17cdb14), UINT64_C(0x1), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}}, {{{
+    UINT64_C(0x1), 0, 0, 0, 0, UINT64_C(0xc), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0x7cd52bc6644d9bd5), UINT64_C(0x22f056cb058f4cee), UINT64_C(0x9d79979067cdf30d), UINT64_C(0x7b86198f1619b397), UINT64_C(0xa915402181e66d11), UINT64_C(0x6), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}, {{
+    0, 0, 0, 0, 0, UINT64_C(0x8), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    0, 0, 0, 0, 0, UINT64_C(0x4), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}}, {{{
+    UINT64_C(0xf0c120708ec83b0d), UINT64_C(0xddc3706282e2da12), UINT64_C(0xf2a4e83d4b3cb59b), UINT64_C(0x31db576b295e582), UINT64_C(0xdc46d733ae6f5214), UINT64_C(0xa), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0xc67c9cd1ea340c43), UINT64_C(0xfaeacbbe2bf1797b), UINT64_C(0x70ef926ca039e3bc), UINT64_C(0xebaa29d45fa17520), UINT64_C(0x9cf97e144717c9a9), UINT64_C(0xa), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}, {{
+    UINT64_C(0xffac40d03d1a29a7), UINT64_C(0x19c2387020203a14), UINT64_C(0xcd389479221c87c4), UINT64_C(0x544d57dbb20b443b), UINT64_C(0xbba95551c1ba5a99), UINT64_C(0x1), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0xf3edf8f7137c4f3), UINT64_C(0x223c8f9d7d1d25ed), UINT64_C(0xd5b17c2b4c34a64), UINT64_C(0xfce24a894d6a1a7d), UINT64_C(0x23b928cc5190adeb), UINT64_C(0x5), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}}}, {{{
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x6023f7f1cc9aeb91, 0x54ba3bdca741a43b, 0xd7a83e96219d6fb1, 0x1998b9e506b7751f, 0xa7bad7df5d740afd, 0x27}}
+#elif RADIX == 64
+{0x6f729d0690ed80, 0x310ceb7d8aa5d1, 0x6b7751fd7a83e9, 0x15fa333173ca0, 0x55e9eeb5f7d75d, 0x35f3eab2e8615}
+#else
+{0x43b6023, 0xdca741a, 0x154ba3b, 0x219d6fb, 0x7a83e96, 0xb7751fd, 0x8b9e506, 0xafd199, 0x7df5d74, 0x57a7bad, 0x65d0c2b, 0x2e7d5}
+#endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}
+#elif RADIX == 64
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#else
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#endif
+}, {
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x555555555555555, 0x0, 0x0, 0x0, 0x0, 0x10}}
+#elif RADIX == 64
+{0x15, 0x0, 0x0, 0x0, 0x0, 0x2000000000000}
+#else
+{0x555, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x10000}
+#endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}
+#elif RADIX == 64
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#else
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#endif
+}, {{
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0xdab3a8a71dd1658f, 0x552e8ef729d0690e, 0xf5ea0fa588675bec, 0x46662e7941addd47, 0xe9eeb5f7d75d02bf, 0x5}}
+#elif RADIX == 64
+{0x3bdca741a43b6a, 0x2c433adf62a974, 0x1addd47f5ea0fa, 0x2057e8ccc5cf28, 0x357a7bad7df5d7, 0x4d7cfaacba185}
+#else
+{0x90edab3, 0xf729d06, 0xc552e8e, 0x88675be, 0x5ea0fa5, 0xaddd47f, 0x62e7941, 0x2bf466, 0x5f7d75d, 0xd5e9eeb, 0x597430a, 0x1f9f5}
+#endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}
+#elif RADIX == 64
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#else
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#endif
+}, {
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x555555555555555, 0x0, 0x0, 0x0, 0x0, 0x10}}
+#elif RADIX == 64
+{0x15, 0x0, 0x0, 0x0, 0x0, 0x2000000000000}
+#else
+{0x555, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x10000}
+#endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}
+#elif RADIX == 64
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#else
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#endif
+}}, true}, {{{
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x1c214bbfcb30b516, 0x19a2d69f525a7fc5, 0xc6f543afa5bfa558, 0x3f558afb0ffa43a3, 0xa118480ffd0fb658, 0x21}}
+#elif RADIX == 64
+{0x5a7d4969ff1470, 0x7d2dfd2ac0cd16, 0x7fa43a3c6f543a, 0x76cb07eab15f61, 0x1068461203ff43, 0x31f19fb0c90fa}
+#else
+{0xfc51c21, 0x9f525a7, 0x819a2d6, 0xa5bfa55, 0x6f543af, 0xfa43a3c, 0x58afb0f, 0xb6583f5, 0x80ffd0f, 0x41a1184, 0x61921f4, 0xe33f}
+#endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0xc489c2e56b9169bd, 0x664313ed564e7006, 0xb7e45e0fb935d883, 0x280fb5f5278ef76f, 0x5e5b6f984c69f256, 0x19}}
+#elif RADIX == 64
+{0x4fb55939c01b12, 0x7dc9aec41b3218, 0x78ef76fb7e45e0, 0x3e4ac501f6bea4, 0x625796dbe6131a, 0xea458215a1e9}
+#else
+{0x6c489, 0xed564e7, 0x3664313, 0xb935d88, 0x7e45e0f, 0x8ef76fb, 0xfb5f527, 0xf256280, 0xf984c69, 0x895e5b6, 0x42b43d3, 0x248b0}
+#endif
+}, {
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x555555555555555, 0x0, 0x0, 0x0, 0x0, 0x10}}
+#elif RADIX == 64
+{0x15, 0x0, 0x0, 0x0, 0x0, 0x2000000000000}
+#else
+{0x555, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x10000}
+#endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}
+#elif RADIX == 64
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#else
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#endif
+}}, {{
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0xb94ea457c71c29fc, 0x960dce632982915a, 0x9c84a0d27adc1e18, 0xb30448af657d7a5, 0x1d5188cbafffa7dc, 0x22}}
+#elif RADIX == 64
+{0x398ca60a456ae5, 0x13d6e0f0c4b06e, 0x657d7a59c84a0d, 0x74fb816608915e, 0x5887546232ebff, 0x15f683aaaa3ef}
+#else
+{0x15ab94e, 0x6329829, 0x8960dce, 0x7adc1e1, 0xc84a0d2, 0x57d7a59, 0x448af6, 0xa7dc0b3, 0x8cbafff, 0x621d518, 0x55547df, 0x1ed07}
+#endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0xf09c54089539c097, 0x8508d2f2f9cb1898, 0x954a739fae2d27b0, 0x218ec5aceadd725f, 0x1978de2d41330f60, 0x26}}
+#elif RADIX == 64
+{0x4bcbe72c6263c2, 0x7d71693d842846, 0x2dd725f954a739, 0x61ec0431d8b59d, 0x1d865e378b504c, 0x2a7e0cdfd6a0e}
+#else
+{0x898f09c, 0xf2f9cb1, 0x8508d2, 0xae2d27b, 0x54a739f, 0xdd725f9, 0xec5acea, 0xf60218, 0xe2d4133, 0x761978d, 0xbfad41c, 0xfc19}
+#endif
+}, {
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x555555555555555, 0x0, 0x0, 0x0, 0x0, 0x10}}
+#elif RADIX == 64
+{0x15, 0x0, 0x0, 0x0, 0x0, 0x2000000000000}
+#else
+{0x555, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x10000}
+#endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}
+#elif RADIX == 64
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#else
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#endif
+}}, {{
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x348685537ece8ab9, 0xde698de8a2e78f4b, 0x8217d9857ff4994, 0x68c5c9bbdee3f2e0, 0x9a7e3cc164151df0, 0x1d}}
+#elif RADIX == 64
+{0x37a28b9e3d2cd2, 0x42bffa4ca6f34c, 0x6e3f2e008217d9, 0x23be0d18b9377b, 0x33669f8f305905, 0x9c7fd3e35d01}
+#else
+{0xf4b3486, 0xe8a2e78, 0x4de698d, 0x57ff499, 0x8217d98, 0xe3f2e00, 0x5c9bbde, 0x1df068c, 0xcc16415, 0xcd9a7e3, 0x7c6ba02, 0x18ffa}
+#endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0xb6e022d316bb7153, 0x95af98f4bb80db85, 0x78832a48f6319ecc, 0xbd4f1a3f4d1e1f7d, 0x5e3743cf1ce220b7, 0x1d}}
+#elif RADIX == 64
+{0x63d2ee036e16db, 0x47b18cf664ad7c, 0x51e1f7d78832a4, 0x4416f7a9e347e9, 0x6b578dd0f3c738, 0x30343ca21929f}
+#else
+{0xb85b6e0, 0xf4bb80d, 0xc95af98, 0xf6319ec, 0x8832a48, 0x1e1f7d7, 0xf1a3f4d, 0x20b7bd4, 0x3cf1ce2, 0xad5e374, 0x443253f, 0x6879}
+#endif
+}, {
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x555555555555555, 0x0, 0x0, 0x0, 0x0, 0x10}}
+#elif RADIX == 64
+{0x15, 0x0, 0x0, 0x0, 0x0, 0x2000000000000}
+#else
+{0x555, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x10000}
+#endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}
+#elif RADIX == 64
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#else
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#endif
+}}}, {{{
+    UINT64_C(0xbf39823f19d2fa8d), UINT64_C(0xb32caeb9a7359e36), UINT64_C(0x5f4b59ff513fc69b), UINT64_C(0xedf1a0cfea77bf6b), UINT64_C(0x9234c27fb23317b1), UINT64_C(0xa), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0x39efe05c41d8840e), UINT64_C(0x59327c1ca9a99f7d), UINT64_C(0x15466a65a6b35689), UINT64_C(0x506070ae9face0a3), UINT64_C(0xd343a9880c2fcc51), UINT64_C(0xc), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}, {{
+    UINT64_C(0xabca9d934b7d2827), UINT64_C(0xa9c5a6e32750e72e), UINT64_C(0x77ca92d5812c07e6), UINT64_C(0x92e8ff3dff3dd233), UINT64_C(0x8576dd8276aa8634), UINT64_C(0xc), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0x40c67dc0e62d0573), UINT64_C(0x4cd3514658ca61c9), UINT64_C(0xa0b4a600aec03964), UINT64_C(0x120e5f3015884094), UINT64_C(0x6dcb3d804dcce84e), UINT64_C(0x5), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}}, {{{
+    UINT64_MAX, UINT64_MAX, UINT64_MAX, UINT64_MAX, UINT64_MAX, UINT64_C(0x7), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0x655a8733764c856), UINT64_C(0xba1f5269f4e16623), UINT64_C(0xc50cd0df306419e5), UINT64_C(0x8f3cce1d3cc98d0), UINT64_C(0xadd57fbcfc3325dd), UINT64_C(0x2), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}, {{
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0x1), 0, 0, 0, 0, UINT64_C(0x8), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}}, {{{
+    UINT64_C(0x40c67dc0e62d0573), UINT64_C(0x4cd3514658ca61c9), UINT64_C(0xa0b4a600aec03964), UINT64_C(0x120e5f3015884094), UINT64_C(0x6dcb3d804dcce84e), UINT64_C(0xd), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0x61396d50ec8ad76c), UINT64_C(0x556c9043d9367837), UINT64_C(0xf917eb18eca1a8b0), UINT64_C(0xc25171e833237624), UINT64_C(0x587c0c7504f41dbf), UINT64_C(0x2), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}, {{
+    UINT64_C(0x5435626cb482d7d9), UINT64_C(0x563a591cd8af18d1), UINT64_C(0x88356d2a7ed3f819), UINT64_C(0x6d1700c200c22dcc), UINT64_C(0x7a89227d895579cb), UINT64_C(0xb), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0xbf39823f19d2fa8d), UINT64_C(0xb32caeb9a7359e36), UINT64_C(0x5f4b59ff513fc69b), UINT64_C(0xedf1a0cfea77bf6b), UINT64_C(0x9234c27fb23317b1), UINT64_C(0x2), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}}, {{{
+    UINT64_C(0xbf39823f19d2fa8d), UINT64_C(0xb32caeb9a7359e36), UINT64_C(0x5f4b59ff513fc69b), UINT64_C(0xedf1a0cfea77bf6b), UINT64_C(0x9234c27fb23317b1), UINT64_C(0xa), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0x39efe05c41d8840e), UINT64_C(0x59327c1ca9a99f7d), UINT64_C(0x15466a65a6b35689), UINT64_C(0x506070ae9face0a3), UINT64_C(0xd343a9880c2fcc51), UINT64_C(0xc), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}, {{
+    UINT64_C(0xabca9d934b7d2827), UINT64_C(0xa9c5a6e32750e72e), UINT64_C(0x77ca92d5812c07e6), UINT64_C(0x92e8ff3dff3dd233), UINT64_C(0x8576dd8276aa8634), UINT64_C(0xc), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0x40c67dc0e62d0573), UINT64_C(0x4cd3514658ca61c9), UINT64_C(0xa0b4a600aec03964), UINT64_C(0x120e5f3015884094), UINT64_C(0x6dcb3d804dcce84e), UINT64_C(0x5), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}}, {{{
+    0, 0, 0, 0, 0, UINT64_C(0x4), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0x832ad4399bb2642b), UINT64_C(0xdd0fa934fa70b311), UINT64_C(0x6286686f98320cf2), UINT64_C(0x8479e670e9e64c68), UINT64_C(0x56eabfde7e1992ee), UINT64_C(0x9), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}, {{
+    0, 0, 0, 0, 0, UINT64_C(0x8), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0x1), 0, 0, 0, 0, UINT64_C(0xc), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}}, {{{
+    UINT64_C(0x5e28cfc86b3d17f2), UINT64_C(0x3be4b47aee28aa32), UINT64_C(0x398944d41dbc3df), UINT64_C(0xdd81df6d47a3ea3e), UINT64_C(0x6af3801823b4a51e), UINT64_C(0xf), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0xcb9727213e6caac3), UINT64_C(0xca2be0571d5191de), UINT64_C(0x227a859f9f77799c), UINT64_C(0xd4f84cfb819f1fcf), UINT64_C(0x26f4ab5271cebf76), UINT64_C(0x2), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}, {{
+    UINT64_C(0x2d1fcbfbe5de14d6), UINT64_C(0xaf768d8afca74784), UINT64_C(0x956d14080e88e825), UINT64_C(0x3f818c0bfff8ac28), UINT64_C(0x9ac5b16a5b6bde6c), UINT64_C(0x1), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0xa1d7303794c2e80e), UINT64_C(0xc41b4b8511d755cd), UINT64_C(0xfc676bb2be243c20), UINT64_C(0x227e2092b85c15c1), UINT64_C(0x950c7fe7dc4b5ae1), 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}}}, {{{
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0xabcb4fb10896d07a, 0xd15c4ef4b906e95b, 0x8853e05fbc0c41e3, 0x515f36d6271b0598, 0xbed476d058683e0, 0x21}}
+#elif RADIX == 64
+{0x3bd2e41ba56eaf, 0x7de0620f1e8ae2, 0x71b05988853e05, 0x507c0a2be6dac4, 0x4042fb51db4161, 0x10f7898ce238b}
+#else
+{0x95babcb, 0xf4b906e, 0x3d15c4e, 0xbc0c41e, 0x853e05f, 0x1b05988, 0xf36d627, 0x83e0515, 0x76d0586, 0x10bed4, 0x19c4717, 0xef13}
+#endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}
+#elif RADIX == 64
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#else
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#endif
+}, {
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x555555555555555, 0x0, 0x0, 0x0, 0x0, 0x10}}
+#elif RADIX == 64
+{0x15, 0x0, 0x0, 0x0, 0x0, 0x2000000000000}
+#else
+{0x555, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x10000}
+#endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}
+#elif RADIX == 64
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#else
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#endif
+}, {{
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0xed9d7e96ecd05ec9, 0xf45713bd2e41ba56, 0x2214f817ef031078, 0x1457cdb589c6c166, 0x42fb51db4161a0f8, 0x10}}
+#elif RADIX == 64
+{0x4ef4b906e95bb6, 0x3f781883c7a2b8, 0x1c6c1662214f81, 0x341f028af9b6b1, 0x7010bed476d058, 0x2c3de263388e2}
+#else
+{0xa56ed9d, 0xbd2e41b, 0x8f45713, 0xef03107, 0x214f817, 0xc6c1662, 0x7cdb589, 0xa0f8145, 0x1db4161, 0xc042fb5, 0xc6711c5, 0x17bc4}
+#endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}
+#elif RADIX == 64
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#else
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#endif
+}, {
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x555555555555555, 0x0, 0x0, 0x0, 0x0, 0x10}}
+#elif RADIX == 64
+{0x15, 0x0, 0x0, 0x0, 0x0, 0x2000000000000}
+#else
+{0x555, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x10000}
+#endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}
+#elif RADIX == 64
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#else
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#endif
+}}, true}, {{{
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0xcb872408b6d373b3, 0x75a73ae6dd36902f, 0x8540492a2c717c06, 0x2aaed68841960863, 0x78cc697288cd3c22, 0x16}}
+#elif RADIX == 64
+{0x6b9b74da40bf2e, 0x51638be033ad39, 0x19608638540492, 0x27844555dad108, 0x699e331a5ca233, 0xab60d123d2d8}
+#else
+{0x2fcb87, 0xe6dd369, 0x675a73a, 0x2c717c0, 0x540492a, 0x9608638, 0xed68841, 0x3c222aa, 0x97288cd, 0xa678cc6, 0x247a5b1, 0x6c1a}
+#endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x2ec23e693c19d611, 0xdf884cab3544d3ed, 0xd95bcb931bd184df, 0x56cbcfa327762b3c, 0xec9f8f0e93fa2073, 0x16}}
+#elif RADIX == 64
+{0x32acd5134fb4bb, 0x18de8c26fefc42, 0x7762b3cd95bcb9, 0x440e6ad979f464, 0x51bb27e3c3a4fe, 0x35d9dda26c11}
+#else
+{0x3ed2ec2, 0xab3544d, 0xfdf884c, 0x1bd184d, 0x95bcb93, 0x762b3cd, 0xbcfa327, 0x207356c, 0xf0e93fa, 0x46ec9f8, 0xb44d823, 0xbb3b}
+#endif
+}, {
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x555555555555555, 0x0, 0x0, 0x0, 0x0, 0x10}}
+#elif RADIX == 64
+{0x15, 0x0, 0x0, 0x0, 0x0, 0x2000000000000}
+#else
+{0x555, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x10000}
+#endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}
+#elif RADIX == 64
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#else
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#endif
+}}, {{
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x2ab2fe4b05e26ca7, 0x236624303feaaa6b, 0x7c30a2e695fa4d26, 0xbdb3d417f9b26a7d, 0x59ab07f8daf7aa66, 0xa}}
+#elif RADIX == 64
+{0x10c0ffaaa9acaa, 0x34afd269311b31, 0x1b26a7d7c30a2e, 0x754cd7b67a82ff, 0x56966ac1fe36bd, 0x4c7d7088d3a2f}
+#else
+{0xa6b2ab2, 0x303feaa, 0x6236624, 0x95fa4d2, 0xc30a2e6, 0xb26a7d7, 0x3d417f9, 0xaa66bdb, 0x7f8daf7, 0x5a59ab0, 0x11a745f, 0x2fae1}
+#endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0xb2566420c9fa9d52, 0x2fd7bc70b296c30f, 0x162a98027b9add01, 0xbda2002887f9e7ca, 0x13db084d828c53f5, 0x2d}}
+#elif RADIX == 64
+{0x71c2ca5b0c3ec9, 0x13dcd6e8097ebd, 0x7f9e7ca162a980, 0xa7eb7b4400510, 0x6344f6c21360a3, 0x2196312ef7ebf}
+#else
+{0x30fb256, 0x70b296c, 0x12fd7bc, 0x7b9add0, 0x62a9802, 0xf9e7ca1, 0x2002887, 0x53f5bda, 0x84d828c, 0x8d13db0, 0x5defd7f, 0x12c62}
+#endif
+}, {
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x555555555555555, 0x0, 0x0, 0x0, 0x0, 0x10}}
+#elif RADIX == 64
+{0x15, 0x0, 0x0, 0x0, 0x0, 0x2000000000000}
+#else
+{0x555, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x10000}
+#endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}
+#elif RADIX == 64
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#else
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#endif
+}}, {{
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0xf70edd5da81c77cd, 0x9210a9fcf5ff260e, 0xe9cb6b722f79bc03, 0x306b6b9094e7426, 0x72584ebf8ae8ca4, 0xf}}
+#elif RADIX == 64
+{0x27f3d7fc983bdc, 0x117bcde01c9085, 0x14e7426e9cb6b7, 0x51948060d6d721, 0x1fc1c9613afe2b, 0x164c0c7c2ab3b}
+#else
+{0x60ef70e, 0xfcf5ff2, 0x39210a9, 0x2f79bc0, 0x9cb6b72, 0x4e7426e, 0x6b6b909, 0x8ca4030, 0x4ebf8ae, 0x7f07258, 0xf855676, 0x29818}
+#endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0xe0aa1df5f39ac895, 0x7a51926f4c66829d, 0xed1374a8c713a87a, 0xc1b7da6862698d, 0xbaa43744c0d71e1d, 0x9}}
+#elif RADIX == 64
+{0x49bd319a0a7782, 0x46389d43d3d28c, 0x62698ded1374a, 0x63c3a01836fb4d, 0x7e6ea90dd13035, 0x3f2cf0ed682cd}
+#else
+{0x29de0aa, 0x6f4c668, 0xa7a5192, 0xc713a87, 0xd1374a8, 0x62698de, 0x1b7da68, 0x1e1d00c, 0x744c0d7, 0xf9baa43, 0xdad059b, 0x59e1}
+#endif
+}, {
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x555555555555555, 0x0, 0x0, 0x0, 0x0, 0x10}}
+#elif RADIX == 64
+{0x15, 0x0, 0x0, 0x0, 0x0, 0x2000000000000}
+#else
+{0x555, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x10000}
+#endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}
+#elif RADIX == 64
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#else
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#endif
+}}}, {{{
+    UINT64_C(0xadc02c0925ca0221), UINT64_C(0xc0e5db3645367980), UINT64_C(0xf09e23ea1630d714), UINT64_C(0xba3fead5392cb033), UINT64_C(0x34f45836a58085e7), UINT64_C(0x4), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0x83e973d09507b292), UINT64_C(0xdd35a3c9a35b2493), UINT64_C(0xa72dd4ffd965ad58), UINT64_C(0xbd35013ca843f893), UINT64_C(0x3183da8a39959309), 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}, {{
+    UINT64_C(0x3afe45868a4990e3), UINT64_C(0x508e191175f64e4c), UINT64_C(0xf28adb521f303674), UINT64_C(0x9d4f65e3811c845c), UINT64_C(0xb5f1381a440523bf), UINT64_C(0xf), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0x523fd3f6da35fddf), UINT64_C(0x3f1a24c9bac9867f), UINT64_C(0xf61dc15e9cf28eb), UINT64_C(0x45c0152ac6d34fcc), UINT64_C(0xcb0ba7c95a7f7a18), UINT64_C(0xb), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}}, {{{
+    UINT64_C(0x1), 0, 0, 0, 0, UINT64_C(0x8), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0xf9aa578cc89b37aa), UINT64_C(0x45e0ad960b1e99dc), UINT64_C(0x3af32f20cf9be61a), UINT64_C(0xf70c331e2c33672f), UINT64_C(0x522a804303ccda22), UINT64_C(0xd), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}, {{
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_MAX, UINT64_MAX, UINT64_MAX, UINT64_MAX, UINT64_MAX, UINT64_C(0x7), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}}, {{{
+    UINT64_C(0xadc02c0925ca0221), UINT64_C(0xc0e5db3645367980), UINT64_C(0xf09e23ea1630d714), UINT64_C(0xba3fead5392cb033), UINT64_C(0x34f45836a58085e7), UINT64_C(0xc), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0xca55d565fb8dce58), UINT64_C(0x15d47f707734d861), UINT64_C(0xae4dbc0f8f018d48), UINT64_C(0xcee13d42f695fa93), UINT64_C(0x79aae3bed99abff4), UINT64_C(0xf), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}, {{
+    UINT64_C(0x3afe45868a4990e3), UINT64_C(0x508e191175f64e4c), UINT64_C(0xf28adb521f303674), UINT64_C(0x9d4f65e3811c845c), UINT64_C(0xb5f1381a440523bf), UINT64_C(0x7), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0x523fd3f6da35fddf), UINT64_C(0x3f1a24c9bac9867f), UINT64_C(0xf61dc15e9cf28eb), UINT64_C(0x45c0152ac6d34fcc), UINT64_C(0xcb0ba7c95a7f7a18), UINT64_C(0x3), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}}, {{{
+    UINT64_C(0xadc02c0925ca0221), UINT64_C(0xc0e5db3645367980), UINT64_C(0xf09e23ea1630d714), UINT64_C(0xba3fead5392cb033), UINT64_C(0x34f45836a58085e7), UINT64_C(0x4), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0x83e973d09507b292), UINT64_C(0xdd35a3c9a35b2493), UINT64_C(0xa72dd4ffd965ad58), UINT64_C(0xbd35013ca843f893), UINT64_C(0x3183da8a39959309), 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}, {{
+    UINT64_C(0x3afe45868a4990e3), UINT64_C(0x508e191175f64e4c), UINT64_C(0xf28adb521f303674), UINT64_C(0x9d4f65e3811c845c), UINT64_C(0xb5f1381a440523bf), UINT64_C(0xf), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0x523fd3f6da35fddf), UINT64_C(0x3f1a24c9bac9867f), UINT64_C(0xf61dc15e9cf28eb), UINT64_C(0x45c0152ac6d34fcc), UINT64_C(0xcb0ba7c95a7f7a18), UINT64_C(0xb), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}}, {{{
+    UINT64_C(0x1), 0, 0, 0, 0, UINT64_C(0xc), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0x7cd52bc6644d9bd5), UINT64_C(0x22f056cb058f4cee), UINT64_C(0x9d79979067cdf30d), UINT64_C(0x7b86198f1619b397), UINT64_C(0xa915402181e66d11), UINT64_C(0x6), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}, {{
+    0, 0, 0, 0, 0, UINT64_C(0x8), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    0, 0, 0, 0, 0, UINT64_C(0x4), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}}, {{{
+    UINT64_C(0x325d009008841cee), UINT64_C(0xca49935dd5200d6), UINT64_C(0x977c9b08875db713), UINT64_C(0x307c758c3a909c93), UINT64_C(0xbe1743d0520abc4a), UINT64_C(0xc), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0x6dd66e0cce13c771), UINT64_C(0x90e05a5a7d4c4b2b), UINT64_C(0xa357000898f96001), UINT64_C(0xb5165b4679376d27), UINT64_C(0x7ed0386eccecc6a3), UINT64_C(0x2), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}, {{
+    UINT64_C(0xb60d512cc51ab9ca), UINT64_C(0x63bc265b570d8ce3), UINT64_C(0x914395bf8e920f5d), UINT64_C(0xeffd8f92190132e3), UINT64_C(0x89e4e273ffe60eb0), UINT64_C(0x4), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0xcda2ff6ff77be312), UINT64_C(0xf35b66ca22adff29), UINT64_C(0x688364f778a248ec), UINT64_C(0xcf838a73c56f636c), UINT64_C(0x41e8bc2fadf543b5), UINT64_C(0x3), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}}}, {{{
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x562c64cce1911e25, 0x16340b7e978baf45, 0xc5601d6dc3b496e3, 0x44bf6a709ec93b34, 0x6d161c565982818c, 0x1e}}
+#elif RADIX == 64
+{0x2dfa5e2ebd1558, 0x6e1da4b718b1a0, 0x6c93b34c5601d6, 0x50318897ed4e13, 0x439b4587159660, 0x4297335259ad3}
+#else
+{0xf45562c, 0x7e978ba, 0x316340b, 0xc3b496e, 0x5601d6d, 0xc93b34c, 0xf6a709e, 0x818c44b, 0xc565982, 0xe6d161, 0xa4b35a7, 0x12e66}
+#endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}
+#elif RADIX == 64
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#else
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#endif
+}, {
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x555555555555555, 0x0, 0x0, 0x0, 0x0, 0x10}}
+#elif RADIX == 64
+{0x15, 0x0, 0x0, 0x0, 0x0, 0x2000000000000}
+#else
+{0x555, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x10000}
+#endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}
+#elif RADIX == 64
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#else
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#endif
+}, {{
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x5835c3dde30ef234, 0xc58d02dfa5e2ebd1, 0x3158075b70ed25b8, 0x112fda9c27b24ecd, 0x9b4587159660a063, 0x3}}
+#elif RADIX == 64
+{0xb7e978baf4560, 0x5b87692dc62c68, 0x7b24ecd3158075, 0x140c6225fb5384, 0x70e6d161c56598, 0x50a5ccd4966b4}
+#else
+{0xbd15835, 0xdfa5e2e, 0x8c58d02, 0x70ed25b, 0x158075b, 0xb24ecd3, 0xfda9c27, 0xa063112, 0x7159660, 0xc39b458, 0xa92cd69, 0x24b99}
+#endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}
+#elif RADIX == 64
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#else
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#endif
+}, {
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x555555555555555, 0x0, 0x0, 0x0, 0x0, 0x10}}
+#elif RADIX == 64
+{0x15, 0x0, 0x0, 0x0, 0x0, 0x2000000000000}
+#else
+{0x555, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x10000}
+#endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}
+#elif RADIX == 64
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#else
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#endif
+}}, true}, {{{
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x8538b7661f763b3f, 0xed550890f1bf7692, 0x6f0bd0d66a984cc3, 0xa996966d45cfbd91, 0x9a02fd72107bb8b7, 0x2b}}
+#elif RADIX == 64
+{0x2243c6fdda4a14, 0x3354c2661f6aa8, 0x5cfbd916f0bd0d, 0x7716f532d2cda8, 0x7ee680bf5c841e, 0x5513192f3158d}
+#else
+{0x6928538, 0x90f1bf7, 0x3ed5508, 0x6a984cc, 0xf0bd0d6, 0xcfbd916, 0x6966d45, 0xb8b7a99, 0xd72107b, 0xfb9a02f, 0x5e62b1b, 0x22632}
+#endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x34f0ec0c6ad0f086, 0xc4b22b23339e9509, 0xa276194e37548e41, 0x49526691d9e279b0, 0x29fc14e63df1b2e8, 0x20}}
+#elif RADIX == 64
+{0x2c8cce7a5424d3, 0x71baa4720e2591, 0x1e279b0a276194, 0x365d092a4cd23b, 0x500a7f05398f7c, 0x496212a03968c}
+#else
+{0x50934f0, 0x23339e9, 0x1c4b22b, 0x37548e4, 0x276194e, 0xe279b0a, 0x26691d9, 0xb2e8495, 0x4e63df1, 0x4029fc1, 0x4072d19, 0x2c425}
+#endif
+}, {
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x555555555555555, 0x0, 0x0, 0x0, 0x0, 0x10}}
+#elif RADIX == 64
+{0x15, 0x0, 0x0, 0x0, 0x0, 0x2000000000000}
+#else
+{0x555, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x10000}
+#endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}
+#elif RADIX == 64
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#else
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#endif
+}}, {{
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x5cd2bcea7e0aefe, 0x96d07c2861b7c9de, 0x83f568a1469f8b02, 0x21b7b1ce997e5ed8, 0xf2697f002e29c3ef, 0x16}}
+#elif RADIX == 64
+{0x70a186df277817, 0xa34fc5814b683, 0x17e5ed883f568a, 0x387de436f639d3, 0x6dbc9a5fc00b8a, 0x13c1b5fbd1067}
+#else
+{0x9de05cd, 0x2861b7c, 0x296d07c, 0x469f8b0, 0x3f568a1, 0x7e5ed88, 0x7b1ce99, 0xc3ef21b, 0xf002e29, 0xb6f2697, 0xf7a20cf, 0x836b}
+#endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0xdd402365a90c8de1, 0x4e81f856b49066fd, 0x2425bd7f5808e48b, 0xca2abeeed7f2fa25, 0x6743ef81e28c9c9, 0x1d}}
+#elif RADIX == 64
+{0x615ad2419bf775, 0x7ac047245a740f, 0x7f2fa252425bd7, 0x1939394557ddda, 0x13419d0fbe078a, 0x35187d92d4d}
+#else
+{0x6fddd40, 0x56b4906, 0xb4e81f8, 0x5808e48, 0x425bd7f, 0xf2fa252, 0xabeeed7, 0xc9c9ca2, 0xef81e28, 0x4d06743, 0xfb25a9a, 0x6a30}
+#endif
+}, {
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x555555555555555, 0x0, 0x0, 0x0, 0x0, 0x10}}
+#elif RADIX == 64
+{0x15, 0x0, 0x0, 0x0, 0x0, 0x2000000000000}
+#else
+{0x555, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x10000}
+#endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}
+#elif RADIX == 64
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#else
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#endif
+}}, {{
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0xae7e91d58bb2062b, 0xb5285b1641017bd0, 0xa5e934efe9161b64, 0xd8d377f96c22c15c, 0x41b3f4673bd7031a, 0x2}}
+#elif RADIX == 64
+{0x6c590405ef42b9, 0x7f48b0db25a942, 0x422c15ca5e934e, 0x60635b1a6eff2d, 0x4906cfd19cef5, 0x5ddac0518b094}
+#else
+{0xbd0ae7e, 0x1641017, 0x4b5285b, 0xe9161b6, 0x5e934ef, 0x22c15ca, 0x377f96c, 0x31ad8d, 0x4673bd7, 0x1241b3f, 0xa316128, 0x1b580}
+#endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x25c9d3f36cecd053, 0x3dbe4a1b00a2cd8b, 0x82587278b14a0b75, 0x7017b18de1234444, 0x50a80dc5a6e7be33, 0xa}}
+#elif RADIX == 64
+{0x286c028b362c97, 0x458a505ba9edf2, 0x12344448258727, 0x77c66e02f631bc, 0x66942a037169b9, 0xebded2363387}
+#else
+{0xd8b25c9, 0x1b00a2c, 0x53dbe4a, 0xb14a0b7, 0x2587278, 0x2344448, 0x7b18de1, 0xbe33701, 0xdc5a6e7, 0x9a50a80, 0x46c670f, 0x27bda}
+#endif
+}, {
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x555555555555555, 0x0, 0x0, 0x0, 0x0, 0x10}}
+#elif RADIX == 64
+{0x15, 0x0, 0x0, 0x0, 0x0, 0x2000000000000}
+#else
+{0x555, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x10000}
+#endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}
+#elif RADIX == 64
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#else
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#endif
+}}}, {{{
+    UINT64_C(0x9da97669ef6c7e97), UINT64_C(0x4b4b1ab2d401c75f), UINT64_C(0x9ecffbe5536f516f), UINT64_C(0x54292000090826f9), UINT64_C(0xeb2194542a0bca7b), UINT64_C(0x2), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0x9a1c8398d8a76802), UINT64_C(0xdaa3bd7bd8b56fb9), UINT64_C(0xf5475f7eb4a1dc8c), UINT64_C(0xcf5629e548a654bf), UINT64_C(0x93a9d385b7b80835), UINT64_C(0x2), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}, {{
+    UINT64_C(0x78a89069d88bfd45), UINT64_C(0x6a053d124da275eb), UINT64_C(0x362a7c49d91deefe), UINT64_C(0xc2618e00d927bb3d), UINT64_C(0xf2c16aafac2bbf3e), UINT64_C(0xd), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0x6256899610938169), UINT64_C(0xb4b4e54d2bfe38a0), UINT64_C(0x6130041aac90ae90), UINT64_C(0xabd6dffff6f7d906), UINT64_C(0x14de6babd5f43584), UINT64_C(0xd), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}}, {{{
+    UINT64_MAX, UINT64_MAX, UINT64_MAX, UINT64_MAX, UINT64_MAX, UINT64_C(0x7), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0x655a8733764c856), UINT64_C(0xba1f5269f4e16623), UINT64_C(0xc50cd0df306419e5), UINT64_C(0x8f3cce1d3cc98d0), UINT64_C(0xadd57fbcfc3325dd), UINT64_C(0x2), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}, {{
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0x1), 0, 0, 0, 0, UINT64_C(0x8), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}}, {{{
+    UINT64_C(0x6256899610938169), UINT64_C(0xb4b4e54d2bfe38a0), UINT64_C(0x6130041aac90ae90), UINT64_C(0xabd6dffff6f7d906), UINT64_C(0x14de6babd5f43584), UINT64_C(0x5), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0x4c51d9a4edfbe6bc), UINT64_C(0xa133c600dbe55500), UINT64_C(0x7559b03f6e833f95), UINT64_C(0xecd0b117e8400c02), UINT64_C(0x4b00fdb7cfb8758a), UINT64_C(0x2), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}, {{
+    UINT64_C(0x87576f96277402bb), UINT64_C(0x95fac2edb25d8a14), UINT64_C(0xc9d583b626e21101), UINT64_C(0x3d9e71ff26d844c2), UINT64_C(0xd3e955053d440c1), UINT64_C(0xa), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0x9da97669ef6c7e97), UINT64_C(0x4b4b1ab2d401c75f), UINT64_C(0x9ecffbe5536f516f), UINT64_C(0x54292000090826f9), UINT64_C(0xeb2194542a0bca7b), UINT64_C(0xa), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}}, {{{
+    UINT64_C(0x9da97669ef6c7e97), UINT64_C(0x4b4b1ab2d401c75f), UINT64_C(0x9ecffbe5536f516f), UINT64_C(0x54292000090826f9), UINT64_C(0xeb2194542a0bca7b), UINT64_C(0x2), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0x9a1c8398d8a76802), UINT64_C(0xdaa3bd7bd8b56fb9), UINT64_C(0xf5475f7eb4a1dc8c), UINT64_C(0xcf5629e548a654bf), UINT64_C(0x93a9d385b7b80835), UINT64_C(0x2), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}, {{
+    UINT64_C(0x78a89069d88bfd45), UINT64_C(0x6a053d124da275eb), UINT64_C(0x362a7c49d91deefe), UINT64_C(0xc2618e00d927bb3d), UINT64_C(0xf2c16aafac2bbf3e), UINT64_C(0xd), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0x6256899610938169), UINT64_C(0xb4b4e54d2bfe38a0), UINT64_C(0x6130041aac90ae90), UINT64_C(0xabd6dffff6f7d906), UINT64_C(0x14de6babd5f43584), UINT64_C(0xd), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}}, {{{
+    0, 0, 0, 0, 0, UINT64_C(0x4), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0x832ad4399bb2642b), UINT64_C(0xdd0fa934fa70b311), UINT64_C(0x6286686f98320cf2), UINT64_C(0x8479e670e9e64c68), UINT64_C(0x56eabfde7e1992ee), UINT64_C(0x9), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}, {{
+    0, 0, 0, 0, 0, UINT64_C(0x8), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0x1), 0, 0, 0, 0, UINT64_C(0xc), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}}, {{{
+    UINT64_C(0x82a4a52a63e8b7a3), UINT64_C(0xcef26a4cc4514475), UINT64_C(0x403534720c804b8), UINT64_C(0x905ee981453d8ee1), UINT64_C(0x335af6f6baadf59), UINT64_C(0x9), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0xc96c732f882f0f37), UINT64_C(0xf985eb7b35e6d8d2), UINT64_C(0x54b1eb4872c60080), UINT64_C(0xf026a91e91548f9), UINT64_C(0x2f8a7c44a3fa4c26), UINT64_C(0x2), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}, {{
+    UINT64_C(0xa04bda2ceabde669), UINT64_C(0x766ffdd68ab84c68), UINT64_C(0xb6409e15c9d79407), UINT64_C(0x20876cf878bc91f3), UINT64_C(0x6e58349886787e08), UINT64_C(0xe), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0x7d5b5ad59c17485d), UINT64_C(0x310d95b33baebb8a), UINT64_C(0xfbfcacb8df37fb47), UINT64_C(0x6fa1167ebac2711e), UINT64_C(0xfcca5090945520a6), UINT64_C(0x6), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}}}, {{{
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x62e0a853492c2b1, 0x8fb44920eabe20e5, 0xe0ed3aa6d42441c9, 0xaad16a07cf6265ef, 0x4f4e57f7d1e001a1, 0x10}}
+#elif RADIX == 64
+{0x2483aaf8839418, 0x36a1220e4c7da2, 0x76265efe0ed3aa, 0x34355a2d40f9, 0x5013d395fdf478, 0x450fc7cedc240}
+#else
+{0xe5062e, 0x20eabe2, 0x98fb449, 0xd42441c, 0xed3aa6, 0x6265efe, 0x16a07cf, 0x1a1aad, 0x7f7d1e0, 0x404f4e5, 0x9db8481, 0x1f8f}
+#endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}
+#elif RADIX == 64
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#else
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#endif
+}, {
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x555555555555555, 0x0, 0x0, 0x0, 0x0, 0x10}}
+#elif RADIX == 64
+{0x15, 0x0, 0x0, 0x0, 0x0, 0x2000000000000}
+#else
+{0x555, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x10000}
+#endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}
+#elif RADIX == 64
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#else
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#endif
+}, {{
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x44362d4bf7cf5b57, 0x63ed12483aaf8839, 0xf83b4ea9b5091072, 0x6ab45a81f3d8997b, 0x13d395fdf4780068, 0x0}}
+#elif RADIX == 64
+{0x4920eabe20e510, 0x4da84883931f68, 0x3d8997bf83b4ea, 0xd0d568b503e, 0x1404f4e57f7d1e, 0x5143f1f3b7090}
+#else
+{0x8394436, 0x483aaf8, 0x263ed12, 0xb509107, 0x83b4ea9, 0xd8997bf, 0x45a81f3, 0x686ab, 0x5fdf478, 0x5013d39, 0xe76e120, 0x87e3}
+#endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}
+#elif RADIX == 64
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#else
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#endif
+}, {
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x555555555555555, 0x0, 0x0, 0x0, 0x0, 0x10}}
+#elif RADIX == 64
+{0x15, 0x0, 0x0, 0x0, 0x0, 0x2000000000000}
+#else
+{0x555, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x10000}
+#endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}
+#elif RADIX == 64
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#else
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#endif
+}}, true}, {{{
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x6b4f7e4069e38b2f, 0xfd0f03001fcd9143, 0x3398a88ab0735e53, 0xfb4930631c6aa623, 0xc43c81b4032f95ec, 0x18}}
+#elif RADIX == 64
+{0xc007f36450dad, 0x55839af29fe878, 0x46aa6233398a88, 0x72bd9f69260c63, 0x3a310f206d00cb, 0x173d609ed550c}
+#else
+{0x1436b4f, 0x1fcd9, 0x3fd0f03, 0xb0735e5, 0x398a88a, 0x6aa6233, 0x930631c, 0x95ecfb4, 0x1b4032f, 0xe8c43c8, 0x3daaa18, 0x17ac1}
+#endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x735ea0d5689cb187, 0x1b089f97e520eb3b, 0x67ec5097cdd0065f, 0xa3163b98b53415cc, 0xffedcc9522729b83, 0x1f}}
+#elif RADIX == 64
+{0x7e5f9483acedcd, 0x3e6e8032f8d844, 0x53415cc67ec509, 0x53707462c77316, 0x5bfffb7325489c, 0x2df1401ceb0a4}
+#else
+{0xb3b735e, 0x97e520e, 0xf1b089f, 0xcdd0065, 0x7ec5097, 0x3415cc6, 0x63b98b5, 0x9b83a31, 0xc952272, 0x6fffedc, 0x39d6149, 0x1e280}
+#endif
+}, {
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x555555555555555, 0x0, 0x0, 0x0, 0x0, 0x10}}
+#elif RADIX == 64
+{0x15, 0x0, 0x0, 0x0, 0x0, 0x2000000000000}
+#else
+{0x555, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x10000}
+#endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}
+#elif RADIX == 64
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#else
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#endif
+}}, {{
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0xf664ee88d0450cae, 0xf4f807ba65f73626, 0x47d0bfa1eb0f0274, 0x89bb6e03520f1572, 0x3497f75f639427ef, 0x3}}
+#elif RADIX == 64
+{0x1ee997dcd89bd9, 0xf587813a7a7c0, 0x20f157247d0bfa, 0x4fdf1376dc06a, 0x28cd25fdd7d8e5, 0x3765cd3867930}
+#else
+{0x626f664, 0xba65f73, 0x4f4f807, 0xeb0f027, 0x7d0bfa1, 0xf15724, 0xb6e0352, 0x27ef89b, 0x75f6394, 0xa33497f, 0x70cf260, 0x2cb9a}
+#endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x2cb8e7b5071c85a6, 0x5af7adc7cae455e1, 0xe45330b9015eb97f, 0x1ca77eb4af1baa7a, 0x7f4d695c02454fc7, 0x1e}}
+#elif RADIX == 64
+{0x371f2b915784b2, 0x480af5cbfad7bd, 0x71baa7ae45330b, 0x29f8e394efd695, 0x4f9fd35a570091, 0x555b8f8aaac87}
+#else
+{0x5e12cb8, 0xc7cae45, 0xf5af7ad, 0x15eb97, 0x45330b9, 0x1baa7ae, 0x77eb4af, 0x4fc71ca, 0x95c0245, 0x3e7f4d6, 0x155590f, 0x2b71f}
+#endif
+}, {
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x555555555555555, 0x0, 0x0, 0x0, 0x0, 0x10}}
+#elif RADIX == 64
+{0x15, 0x0, 0x0, 0x0, 0x0, 0x2000000000000}
+#else
+{0x555, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x10000}
+#endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}
+#elif RADIX == 64
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#else
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#endif
+}}, {{
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x40889b97cb6a7e2a, 0x2161d5cd186462d2, 0xb816125c10f05096, 0x30b21cd271ae69f2, 0x303bd20e59e963f6, 0x4}}
+#elif RADIX == 64
+{0x573461918b4902, 0x60878284b10b0e, 0x1ae69f2b816125, 0x2c7ec616439a4e, 0x790c0ef483967a, 0xce963b11fbd3}
+#else
+{0x2d24088, 0xcd18646, 0x62161d5, 0x10f0509, 0x816125c, 0xae69f2b, 0x21cd271, 0x63f630b, 0x20e59e9, 0xe4303bd, 0x623f7a7, 0x1d2c7}
+#endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x52b4e475b038803e, 0x5c1a7d65bb13f55d, 0x9f95497f130da947, 0xcfbee0d069d0f86e, 0xce8319683fcbdf4f, 0x16}}
+#elif RADIX == 64
+{0x7596ec4fd5754a, 0x78986d4a3ae0d3, 0x1d0f86e9f95497, 0x7be9f9f7dc1a0d, 0x6db3a0c65a0ff2, 0x4f56b08854c05}
+#else
+{0x55d52b4, 0x65bb13f, 0x75c1a7d, 0x130da94, 0xf95497f, 0xd0f86e9, 0xee0d069, 0xdf4fcfb, 0x9683fcb, 0xb6ce831, 0x10a980b, 0x2ad61}
+#endif
+}, {
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x555555555555555, 0x0, 0x0, 0x0, 0x0, 0x10}}
+#elif RADIX == 64
+{0x15, 0x0, 0x0, 0x0, 0x0, 0x2000000000000}
+#else
+{0x555, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x10000}
+#endif
+,
+#if defined(SQISIGN_GF_IMPL_BROADWELL)
+{{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}}
+#elif RADIX == 64
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#else
+{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}
+#endif
+}}}, {{{
+    UINT64_C(0x241bbdd9e4fbad5), UINT64_C(0xea807c4aebb90855), UINT64_C(0xcb312203abae4ef2), UINT64_C(0x694f33b1957304fe), UINT64_C(0x59ddfb4c1a67e351), 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0xeae81827658bf7aa), UINT64_C(0x323c3428ba1bc068), UINT64_C(0x6ea54c8b2ed7e09), UINT64_C(0x16733925467c90c7), UINT64_C(0xd49a0960058fa6e5), UINT64_C(0x8), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}, {{
+    UINT64_C(0xca6948b77b1bdcff), UINT64_C(0xd6f226a48382fd03), UINT64_C(0x658cc30e96a46d22), UINT64_C(0x2f5bb32adb2e7110), UINT64_C(0xeabb5d7ee4579593), UINT64_C(0xb), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0xfdbe442261b0452b), UINT64_C(0x157f83b51446f7aa), UINT64_C(0x34ceddfc5451b10d), UINT64_C(0x96b0cc4e6a8cfb01), UINT64_C(0xa62204b3e5981cae), UINT64_C(0xf), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}}, {{{
+    UINT64_MAX, UINT64_MAX, UINT64_MAX, UINT64_MAX, UINT64_MAX, UINT64_C(0x7), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0x655a8733764c856), UINT64_C(0xba1f5269f4e16623), UINT64_C(0xc50cd0df306419e5), UINT64_C(0x8f3cce1d3cc98d0), UINT64_C(0xadd57fbcfc3325dd), UINT64_C(0x2), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}, {{
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0x1), 0, 0, 0, 0, UINT64_C(0x8), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}}, {{{
+    UINT64_C(0xfdbe442261b0452b), UINT64_C(0x157f83b51446f7aa), UINT64_C(0x34ceddfc5451b10d), UINT64_C(0x96b0cc4e6a8cfb01), UINT64_C(0xa62204b3e5981cae), UINT64_C(0x7), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0x7e7d06409c7f2338), UINT64_C(0xc7211e575920a430), UINT64_C(0x86523efba25e519d), UINT64_C(0x4b52e5a6da84d5ce), UINT64_C(0x48bd68343d416d9d), UINT64_C(0x4), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}, {{
+    UINT64_C(0x3596b74884e42301), UINT64_C(0x290dd95b7c7d02fc), UINT64_C(0x9a733cf1695b92dd), UINT64_C(0xd0a44cd524d18eef), UINT64_C(0x1544a2811ba86a6c), UINT64_C(0xc), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0x241bbdd9e4fbad5), UINT64_C(0xea807c4aebb90855), UINT64_C(0xcb312203abae4ef2), UINT64_C(0x694f33b1957304fe), UINT64_C(0x59ddfb4c1a67e351), UINT64_C(0x8), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}}, {{{
+    UINT64_C(0x241bbdd9e4fbad5), UINT64_C(0xea807c4aebb90855), UINT64_C(0xcb312203abae4ef2), UINT64_C(0x694f33b1957304fe), UINT64_C(0x59ddfb4c1a67e351), 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0xeae81827658bf7aa), UINT64_C(0x323c3428ba1bc068), UINT64_C(0x6ea54c8b2ed7e09), UINT64_C(0x16733925467c90c7), UINT64_C(0xd49a0960058fa6e5), UINT64_C(0x8), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}, {{
+    UINT64_C(0xca6948b77b1bdcff), UINT64_C(0xd6f226a48382fd03), UINT64_C(0x658cc30e96a46d22), UINT64_C(0x2f5bb32adb2e7110), UINT64_C(0xeabb5d7ee4579593), UINT64_C(0xb), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0xfdbe442261b0452b), UINT64_C(0x157f83b51446f7aa), UINT64_C(0x34ceddfc5451b10d), UINT64_C(0x96b0cc4e6a8cfb01), UINT64_C(0xa62204b3e5981cae), UINT64_C(0xf), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}}, {{{
+    0, 0, 0, 0, 0, UINT64_C(0x4), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0x832ad4399bb2642b), UINT64_C(0xdd0fa934fa70b311), UINT64_C(0x6286686f98320cf2), UINT64_C(0x8479e670e9e64c68), UINT64_C(0x56eabfde7e1992ee), UINT64_C(0x9), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}, {{
+    0, 0, 0, 0, 0, UINT64_C(0x8), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0x1), 0, 0, 0, 0, UINT64_C(0xc), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}}, {{{
+    UINT64_C(0x24a09320bb77e23f), UINT64_C(0x472576508fd8e1af), UINT64_C(0x7175013031418e68), UINT64_C(0x1d08c9421b64e5a7), UINT64_C(0x1a7015dd388bcdde), UINT64_C(0x7), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0xadd3e313c1c5ed7d), UINT64_C(0x74162b8526010030), UINT64_C(0x3a4ec75f2d90f128), UINT64_C(0x9b21390c292831f1), UINT64_C(0x74c7c8af54fddab), UINT64_C(0xe), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}, {{
+    UINT64_C(0xd501d81ed9cc0c3d), UINT64_C(0xd4d96c71c0062a8a), UINT64_C(0xb1ec9faa195448b8), UINT64_C(0x793cba71af0c56f9), UINT64_C(0xf5a0a2fa2664d0a7), UINT64_C(0x2), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}, {
+    UINT64_C(0xdb5f6cdf44881dc1), UINT64_C(0xb8da89af70271e50), UINT64_C(0x8e8afecfcebe7197), UINT64_C(0xe2f736bde49b1a58), UINT64_C(0xe58fea22c7743221), UINT64_C(0x8), 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+}}}}};

@@ -8,19 +8,18 @@ correctness issues.
 
 ## Precision budgets
 
-The paper's uniform worst-case magnitude bounds are 7,026, 10,713, and 14,150
-bits for levels I, III, and V. The implementation stores signed integers in
-64-bit limbs:
+Section 3 with the Round-3 primes gives the following magnitude budgets.
+The storage is signed two's complement with 64-bit limbs.
 
-| Level | Uniform bound | Limbs | Raw width | Positive signed capacity |
-| --- | ---: | ---: | ---: | ---: |
-| I | 7,026 | 110 | 7,040 | 7,039 |
-| III | 10,713 | 168 | 10,752 | 10,751 |
-| V | 14,150 | 222 | 14,208 | 14,207 |
+| Level | Paper | Line-13 expression | Limbs | Raw width | Signed capacity |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| I | 9,555 | 9,565 | 150 | 9,600 | 9,599 |
+| III | 14,572 | 14,569 | 228 | 14,592 | 14,591 |
+| V | 19,145 | 19,145 | 300 | 19,200 | 19,199 |
 
-The selected limb counts are therefore the minimum 64-bit allocations that
-also reserve a two's-complement sign bit. The per-level precision test contains
-compile-time assertions for both the limb count and the paper bound.
+The production and test assertions cover both Section 3 expressions.
+[The branch notes](docs/new-parameter.md) give the Level-I correction and the
+scope of the code-level bound checks.
 
 ## Patch list
 
@@ -49,8 +48,7 @@ silently when array bounds aren't checked.
 Fix: a two-level `_SQI_LIMBS / _SQI_LIMBS_` token-paste indirection that
 forces `SQISIGN_VARIANT` to be expanded before `##`-pasting it onto
 `_SQI_LIMBS_`. The result is real macro substitution, not the broken
-token-equality `#if`. After this patch, lvl3 binaries are 168 limbs and
-lvl5 binaries are 222 limbs, matching the precomp data.
+token-equality `#if`. The current sizes above match the regenerated precomputation.
 
 ### 2. `sign.c` — silence 8 `printf("--<step> done--\n")` traces
 

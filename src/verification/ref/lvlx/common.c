@@ -34,10 +34,11 @@ hash_to_challenge(scalar_t *scalar,
     }
 
     {
-        // The type scalar_t represents an element of GF(p), which is about
-        // 2*lambda bits, where lambda = 128, 192 or 256, according to the
-        // security level. Thus, the variable scalar should have enough memory
-        // for the values produced by SHAKE256 in the intermediate iterations.
+        // Scalar storage can hold both the 2*lambda-bit intermediate digest
+        // and the final challenge space before the security clamp.
+        _Static_assert(NWORDS_ORDER * RADIX >= 2 * SECURITY_BITS, "intermediate digest does not fit");
+        _Static_assert(NWORDS_ORDER * RADIX >= TORSION_EVEN_POWER - SQIsign_response_length,
+                       "challenge space does not fit");
 
         shake256incctx ctx;
 
@@ -83,6 +84,6 @@ hash_to_challenge(scalar_t *scalar,
             (*scalar)[i] = BSWAP_DIGIT((*scalar)[i]);
 #endif
 
-        mp_mod_2exp(*scalar, SECURITY_BITS, NWORDS_ORDER);
+        mp_mod_2exp(*scalar, CHALLENGE_BITS, NWORDS_ORDER);
     }
 }

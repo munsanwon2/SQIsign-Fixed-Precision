@@ -15,13 +15,9 @@
 #error "EXPECTED_IBZ_LIMBS must be supplied by CMake"
 #endif
 
-#ifndef THEORETICAL_IBZ_BITS
-#error "THEORETICAL_IBZ_BITS must be supplied by CMake"
-#endif
-
 _Static_assert(IBZ_LIMBS == EXPECTED_IBZ_LIMBS, "wrong fixed-precision budget for this variant");
-_Static_assert(IBZ_BITS - 1 >= THEORETICAL_IBZ_BITS,
-               "signed fixed-precision capacity is below the paper's uniform bound");
+_Static_assert(IBZ_BITS - 1 >= PAPER_IBZ_BITS && IBZ_BITS - 1 >= LINE13_IBZ_BITS,
+               "signed fixed-precision capacity is below a Section 3 expression");
 
 static int
 sample_and_check(const char *label,
@@ -71,6 +67,11 @@ sample_and_check(const char *label,
 
 #ifdef IBZ_ENABLE_OVERFLOW_CHECKS
     const int peak = ibz_overflow_checks_get_peak();
+    if (peak > IBZ_BITS - 1) {
+        fprintf(stderr, "%s measured peak exceeds signed capacity\n", label);
+        quat_left_ideal_finalize(&ideal);
+        return 0;
+    }
     printf("%s: N=%d bits, p=%d bits, analytic-bound=%d, checked-peak=%d, capacity=%d\n",
            label,
            n_bits,
@@ -122,8 +123,9 @@ main(void)
     int result = 0;
 
     seed[0] = (unsigned char)EXPECTED_IBZ_LIMBS;
-    seed[1] = 0x52;
-    seed[2] = 0x49;
+    seed[1] = EXPECTED_IBZ_LIMBS >> 8;
+    seed[2] = 0x52;
+    seed[3] = 0x49;
     randombytes_init(seed, NULL, 256);
 
     const quat_represent_integer_params_t params = {
@@ -136,6 +138,10 @@ main(void)
            IBZ_LIMBS,
            IBZ_BITS - 1);
 
+    if (ibz_bitsize(&SEC_DEGREE) != EXPECTED_MIX_BITS || ibz_cmp(&SEC_DEGREE, &COM_DEGREE) != 0) {
+        fprintf(stderr, "invalid mixing degree for this variant\n");
+        return 1;
+    }
     result |= !sample_and_check("SEC_DEGREE", &SEC_DEGREE, 1, NULL, &params);
     result |= !sample_and_check("COM_DEGREE", &COM_DEGREE, 1, NULL, &params);
 

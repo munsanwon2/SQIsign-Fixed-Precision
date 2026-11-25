@@ -13,9 +13,10 @@
 
 typedef digit_t fp_t[NWORDS_FIELD]; // Datatype for representing field elements
 
+#define ONE SQISIGN_NAMESPACE(fp_one_const)
+#define ZERO SQISIGN_NAMESPACE(fp_zero_const)
 extern const digit_t ONE[NWORDS_FIELD];
 extern const digit_t ZERO[NWORDS_FIELD];
-// extern const digit_t PM1O3[NWORDS_FIELD];
 
 void fp_set_small(fp_t *x, const digit_t val);
 void fp_mul_small(fp_t *x, const fp_t *a, const uint32_t val);

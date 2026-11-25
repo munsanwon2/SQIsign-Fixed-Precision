@@ -99,7 +99,7 @@ fp2_sqrt(fp2_t *a)
     fp_add(&t0, &x0, &x0);
     // x1 = t0^(p-3)/4.
     fp_copy(&x1, &t0);
-    fp_exp3div4(&x1);
+    fp_exp3div4(&x1, &x1);
     // x0 = x0 * x1, x1 = x1 * a1, t1 = (2x0)^2.
     fp_mul(&x0, &x0, &x1);
     fp_mul(&x1, &x1, &(a->im));

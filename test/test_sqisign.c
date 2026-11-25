@@ -9,6 +9,9 @@
 #include <sig.h>
 #include <api.h>
 #include <bench_test_arguments.h>
+#ifdef IBZ_ENABLE_OVERFLOW_CHECKS
+#include <intbig.h>
+#endif
 #ifdef TARGET_BIG_ENDIAN
 #include <tutil.h>
 #endif
@@ -53,11 +56,15 @@ static int test_sqisign(unsigned long long in_msglen) {
 
     printf("Testing Keygen, Sign, Open: %s\n", CRYPTO_ALGNAME);
 
+#ifdef IBZ_ENABLE_OVERFLOW_CHECKS
+    ibz_overflow_checks_reset_peak();
+#endif
     int res = sqisign_keypair(pk, sk);
     if (res != 0) {
         res = -1;
         goto err;
     }
+    puts("Key generation passed");
 
 #ifdef ENABLE_CT_TESTING
     VALGRIND_MAKE_MEM_DEFINED(pk, CRYPTO_PUBLICKEYBYTES);
@@ -96,7 +103,15 @@ static int test_sqisign(unsigned long long in_msglen) {
         goto err;
     }
 
-    randombytes(msg_open, in_msglen);
+    if (in_msglen > 0) {
+        msg[0] ^= 1;
+        res = sqisign_verify(msg, in_msglen, sig, CRYPTO_BYTES, pk);
+        msg[0] ^= 1;
+        if (res != 1) {
+            res = -1;
+            goto err;
+        }
+    }
 
     sig[0] = ~sig[0];
     res = sqisign_verify(msg, in_msglen, sig, CRYPTO_BYTES, pk);
@@ -123,22 +138,25 @@ static int test_sqisign(unsigned long long in_msglen) {
         goto err;
     }
 
-    randombytes(msg_open, in_msglen);
-
-    res = sqisign_open(msg_open, &msglen, sig, smlen, pk);
-    if (res != 0 || msglen != in_msglen || memcmp(msg_open, msg, msglen)) {
-        res = -1;
-        goto err;
-    }
-
     res = sqisign_verify(msg, in_msglen, sig, CRYPTO_BYTES, pk);
     if (res != 0) {
         res = -1;
         goto err;
     }
 
+    res = sqisign_open(sig, &msglen, sig, smlen, pk);
+    if (res != 0 || msglen != in_msglen || memcmp(sig, msg, msglen))
+        res = -1;
 
 err:
+#ifdef IBZ_ENABLE_OVERFLOW_CHECKS
+    {
+        const int peak = ibz_overflow_checks_get_peak();
+        printf("KeyGen/Sign/Verify checked peak: %d / %d signed magnitude bits\n", peak, IBZ_BITS - 1);
+        if (peak > IBZ_BITS - 1)
+            res = -1;
+    }
+#endif
     free(pk);
     free(sk);
     free(sig);

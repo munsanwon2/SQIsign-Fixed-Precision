@@ -5,6 +5,47 @@
 #include "test_utils.h"
 #include <rng.h>
 #include <bench_test_arguments.h>
+#include <encoded_sizes.h>
+
+static bool
+fp_encoding_boundaries(void)
+{
+    uint8_t p_bytes[FP_ENCODED_BYTES] = { 0 };
+    const unsigned int pos = FP_TORSION_POWER / 8;
+    const unsigned int hi = (FP_COFACTOR << (FP_TORSION_POWER % 8)) - 1;
+    memset(p_bytes, 0xff, pos);
+    p_bytes[pos] = (uint8_t)hi;
+    p_bytes[pos + 1] = (uint8_t)(hi >> 8);
+
+    fp_t a, b;
+    if (fp_decode(&a, p_bytes) || !fp_is_zero(&a))
+        return false;
+    fp_decode_reduce(&a, p_bytes, sizeof(p_bytes));
+    if (!fp_is_zero(&a))
+        return false;
+
+    uint8_t expected[FP_ENCODED_BYTES], actual[FP_ENCODED_BYTES];
+    memcpy(expected, p_bytes, sizeof(expected));
+    expected[0]--;
+    memset(actual, 0xa5, sizeof(actual));
+    if (fp_decode(&a, expected) != UINT32_MAX)
+        return false;
+    fp_encode(actual, &a);
+    fp_neg(&b, &a);
+    if (memcmp(actual, expected, sizeof(actual)) || !fp_is_equal(&b, &ONE))
+        return false;
+
+    memset(expected, 0, sizeof(expected));
+    expected[FP_FIELD_BITS / 8] = 1U << (FP_FIELD_BITS % 8);
+    if (fp_decode(&a, expected) || !fp_is_zero(&a))
+        return false;
+
+    memset(expected, 0, sizeof(expected));
+    memset(expected, 0xff, sizeof(uint32_t));
+    fp_set_small(&a, UINT32_MAX);
+    fp_encode(actual, &a);
+    return memcmp(expected, actual, sizeof(expected)) == 0;
+}
 
 bool
 fp_test(int iterations)
@@ -16,6 +57,11 @@ fp_test(int iterations)
     printf("\n-------------------------------------------------------------------------------------"
            "-------------------\n\n");
     printf("Testing field arithmetic over GF(p): \n\n");
+
+    if (!fp_encoding_boundaries()) {
+        printf("  GF(p) encoding boundaries ...................................... FAILED\n");
+        return false;
+    }
 
     // Test equality
     passed = 1;

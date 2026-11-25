@@ -404,6 +404,12 @@ ibz_test_div()
     res =
         res | !(((ibz_cmp(&q, &r) <= 0) && (ibz_cmp(&q, &d) < 0)) || ((ibz_cmp(&q, &r) >= 0) && (ibz_cmp(&r, &d) > 0)));
 
+    // A zero quotient must preserve the signed dividend as remainder with aliased outputs.
+    ibz_set(&a, -17);
+    ibz_set(&b, 64);
+    ibz_div(&a, &b, &a, &b);
+    res |= !ibz_is_zero(&a) || ibz_cmp_int32(&b, -17) != 0;
+
     if (res) {
         printf("Quaternion module integer group test ibz_test_div failed\n");
     }
@@ -881,7 +887,7 @@ ibz_test_copy_digits(void)
 {
     int res = 0;
     const digit_t d1[] = { 0x12345678 };
-    const digit_t d2[] = { 2, 1 };
+    const digit_t d2[] = { 2, [64 / RADIX] = 1 };
 
     const char d1str[] = "12345678";
     const char d2str[] = "10000000000000002"; // �� �� �߰� (64��Ʈ ����)
@@ -894,7 +900,7 @@ ibz_test_copy_digits(void)
     ibz_init(&d2_intbig);
 
     ibz_copy_digits(&d1_intbig, d1, 1);
-    ibz_copy_digits(&d2_intbig, d2, 2);
+    ibz_copy_digit_array(&d2_intbig, d2);
 
     ibz_convert_to_str(&d1_intbig, d1_intbig_str, 16);
     ibz_convert_to_str(&d2_intbig, d2_intbig_str, 16);
@@ -919,87 +925,31 @@ err:
 int
 ibz_test_to_digits(void)
 {
-    int res = 0;
-    ibz_t d1_intbig, d2_intbig, zero_intbig;
-    ibz_t d1_intbig_rec, d2_intbig_rec, zero_intbig_rec, cof, cof2;
-    const char d1str[] = "12345678";
-    const char d2str[] = "10000000000000002";
-
-    ibz_init(&d1_intbig);
-    ibz_init(&d2_intbig);
-    ibz_set_from_str(&d1_intbig, d1str, 16);
-    ibz_set_from_str(&d2_intbig, d2str, 16);
-    ibz_init(&zero_intbig);
-
-    ibz_init(&d1_intbig_rec);
-    ibz_init(&d2_intbig_rec);
-    ibz_init(&zero_intbig_rec);
-    ibz_init(&cof);
-    ibz_init(&cof2);
-
-    size_t d1_digits = 1;
-    size_t d2_digits = 2;
-
-    digit_t d1[d1_digits];
-    digit_t d2[d2_digits];
-    digit_t zero[1];
-
-    ibz_to_digits(d1, &d1_intbig);
-    ibz_to_digits(d2, &d2_intbig);
-    ibz_to_digits(zero, &zero_intbig);
-
-    ibz_copy_digits(&d1_intbig_rec, d1, d1_digits);
-    ibz_copy_digits(&d2_intbig_rec, d2, d2_digits);
-    ibz_copy_digits(&zero_intbig_rec, zero, 1);
-
-    if (ibz_cmp(&d1_intbig, &d1_intbig_rec) || ibz_cmp(&zero_intbig, &zero_intbig_rec)) {
-        res = 1;
-        goto err;
-    }
-
-    // 64��Ʈ ����
-    const digit_t p_cofactor_for_3g[5] = {
-        0x0000000000000000, 0x74f9dace0d9ec800, 0x63a25b437f655001, 0x0000000000000019, 0
+    const char *values[] = {
+        "0",
+        "12345678",
+        "10000000000000002",
+        "1974f9dace0d9ec80063a25b437f6550010000000000000000",
     };
-    digit_t p_cofactor_for_3g_rec[10] = { 0 };
-
-    ibz_copy_digits(&cof, p_cofactor_for_3g, 5);
-    ibz_to_digits(p_cofactor_for_3g_rec, &cof);
-    ibz_copy_digits(&cof2, p_cofactor_for_3g_rec, 5);
-
-    if (ibz_cmp(&cof, &cof2)) {
-        res = 1;
-        goto err;
+    int res = 0;
+    ibz_t value, decoded;
+    ibz_init(&value);
+    ibz_init(&decoded);
+    for (size_t i = 0; i < sizeof(values) / sizeof(values[0]); ++i) {
+        digit_t digits[5 * 64 / RADIX];
+        memset(digits, 0xa5, sizeof(digits));
+        ibz_set_from_str(&value, values[i], 16);
+        ibz_to_digit_array(digits, &value);
+        ibz_copy_digit_array(&decoded, digits);
+        res |= ibz_cmp(&value, &decoded) != 0;
+        if (i == 2)
+            res |= digits[0] != 2 || digits[64 / RADIX] != 1;
+        res |= digits[5 * 64 / RADIX - 1] != 0;
     }
-
-    digit_t da[2] = { 0, 0 }; // �� �� �߰�
-
-    ibz_t strval, strval_check;
-    ibz_init(&strval_check);
-    ibz_init(&strval);
-    ibz_set_from_str(&strval, "1617406613339667622221321", 10);
-    ibz_to_digits(da, &strval);
-    ibz_copy_digits(&strval_check, da, sizeof(da) / sizeof(digit_t));
-
-    if (ibz_cmp(&strval, &strval_check)) {
-        res = 1;
-        goto err;
-    }
-
-err:
-    if (res) {
-        printf("Quaternion module integer test ibz_test_to_digits failed\n");
-    }
-    ibz_finalize(&d1_intbig);
-    ibz_finalize(&d2_intbig);
-    ibz_finalize(&zero_intbig);
-    ibz_finalize(&d1_intbig_rec);
-    ibz_finalize(&d2_intbig_rec);
-    ibz_finalize(&zero_intbig_rec);
-    ibz_finalize(&cof);
-    ibz_finalize(&cof2);
-    ibz_finalize(&strval);
-    ibz_finalize(&strval_check);
+    ibz_finalize(&value);
+    ibz_finalize(&decoded);
+    if (res)
+        puts("Quaternion module integer test ibz_test_to_digits failed");
     return res;
 }
 

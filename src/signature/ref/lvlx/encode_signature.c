@@ -18,8 +18,10 @@ encode_digits(byte_t *enc, const digit_t *x, size_t nbytes)
     const size_t ndigits = nbytes / sizeof(digit_t);
     const size_t rem = nbytes % sizeof(digit_t);
 
-    for (size_t i = 0; i < ndigits; i++)
-        ((digit_t *)enc)[i] = BSWAP_DIGIT(x[i]);
+    for (size_t i = 0; i < ndigits; i++) {
+        digit_t digit = BSWAP_DIGIT(x[i]);
+        memcpy(enc + i * sizeof(digit_t), &digit, sizeof(digit));
+    }
     if (rem) {
         digit_t ld = BSWAP_DIGIT(x[ndigits]);
         memcpy(enc + ndigits * sizeof(digit_t), (byte_t *)&ld, rem);
@@ -65,7 +67,7 @@ ibz_to_bytes(byte_t *enc, const ibz_t *x, size_t nbytes, bool sgn)
     memset(d, 0, sizeof(d));
     if (ibz_cmp(x, &ibz_const_zero) >= 0) {
         // non-negative, straightforward.
-        ibz_to_digits(d, x);
+        ibz_to_digits(d, digits, x);
     } else {
         assert(sgn);
         // negative; use two's complement.
@@ -73,7 +75,7 @@ ibz_to_bytes(byte_t *enc, const ibz_t *x, size_t nbytes, bool sgn)
         ibz_init(&tmp);
         ibz_neg(&tmp, x);
         ibz_sub(&tmp, &tmp, &ibz_const_one);
-        ibz_to_digits(d, &tmp);
+        ibz_to_digits(d, digits, &tmp);
         for (size_t i = 0; i < digits; ++i)
             d[i] = ~d[i];
 #ifndef NDEBUG
@@ -105,9 +107,9 @@ ibz_from_bytes(ibz_t *x, const byte_t *enc, size_t nbytes, bool sgn)
     decode_digits(d, enc, nbytes, ndigits);
     if (sgn && enc[nbytes - 1] >> 7) {
         // negative, decode two's complement
-        const size_t s = sizeof(digit_t) - 1 - (sizeof(d) - nbytes);
-        assert(s < sizeof(digit_t));
-        d[ndigits - 1] |= ((digit_t)-1) >> 8 * s << 8 * s;
+        const size_t rem = nbytes % sizeof(digit_t);
+        if (rem)
+            d[ndigits - 1] |= (digit_t)-1 << (8 * rem);
         for (size_t i = 0; i < ndigits; ++i)
             d[i] = ~d[i];
         ibz_copy_digits(x, d, ndigits);
@@ -140,7 +142,7 @@ secret_key_to_bytes(byte_t *enc, const secret_key_t *sk, const public_key_t *pk)
     }
 #endif
 
-    enc = ibz_to_bytes(enc, &sk->secret_ideal.norm, FP_ENCODED_BYTES, false);
+    enc = ibz_to_bytes(enc, &sk->secret_ideal.norm, SECRET_IDEAL_ENTRY_BYTES, false);
     {
         quat_alg_elem_t gen;
         quat_alg_elem_init(&gen);
@@ -157,10 +159,8 @@ secret_key_to_bytes(byte_t *enc, const secret_key_t *sk, const public_key_t *pk)
             ibz_finalize(&gcd);
         }
 #endif
-        enc = ibz_to_bytes(enc, &gen.coord[0], FP_ENCODED_BYTES, true);
-        enc = ibz_to_bytes(enc, &gen.coord[1], FP_ENCODED_BYTES, true);
-        enc = ibz_to_bytes(enc, &gen.coord[2], FP_ENCODED_BYTES, true);
-        enc = ibz_to_bytes(enc, &gen.coord[3], FP_ENCODED_BYTES, true);
+        for (size_t i = 0; i < 4; ++i)
+            enc = ibz_to_bytes(enc, &gen.coord[i], SECRET_IDEAL_ENTRY_BYTES, true);
         quat_alg_elem_finalize(&gen);
     }
 
@@ -172,7 +172,7 @@ secret_key_to_bytes(byte_t *enc, const secret_key_t *sk, const public_key_t *pk)
     assert(enc - start == SECRETKEY_BYTES);
 }
 
-void
+int
 secret_key_from_bytes(secret_key_t *sk, public_key_t *pk, const byte_t *enc)
 {
 #ifndef NDEBUG
@@ -180,17 +180,17 @@ secret_key_from_bytes(secret_key_t *sk, public_key_t *pk, const byte_t *enc)
 #endif
 
     enc = public_key_from_bytes(pk, enc);
+    if (!enc)
+        return 0;
 
     {
         ibz_t norm;
         ibz_init(&norm);
         quat_alg_elem_t gen;
         quat_alg_elem_init(&gen);
-        enc = ibz_from_bytes(&norm, enc, FP_ENCODED_BYTES, false);
-        enc = ibz_from_bytes(&gen.coord[0], enc, FP_ENCODED_BYTES, true);
-        enc = ibz_from_bytes(&gen.coord[1], enc, FP_ENCODED_BYTES, true);
-        enc = ibz_from_bytes(&gen.coord[2], enc, FP_ENCODED_BYTES, true);
-        enc = ibz_from_bytes(&gen.coord[3], enc, FP_ENCODED_BYTES, true);
+        enc = ibz_from_bytes(&norm, enc, SECRET_IDEAL_ENTRY_BYTES, false);
+        for (size_t i = 0; i < 4; ++i)
+            enc = ibz_from_bytes(&gen.coord[i], enc, SECRET_IDEAL_ENTRY_BYTES, true);
         quat_lideal_create(&sk->secret_ideal, &gen, &norm, &MAXORD_O0, &QUATALG_PINFTY);
         ibz_finalize(&norm);
         quat_alg_elem_finalize(&gen);
@@ -204,5 +204,5 @@ secret_key_from_bytes(secret_key_t *sk, public_key_t *pk, const byte_t *enc)
     assert(enc - start == SECRETKEY_BYTES);
 
     sk->curve = pk->curve;
-    ec_curve_to_basis_2f_from_hint(&sk->canonical_basis, &sk->curve, TORSION_EVEN_POWER, pk->hint_pk);
+    return ec_curve_to_basis_2f_from_hint(&sk->canonical_basis, &sk->curve, TORSION_EVEN_POWER, pk->hint_pk);
 }

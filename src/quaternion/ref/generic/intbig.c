@@ -1,24 +1,34 @@
 /*
  * Fixed-precision integer arithmetic implementation
  * Using 2's complement representation for signed integers
- * Supports NIST-I (110), NIST-III (168), NIST-V (222) security levels
+ * Supports 150, 228 and 300 limbs for NIST-I, NIST-III and NIST-V.
  */
 
 #include "intbig.h"
+#include <assert.h>
 
 /* The paper bounds magnitude bits, while an IBZ_BITS-bit two's-complement
  * value has only IBZ_BITS-1 bits of symmetric usable magnitude.  The
  * asymmetric minimum cannot be counted because its absolute value and
  * negation are not representable. */
-#define _SQI_PAPER_MAG_BITS_lvl1 7026
-#define _SQI_PAPER_MAG_BITS_lvl3 10713
-#define _SQI_PAPER_MAG_BITS_lvl5 14150
+#define _SQI_PAPER_MAG_BITS_lvl1 9555
+#define _SQI_PAPER_MAG_BITS_lvl3 14572
+#define _SQI_PAPER_MAG_BITS_lvl5 19145
 #define _SQI_PAPER_MAG_BITS_(v)  _SQI_PAPER_MAG_BITS_##v
 #define _SQI_PAPER_MAG_BITS(v)   _SQI_PAPER_MAG_BITS_(v)
+
+/* Theorem 2, proof of line 13, before applying the final inequality. */
+#define _SQI_LINE13_MAG_BITS_lvl1 9565
+#define _SQI_LINE13_MAG_BITS_lvl3 14569
+#define _SQI_LINE13_MAG_BITS_lvl5 19145
+#define _SQI_LINE13_MAG_BITS_(v)  _SQI_LINE13_MAG_BITS_##v
+#define _SQI_LINE13_MAG_BITS(v)   _SQI_LINE13_MAG_BITS_(v)
 
 _Static_assert(IBZ_BITS == 64 * IBZ_LIMBS, "IBZ_BITS must match ibz_t storage");
 _Static_assert(IBZ_BITS - 1 >= _SQI_PAPER_MAG_BITS(SQISIGN_VARIANT),
                "ibz_t is below the SQIsign paper precision budget");
+_Static_assert(IBZ_BITS - 1 >= _SQI_LINE13_MAG_BITS(SQISIGN_VARIANT),
+               "ibz_t is below the unrounded line-13 bound");
 
 #ifdef IBZ_ENABLE_OVERFLOW_CHECKS
 #include <stdlib.h>
@@ -1009,24 +1019,13 @@ ibz_size_in_base(const ibz_t *a, int base)
 
 // Convert to digit array
 void
-ibz_to_digits(digit_t *target, const ibz_t *a)
+ibz_to_digits(digit_t *target, size_t len, const ibz_t *a)
 {
-    int actual_limbs = IBZ_LIMBS;
-    for (int i = IBZ_LIMBS - 1; i >= 0; i--) {
-        if ((*a)[i] != 0) {
-            actual_limbs = i + 1;
-            break;
-        }
-    }
-
-    if (actual_limbs == 0 || ibz_is_zero(a)) {
-        target[0] = 0;
-        return;
-    }
-
-    for (int i = 0; i < actual_limbs; i++) {
-        target[i] = (*a)[i];
-    }
+    assert(!ibz_is_negative(a) && (size_t)ibz_bitsize(a) <= len * RADIX);
+    const size_t digits_per_limb = 64 / RADIX;
+    memset(target, 0, len * sizeof(*target));
+    for (size_t i = 0; i < len && i < IBZ_LIMBS * digits_per_limb; i++)
+        target[i] = (digit_t)((*a)[i / digits_per_limb] >> (RADIX * (i % digits_per_limb)));
 }
 
 // Copy from digit array
@@ -1034,9 +1033,10 @@ void
 ibz_copy_digits(ibz_t *a, const digit_t *digits, size_t len)
 {
     ibz_init(a);
-    for (size_t i = 0; i < len && i < IBZ_LIMBS; i++) {
-        (*a)[i] = digits[i];
-    }
+    const size_t digits_per_limb = 64 / RADIX;
+    assert(len <= IBZ_LIMBS * digits_per_limb);
+    for (size_t i = 0; i < len && i < IBZ_LIMBS * digits_per_limb; i++)
+        (*a)[i / digits_per_limb] |= (uint64_t)digits[i] << (RADIX * (i % digits_per_limb));
 }
 
 // Get 2-adic valuation (trailing zeros)
@@ -1133,8 +1133,9 @@ ibz_div(ibz_t *quotient, ibz_t *remainder, const ibz_t *a, const ibz_t *b)
 
     // |a| < |b| 인 경우: 몫=0, 나머지=a 그대로
     if (ibz_cmp(&dividend, &divisor) < 0) {
+        ibz_copy(&r, a);
         if (quotient)  ibz_init(quotient);
-        if (remainder) ibz_copy(remainder, a);
+        if (remainder) ibz_copy(remainder, &r);
         return;
     }
 
@@ -1148,14 +1149,28 @@ ibz_div(ibz_t *quotient, ibz_t *remainder, const ibz_t *a, const ibz_t *b)
     ibz_t shifted_divisor;
     ibz_mul_2exp(&shifted_divisor, &divisor, shift);
 
-    // 메인 division 루프
+    // Restoring division on the magnitudes. Only the low limbs through the
+    // dividend's top bit can be nonzero during this loop.
+    const int used_limbs = (dividend_bits + 63) / 64;
     for (int i = shift; i >= 0; i--) {
-        if (ibz_cmp(&r, &shifted_divisor) >= 0) {
-            ibz_sub(&r, &r, &shifted_divisor);
+        int k = used_limbs - 1;
+        while (k >= 0 && r[k] == shifted_divisor[k])
+            --k;
+        if (k < 0 || r[k] > shifted_divisor[k]) {
+            uint64_t borrow = 0;
+            for (int j = 0; j < used_limbs; ++j) {
+                uint64_t diff = r[j] - shifted_divisor[j];
+                uint64_t next_borrow = (r[j] < shifted_divisor[j]) | (diff < borrow);
+                r[j] = diff - borrow;
+                borrow = next_borrow;
+            }
+            assert(borrow == 0);
             q[i / 64] |= (1ULL << (i % 64));
         }
         if (i > 0) {
-            ibz_div_2exp(&shifted_divisor, &shifted_divisor, 1);
+            for (int j = 0; j + 1 < used_limbs; ++j)
+                shifted_divisor[j] = (shifted_divisor[j] >> 1) | (shifted_divisor[j + 1] << 63);
+            shifted_divisor[used_limbs - 1] >>= 1;
         }
     }
 

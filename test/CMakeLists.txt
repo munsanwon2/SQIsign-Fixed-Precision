@@ -8,7 +8,15 @@ FOREACH(SVARIANT ${SVARIANT_S})
     add_executable(sqisign_test_kat_${SVARIANT} test_kat.c)
     target_link_libraries(sqisign_test_kat_${SVARIANT} sqisign_${SVARIANT_LOWER}_test)
     target_include_directories(sqisign_test_kat_${SVARIANT} PRIVATE ${PROJECT_SOURCE_DIR}/src/nistapi/${SVARIANT_LOWER} ${INC_PUBLIC} ${INC_INTBIG} ${INC_PRECOMP_${SVARIANT_UPPER}} ${INC_QUATERNION} ${INC_KLPT} ${INC_GF_${SVARIANT_UPPER}} ${INC_EC} ${INC_COMMON} ${INC_ID2ISO} ${INC_PROTOCOLS})
-    add_test(sqisign_${SVARIANT}_KAT sqisign_test_kat_${SVARIANT})
+    add_test(NAME sqisign_${SVARIANT}_KAT COMMAND sqisign_test_kat_${SVARIANT})
+    set_tests_properties(sqisign_${SVARIANT}_KAT PROPERTIES
+        WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}/KAT" TIMEOUT 7200)
+
+    add_executable(sqisign_test_parameter_encoding_${SVARIANT} test_parameter_encoding.c)
+    target_link_libraries(sqisign_test_parameter_encoding_${SVARIANT} sqisign_${SVARIANT}_test)
+    target_include_directories(sqisign_test_parameter_encoding_${SVARIANT} PRIVATE
+        ${PROJECT_SOURCE_DIR}/src/nistapi/${SVARIANT_LOWER})
+    add_test(NAME sqisign_${SVARIANT}_PARAMETER_ENCODING COMMAND sqisign_test_parameter_encoding_${SVARIANT})
 
     if (ENABLE_SIGN)
 
@@ -25,13 +33,13 @@ FOREACH(SVARIANT ${SVARIANT_S})
             ${PROJECT_SOURCE_DIR}/src/quaternion/ref/generic/internal_quaternion_headers)
         if (SVARIANT STREQUAL "lvl1")
             target_compile_definitions(sqisign_test_random_ideal_precision_${SVARIANT} PRIVATE
-                EXPECTED_IBZ_LIMBS=110 THEORETICAL_IBZ_BITS=7026)
+                EXPECTED_IBZ_LIMBS=150 PAPER_IBZ_BITS=9555 LINE13_IBZ_BITS=9565 EXPECTED_MIX_BITS=582)
         elseif (SVARIANT STREQUAL "lvl3")
             target_compile_definitions(sqisign_test_random_ideal_precision_${SVARIANT} PRIVATE
-                EXPECTED_IBZ_LIMBS=168 THEORETICAL_IBZ_BITS=10713)
+                EXPECTED_IBZ_LIMBS=228 PAPER_IBZ_BITS=14572 LINE13_IBZ_BITS=14569 EXPECTED_MIX_BITS=889)
         elseif (SVARIANT STREQUAL "lvl5")
             target_compile_definitions(sqisign_test_random_ideal_precision_${SVARIANT} PRIVATE
-                EXPECTED_IBZ_LIMBS=222 THEORETICAL_IBZ_BITS=14150)
+                EXPECTED_IBZ_LIMBS=300 PAPER_IBZ_BITS=19145 LINE13_IBZ_BITS=19145 EXPECTED_MIX_BITS=1181)
         endif()
         add_test(NAME sqisign_${SVARIANT}_RANDOM_IDEAL_PRECISION
                  COMMAND sqisign_test_random_ideal_precision_${SVARIANT})

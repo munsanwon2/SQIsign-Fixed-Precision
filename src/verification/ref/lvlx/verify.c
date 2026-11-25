@@ -244,9 +244,6 @@ protocols_verify(signature_t *sig, const public_key_t *pk, const unsigned char *
 {
     int verify;
 
-    if (!check_canonical_basis_change_matrix(sig))
-        return 0;
-
     // Computation of the length of the dim 2 2^n isogeny
     int pow_dim2_deg_resp = SQIsign_response_length - (int)sig->two_resp_length - (int)sig->backtracking;
 
@@ -256,6 +253,9 @@ protocols_verify(signature_t *sig, const public_key_t *pk, const unsigned char *
     // The dim 2 isogeny embeds a dim 1 isogeny of odd degree, so it can
     // never be of length 2.
     if (pow_dim2_deg_resp == 1)
+        return 0;
+
+    if (!check_canonical_basis_change_matrix(sig))
         return 0;
 
     // check the public curve is valid

@@ -5,6 +5,10 @@
 #include <torsion_constants.h>
 #include <encoded_sizes.h>
 
+_Static_assert(SQIsign_response_length <= UINT16_MAX, "response counters must hold all exponents");
+_Static_assert(SQIsign_response_length + HD_extra_torsion <= TORSION_EVEN_POWER,
+               "response and extra torsion must fit the full basis");
+
 // compute the commitment with ideal to isogeny clapotis
 // and apply it to the basis of E0 (together with the multiplication by some scalar u)
 static bool
@@ -97,7 +101,7 @@ compute_response_quat_element(quat_alg_elem_t *resp_quat,
 static int
 compute_backtracking_signature(signature_t *sig, quat_alg_elem_t *resp_quat, ibz_t *lattice_content, ibz_t *remain)
 {
-    uint_fast8_t backtracking;
+    int backtracking;
     ibz_t tmp;
     ibz_init(&tmp);
 
@@ -134,7 +138,7 @@ compute_backtracking_signature(signature_t *sig, quat_alg_elem_t *resp_quat, ibz
     return 1;
 }
 
-static uint_fast8_t
+static int
 compute_random_aux_norm_and_helpers(signature_t *sig,
                                     ibz_t *random_aux_norm,
                                     ibz_t *degree_resp_inv,
@@ -144,8 +148,8 @@ compute_random_aux_norm_and_helpers(signature_t *sig,
                                     quat_left_ideal_t *lideal_com_resp,
                                     quat_left_ideal_t *lideal_commit)
 {
-    uint_fast8_t pow_dim2_deg_resp;
-    uint_fast8_t exp_diadic_val_full_resp;
+    int pow_dim2_deg_resp;
+    int exp_diadic_val_full_resp;
 
     ibz_t tmp, degree_full_resp, degree_odd_resp, norm_d;
 
@@ -496,8 +500,7 @@ protocols_sign(signature_t *sig, const public_key_t *pk, secret_key_t *sk, const
     int ret = 0;
     int reduced_order = 0; // work around false positive gcc warning
 
-    uint_fast8_t pow_dim2_deg_resp;
-    assert(SQIsign_response_length <= (intmax_t)UINT_FAST8_MAX); // otherwise we might need more bits there
+    int pow_dim2_deg_resp;
 
     ibz_t remain, lattice_content, random_aux_norm, degree_resp_inv;
     ibz_init(&remain);

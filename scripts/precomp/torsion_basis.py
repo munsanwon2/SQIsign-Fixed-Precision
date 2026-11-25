@@ -56,11 +56,10 @@ def even_torsion_basis_E0(E0, f):
 
 
 if __name__ == "__main__":
-    # p, f = 5 * 2**248 - 1, 248
-    # p, f = 65 * 2**376 - 1, 376
-    p, f = 27 * 2**500 - 1, 500
+    from parameters import p, f
+
     print(f"p = {ZZ(p+1).factor()} - 1")
-    Fp2 = GF(p**2, modulus=[1, 0, 1], names="i")
+    Fp2 = GF((p, 2), modulus=[1, 0, 1], names="i")
     E = EllipticCurve(Fp2, [1, 0])
     E.set_order((p + 1) ** 2)
 

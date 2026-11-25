@@ -30,8 +30,8 @@ typedef scalar_t scalar_mtx_2x2_t[2][2];
 typedef struct signature
 {
     fp2_t E_aux_A; // the Montgomery A-coefficient for the auxiliary curve
-    uint8_t backtracking;
-    uint8_t two_resp_length;
+    uint16_t backtracking;
+    uint16_t two_resp_length;
     scalar_mtx_2x2_t mat_Bchall_can_to_B_chall; // the matrix of the desired basis
     scalar_t chall_coeff;
     uint8_t hint_aux;
@@ -95,8 +95,9 @@ void signature_to_bytes(unsigned char *enc, const signature_t *sig);
  *
  * @param sig : Structure to decode the signature in
  * @param enc : Byte array to decode
+ * @return 1 on success, 0 for a noncanonical field encoding
  */
-void signature_from_bytes(signature_t *sig, const unsigned char *enc);
+int signature_from_bytes(signature_t *sig, const unsigned char *enc);
 
 /**
  * @brief Encodes a public key as a byte array
@@ -111,6 +112,7 @@ unsigned char *public_key_to_bytes(unsigned char *enc, const public_key_t *pk);
  *
  * @param pk : Structure to decode the public key in
  * @param enc : Byte array to decode
+ * @return The next byte on success, NULL for a noncanonical field encoding
  */
 const unsigned char *public_key_from_bytes(public_key_t *pk, const unsigned char *enc);
 

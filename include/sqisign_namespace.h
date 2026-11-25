@@ -361,7 +361,7 @@
 
 #define fp_select                                       SQISIGN_NAMESPACE(fp_select)
 
-// Namespacing symbols exported from fp.c, fp_p27500_64.c, fp_p5248_64.c, fp_p65376_64.c:
+// Namespacing symbols exported by the prime-field implementations:
 #undef fp_exp3div4
 #undef fp_inv
 #undef fp_is_square
@@ -427,7 +427,7 @@
 #define fp2_sqrt_verify                                 SQISIGN_NAMESPACE(fp2_sqrt_verify)
 #define fp2_sub                                         SQISIGN_NAMESPACE(fp2_sub)
 
-// Namespacing symbols exported from fp_p27500_64.c, fp_p5248_64.c, fp_p65376_64.c:
+// Namespacing symbols exported by the prime-field implementations:
 #undef fp_copy
 #undef fp_cswap
 #undef fp_decode
@@ -458,7 +458,7 @@
 #define fp_set_small                                    SQISIGN_NAMESPACE(fp_set_small)
 #define fp_set_zero                                     SQISIGN_NAMESPACE(fp_set_zero)
 
-// Namespacing symbols exported from fp_p27500_64.c, fp_p5248_64.c, fp_p65376_64.c, gf27500.c, gf5248.c, gf65376.c:
+// Prime-field kernels and assembly constants.
 #undef fp_add
 #undef fp_mul
 #undef fp_sqr
@@ -468,27 +468,10 @@
 #define fp_mul                                          SQISIGN_NAMESPACE(fp_mul)
 #define fp_sqr                                          SQISIGN_NAMESPACE(fp_sqr)
 #define fp_sub                                          SQISIGN_NAMESPACE(fp_sub)
+#define fp_modulus                                      SQISIGN_NAMESPACE(fp_modulus)
+#define fp_twice_modulus                                SQISIGN_NAMESPACE(fp_twice_modulus)
 
-// Namespacing symbols exported from gf27500.c:
-#undef gf27500_decode
-#undef gf27500_decode_reduce
-#undef gf27500_div
-#undef gf27500_div3
-#undef gf27500_encode
-#undef gf27500_invert
-#undef gf27500_legendre
-#undef gf27500_sqrt
-
-#define gf27500_decode                                  SQISIGN_NAMESPACE(gf27500_decode)
-#define gf27500_decode_reduce                           SQISIGN_NAMESPACE(gf27500_decode_reduce)
-#define gf27500_div                                     SQISIGN_NAMESPACE(gf27500_div)
-#define gf27500_div3                                    SQISIGN_NAMESPACE(gf27500_div3)
-#define gf27500_encode                                  SQISIGN_NAMESPACE(gf27500_encode)
-#define gf27500_invert                                  SQISIGN_NAMESPACE(gf27500_invert)
-#define gf27500_legendre                                SQISIGN_NAMESPACE(gf27500_legendre)
-#define gf27500_sqrt                                    SQISIGN_NAMESPACE(gf27500_sqrt)
-
-// Namespacing symbols exported from gf27500.c, gf5248.c, gf65376.c:
+// Broadwell Fp2 assembly entry points.
 #undef fp2_mul_c0
 #undef fp2_mul_c1
 #undef fp2_sq_c0
@@ -498,44 +481,6 @@
 #define fp2_mul_c1                                      SQISIGN_NAMESPACE(fp2_mul_c1)
 #define fp2_sq_c0                                       SQISIGN_NAMESPACE(fp2_sq_c0)
 #define fp2_sq_c1                                       SQISIGN_NAMESPACE(fp2_sq_c1)
-
-// Namespacing symbols exported from gf5248.c:
-#undef gf5248_decode
-#undef gf5248_decode_reduce
-#undef gf5248_div
-#undef gf5248_div3
-#undef gf5248_encode
-#undef gf5248_invert
-#undef gf5248_legendre
-#undef gf5248_sqrt
-
-#define gf5248_decode                                   SQISIGN_NAMESPACE(gf5248_decode)
-#define gf5248_decode_reduce                            SQISIGN_NAMESPACE(gf5248_decode_reduce)
-#define gf5248_div                                      SQISIGN_NAMESPACE(gf5248_div)
-#define gf5248_div3                                     SQISIGN_NAMESPACE(gf5248_div3)
-#define gf5248_encode                                   SQISIGN_NAMESPACE(gf5248_encode)
-#define gf5248_invert                                   SQISIGN_NAMESPACE(gf5248_invert)
-#define gf5248_legendre                                 SQISIGN_NAMESPACE(gf5248_legendre)
-#define gf5248_sqrt                                     SQISIGN_NAMESPACE(gf5248_sqrt)
-
-// Namespacing symbols exported from gf65376.c:
-#undef gf65376_decode
-#undef gf65376_decode_reduce
-#undef gf65376_div
-#undef gf65376_div3
-#undef gf65376_encode
-#undef gf65376_invert
-#undef gf65376_legendre
-#undef gf65376_sqrt
-
-#define gf65376_decode                                  SQISIGN_NAMESPACE(gf65376_decode)
-#define gf65376_decode_reduce                           SQISIGN_NAMESPACE(gf65376_decode_reduce)
-#define gf65376_div                                     SQISIGN_NAMESPACE(gf65376_div)
-#define gf65376_div3                                    SQISIGN_NAMESPACE(gf65376_div3)
-#define gf65376_encode                                  SQISIGN_NAMESPACE(gf65376_encode)
-#define gf65376_invert                                  SQISIGN_NAMESPACE(gf65376_invert)
-#define gf65376_legendre                                SQISIGN_NAMESPACE(gf65376_legendre)
-#define gf65376_sqrt                                    SQISIGN_NAMESPACE(gf65376_sqrt)
 
 // Namespacing symbols exported from hd.c:
 #undef add_couple_jac_points

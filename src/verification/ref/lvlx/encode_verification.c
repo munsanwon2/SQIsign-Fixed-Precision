@@ -3,9 +3,15 @@
 #include <tutil.h>
 #include <fp2.h>
 #include <encoded_sizes.h>
+#include <hd.h>
 #include <assert.h>
 
 typedef unsigned char byte_t;
+
+_Static_assert(SQIsign_response_length <= (RESPONSE_COUNTER_BYTES == 1 ? UINT8_MAX : UINT16_MAX),
+               "encoded response counter is too short");
+_Static_assert(RESPONSE_MATRIX_ENTRY_BYTES == (SQIsign_response_length + HD_extra_torsion + 7) / 8,
+               "encoded response matrix must match the HD torsion");
 
 // digits
 
@@ -16,8 +22,10 @@ encode_digits(byte_t *enc, const digit_t *x, size_t nbytes)
     const size_t ndigits = nbytes / sizeof(digit_t);
     const size_t rem = nbytes % sizeof(digit_t);
 
-    for (size_t i = 0; i < ndigits; i++)
-        ((digit_t *)enc)[i] = BSWAP_DIGIT(x[i]);
+    for (size_t i = 0; i < ndigits; i++) {
+        digit_t digit = BSWAP_DIGIT(x[i]);
+        memcpy(enc + i * sizeof(digit_t), &digit, sizeof(digit));
+    }
     if (rem) {
         digit_t ld = BSWAP_DIGIT(x[ndigits]);
         memcpy(enc + ndigits * sizeof(digit_t), (byte_t *)&ld, rem);
@@ -25,6 +33,24 @@ encode_digits(byte_t *enc, const digit_t *x, size_t nbytes)
 #else
     memcpy(enc, (const byte_t *)x, nbytes);
 #endif
+}
+
+static byte_t *
+encode_response_counter(byte_t *enc, uint16_t counter)
+{
+    assert(RESPONSE_COUNTER_BYTES == 2 || counter <= UINT8_MAX);
+    for (size_t i = 0; i < RESPONSE_COUNTER_BYTES; ++i)
+        enc[i] = (byte_t)(counter >> (8 * i));
+    return enc + RESPONSE_COUNTER_BYTES;
+}
+
+static uint16_t
+decode_response_counter(const byte_t *enc)
+{
+    uint16_t counter = 0;
+    for (size_t i = 0; i < RESPONSE_COUNTER_BYTES; ++i)
+        counter |= (uint16_t)enc[i] << (8 * i);
+    return counter;
 }
 
 static void
@@ -52,8 +78,7 @@ fp2_to_bytes(byte_t *enc, const fp2_t *x)
 static const byte_t *
 fp2_from_bytes(fp2_t *x, const byte_t *enc)
 {
-    fp2_decode(x, enc);
-    return enc + FP2_ENCODED_BYTES;
+    return fp2_decode(x, enc) ? enc + FP2_ENCODED_BYTES : NULL;
 }
 
 // curves and points
@@ -124,8 +149,10 @@ static const byte_t *
 ec_basis_from_bytes(ec_basis_t *basis, const byte_t *enc)
 {
     enc = ec_point_from_bytes(&basis->P, enc);
-    enc = ec_point_from_bytes(&basis->Q, enc);
-    enc = ec_point_from_bytes(&basis->PmQ, enc);
+    if (enc)
+        enc = ec_point_from_bytes(&basis->Q, enc);
+    if (enc)
+        enc = ec_point_from_bytes(&basis->PmQ, enc);
     return enc;
 }
 
@@ -150,6 +177,8 @@ public_key_from_bytes(public_key_t *pk, const byte_t *enc)
     const byte_t *const start = enc;
 #endif
     enc = ec_curve_from_bytes(&pk->curve, enc);
+    if (!enc)
+        return NULL;
     pk->hint_pk = *enc++;
     assert(enc - start == PUBLICKEY_BYTES);
     return enc;
@@ -164,10 +193,10 @@ signature_to_bytes(byte_t *enc, const signature_t *sig)
 
     enc = fp2_to_bytes(enc, &sig->E_aux_A);
 
-    *enc++ = sig->backtracking;
-    *enc++ = sig->two_resp_length;
+    enc = encode_response_counter(enc, sig->backtracking);
+    enc = encode_response_counter(enc, sig->two_resp_length);
 
-    size_t nbytes = (SQIsign_response_length + 9) / 8;
+    size_t nbytes = RESPONSE_MATRIX_ENTRY_BYTES;
     encode_digits(enc, sig->mat_Bchall_can_to_B_chall[0][0], nbytes);
     enc += nbytes;
     encode_digits(enc, sig->mat_Bchall_can_to_B_chall[0][1], nbytes);
@@ -187,7 +216,7 @@ signature_to_bytes(byte_t *enc, const signature_t *sig)
     assert(enc - start == SIGNATURE_BYTES);
 }
 
-void
+int
 signature_from_bytes(signature_t *sig, const byte_t *enc)
 {
 #ifndef NDEBUG
@@ -195,11 +224,15 @@ signature_from_bytes(signature_t *sig, const byte_t *enc)
 #endif
 
     enc = fp2_from_bytes(&sig->E_aux_A, enc);
+    if (!enc)
+        return 0;
 
-    sig->backtracking = *enc++;
-    sig->two_resp_length = *enc++;
+    sig->backtracking = decode_response_counter(enc);
+    enc += RESPONSE_COUNTER_BYTES;
+    sig->two_resp_length = decode_response_counter(enc);
+    enc += RESPONSE_COUNTER_BYTES;
 
-    size_t nbytes = (SQIsign_response_length + 9) / 8;
+    size_t nbytes = RESPONSE_MATRIX_ENTRY_BYTES;
     decode_digits(sig->mat_Bchall_can_to_B_chall[0][0], enc, nbytes, NWORDS_ORDER);
     enc += nbytes;
     decode_digits(sig->mat_Bchall_can_to_B_chall[0][1], enc, nbytes, NWORDS_ORDER);
@@ -217,4 +250,5 @@ signature_from_bytes(signature_t *sig, const byte_t *enc)
     sig->hint_chall = *enc++;
 
     assert(enc - start == SIGNATURE_BYTES);
+    return 1;
 }

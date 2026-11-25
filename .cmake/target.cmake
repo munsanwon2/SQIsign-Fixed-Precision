@@ -62,6 +62,11 @@ if (NOT DEFINED SQISIGN_BUILD_TYPE)
     set(SQISIGN_BUILD_TYPE "ref")
 endif()
 
+if(SQISIGN_BUILD_TYPE STREQUAL "broadwell" AND
+   NOT CMAKE_SYSTEM_PROCESSOR MATCHES "^(x86_64|AMD64|amd64)$")
+    message(FATAL_ERROR "The Broadwell field assembly requires x86-64")
+endif()
+
 if (RADIX EQUAL 32)
     if (${SQISIGN_BUILD_TYPE} MATCHES "broadwell")
         message(FATAL_ERROR "Broadwell implementation not supported in 32-bit build")

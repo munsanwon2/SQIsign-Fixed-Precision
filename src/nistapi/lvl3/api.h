@@ -5,9 +5,9 @@
 
 #include <sqisign_namespace.h>
 
-#define CRYPTO_SECRETKEYBYTES 529
-#define CRYPTO_PUBLICKEYBYTES 97
-#define CRYPTO_BYTES 224
+#define CRYPTO_SECRETKEYBYTES 711
+#define CRYPTO_PUBLICKEYBYTES 129
+#define CRYPTO_BYTES 284
 
 #define CRYPTO_ALGNAME "SQIsign_lvl3"
 

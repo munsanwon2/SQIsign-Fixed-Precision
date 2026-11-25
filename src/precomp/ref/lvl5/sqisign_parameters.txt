@@ -1,3 +1,7 @@
 lvl = 5
-p = 0x1afffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+p = 0x10ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+security_bits = 256
 num_orders = 7
+ibz_limbs = 300
+ref_radix32 = 28
+ref_radix64 = 61

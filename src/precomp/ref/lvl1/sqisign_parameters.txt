@@ -1,3 +1,7 @@
 lvl = 1
-p = 0x4ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+p = 0x2fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+security_bits = 128
 num_orders = 7
+ibz_limbs = 150
+ref_radix32 = 28
+ref_radix64 = 55

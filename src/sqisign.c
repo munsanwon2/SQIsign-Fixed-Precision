@@ -37,7 +37,11 @@ sqisign_sign(unsigned char *sm,
     public_key_t pkt = { 0 };
     signature_t sigt;
     secret_key_init(&skt);
-    secret_key_from_bytes(&skt, &pkt, sk);
+    if (!secret_key_from_bytes(&skt, &pkt, sk)) {
+        ret = 1;
+        *smlen = 0;
+        goto err;
+    }
 
     memmove(sm + SIGNATURE_BYTES, m, mlen);
 
@@ -64,14 +68,11 @@ sqisign_open(unsigned char *m,
              unsigned long long smlen,
              const unsigned char *pk)
 {
-    int ret = 0;
-    public_key_t pkt = { 0 };
-    signature_t sigt;
-
-    public_key_from_bytes(&pkt, pk);
-    signature_from_bytes(&sigt, sm);
-
-    ret = !protocols_verify(&sigt, &pkt, sm + SIGNATURE_BYTES, smlen - SIGNATURE_BYTES);
+    if (smlen < SIGNATURE_BYTES) {
+        *mlen = 0;
+        return 1;
+    }
+    int ret = sqisign_verify(sm + SIGNATURE_BYTES, smlen - SIGNATURE_BYTES, sm, SIGNATURE_BYTES, pk);
 
     if (!ret) {
         *mlen = smlen - SIGNATURE_BYTES;
@@ -93,14 +94,14 @@ sqisign_verify(const unsigned char *m,
                const unsigned char *pk)
 {
 
-    int ret = 0;
+    if (siglen != SIGNATURE_BYTES)
+        return 1;
+
     public_key_t pkt = { 0 };
     signature_t sigt;
 
-    public_key_from_bytes(&pkt, pk);
-    signature_from_bytes(&sigt, sig);
+    if (!public_key_from_bytes(&pkt, pk) || !signature_from_bytes(&sigt, sig))
+        return 1;
 
-    ret = !protocols_verify(&sigt, &pkt, m, mlen);
-
-    return ret;
+    return !protocols_verify(&sigt, &pkt, m, mlen);
 }

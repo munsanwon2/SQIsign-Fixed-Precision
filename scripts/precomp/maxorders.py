@@ -2,9 +2,11 @@ from sage.all import *
 
 from sage.misc.banner import require_version
 if not require_version(10, 5, print_message=True):
-    exit('')
+    raise RuntimeError("maximal-order generation requires SageMath 10.5 or later")
 
 from parameters import p, num_orders as num
+
+set_random_seed(1)
 
 ################################################################
 

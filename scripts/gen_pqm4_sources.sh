@@ -42,6 +42,14 @@ do
     cp src/gf/ref/lvlx/{fp,fp2}.c ${DST_PATH}/
     cp src/gf/ref/include/{fp,fp2}.h ${DST_PATH}/
 
+    case "$LEVEL" in
+        1) field=p324_3 ;;
+        3) field=p500_27 ;;
+        5) field=p664_17 ;;
+    esac
+    cp "src/gf/ref/$LVL/fp_${field}_32.inc" src/gf/ref/lvlx/fp_api.inc "$DST_PATH/"
+    sed 's|../lvlx/fp_api.inc|fp_api.inc|' "src/gf/ref/$LVL/fp_${field}.c" > "$DST_PATH/fp_${field}.c"
+
     cp src/hd/ref/lvlx/{hd.c,theta_isogenies.c,theta_isogenies.h,theta_structure.c,theta_structure.h} ${DST_PATH}/
     cp src/hd/ref/include/hd.h ${DST_PATH}/
 
@@ -54,7 +62,3 @@ do
     cp src/verification/ref/lvlx/{common,encode_verification,verify}.c ${DST_PATH}/
     cp src/verification/ref/include/verification.h ${DST_PATH}/
 done
-
-cp src/gf/ref/lvl1/fp_p5248_32.c src/pqm4/sqisign_lvl1/ref/
-cp src/gf/ref/lvl3/fp_p65376_32.c src/pqm4/sqisign_lvl3/ref/
-cp src/gf/ref/lvl5/fp_p27500_32.c src/pqm4/sqisign_lvl5/ref/

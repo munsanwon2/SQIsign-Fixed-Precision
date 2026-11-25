@@ -108,7 +108,9 @@ quat_lideal_prime_norm_reduced_equivalent(quat_left_ideal_t *lideal,
             quat_alg_conj(&new_alpha, &new_alpha);
             ibz_mul(&new_alpha.denom, &new_alpha.denom, &lideal->norm);
             quat_lideal_mul(lideal, lideal, &new_alpha, alg);
-            assert(ibz_probab_prime(&lideal->norm, primality_num_iter));
+            // tmp was primality-tested above. This also checks the norm
+            // calculation without advancing the RNG in Debug builds.
+            assert(ibz_cmp(&lideal->norm, &tmp) == 0);
 
             found = 1;
             break;

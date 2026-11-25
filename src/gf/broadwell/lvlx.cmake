@@ -1,6 +1,6 @@
 set(SOURCE_FILES_GF_${SVARIANT_UPPER}_BROADWELL
     ${SOURCE_FILES_GF_SPECIFIC}
-    fp.c
+    ${LVLX_DIR}/fp.c
     ${LVLX_DIR}/fp2.c
 )
 

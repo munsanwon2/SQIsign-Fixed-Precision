@@ -48,7 +48,7 @@ int FindMarker(FILE *infile, const char *marker);
 int ReadHex(FILE *infile, unsigned char *A, int Length, char *str);
 void fprintBstr(FILE *fp, char *S, unsigned char *A, unsigned long long L);
 
-int main(void) {
+int main(int argc, char **argv) {
   char fn_req[32], fn_rsp[32];
   FILE *fp_req, *fp_rsp;
   unsigned char seed[48];
@@ -60,6 +60,21 @@ int main(void) {
   int done;
   unsigned char pk[CRYPTO_PUBLICKEYBYTES], sk[CRYPTO_SECRETKEYBYTES];
   int ret_val;
+  int vectors = 100;
+
+  if (argc > 1) {
+    char *end;
+    if (argc != 2 || strncmp(argv[1], "--count=", 8) != 0) {
+      fprintf(stderr, "Usage: %s [--count=1..100]\n", argv[0]);
+      return KAT_DATA_ERROR;
+    }
+    long n = strtol(argv[1] + 8, &end, 10);
+    if (*end || n < 1 || n > 100) {
+      fprintf(stderr, "--count must be between 1 and 100\n");
+      return KAT_DATA_ERROR;
+    }
+    vectors = (int)n;
+  }
 
   // Create the REQUEST file
   sprintf(fn_req, "PQCsignKAT_%d_%s.req", CRYPTO_SECRETKEYBYTES,
@@ -79,7 +94,9 @@ int main(void) {
     entropy_input[i] = i;
 
   randombytes_init(entropy_input, NULL, 256);
-  for (int i = 0; i < 100; i++) {
+  for (int i = 0; i < vectors; i++) {
+    if (i > 0)
+      fputc('\n', fp_req);
     fprintf(fp_req, "count = %d\n", i);
     randombytes(seed, 48);
     fprintBstr(fp_req, "seed = ", seed, 48);
@@ -90,7 +107,7 @@ int main(void) {
     fprintf(fp_req, "pk =\n");
     fprintf(fp_req, "sk =\n");
     fprintf(fp_req, "smlen =\n");
-    fprintf(fp_req, "sm =\n\n");
+    fprintf(fp_req, "sm =\n");
   }
   fclose(fp_req);
 
@@ -110,6 +127,8 @@ int main(void) {
       done = 1;
       break;
     }
+    if (count > 0)
+      fputc('\n', fp_rsp);
     fprintf(fp_rsp, "count = %d\n", count);
 
     if (!ReadHex(fp_req, seed, 48, "seed = ")) {
@@ -153,7 +172,6 @@ int main(void) {
     }
     fprintf(fp_rsp, "smlen = %llu\n", smlen);
     fprintBstr(fp_rsp, "sm = ", sm, smlen);
-    fprintf(fp_rsp, "\n");
 
     if ((ret_val = crypto_sign_open(m1, &mlen1, sm, smlen, pk)) != 0) {
       printf("crypto_sign_open returned <%d>\n", ret_val);

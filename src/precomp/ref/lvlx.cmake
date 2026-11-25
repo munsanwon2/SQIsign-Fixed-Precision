@@ -19,18 +19,23 @@ target_compile_options(${LIB_PRECOMP_${SVARIANT_UPPER}} PRIVATE ${C_OPT_FLAGS})
 target_compile_definitions(${LIB_PRECOMP_${SVARIANT_UPPER}} PUBLIC SQISIGN_VARIANT=${SVARIANT_LOWER})
 
 find_program(SAGEMATH sage)
+set(PRECOMP_SAGE ${CMAKE_COMMAND} -E env
+    "PYTHONPATH=${PROJECT_SOURCE_DIR}/scripts/precomp:$ENV{PYTHONPATH}"
+    "PYTHONDONTWRITEBYTECODE=1" "PYTHONUNBUFFERED=1" "${SAGEMATH}")
 add_custom_target(precomp_${SVARIANT_LOWER}
-    DEPENDS "./sqisign_parameters.txt"
-    COMMAND "${SAGEMATH}" "${PROJECT_SOURCE_DIR}/scripts/precomp/precompute_torsion_constants.sage"
-    COMMAND "${SAGEMATH}" "${PROJECT_SOURCE_DIR}/scripts/precomp/precompute_quaternion_constants.sage"
-    COMMAND "${SAGEMATH}" "${PROJECT_SOURCE_DIR}/scripts/precomp/precompute_sizes.sage"
-    COMMAND "${SAGEMATH}" "${PROJECT_SOURCE_DIR}/scripts/precomp/precompute_quaternion_data.sage"
-    COMMAND "${SAGEMATH}" "${PROJECT_SOURCE_DIR}/scripts/precomp/precompute_endomorphism_action.sage"
-    COMMAND "${SAGEMATH}" "${PROJECT_SOURCE_DIR}/scripts/precomp/ec_params.sage"
-    COMMAND "${SAGEMATH}" "${PROJECT_SOURCE_DIR}/scripts/precomp/precompute_hd_splitting.sage"
-    COMMAND "${SAGEMATH}" "${PROJECT_SOURCE_DIR}/scripts/precomp/precompute_E0_basis.sage"
+    DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/sqisign_parameters.txt"
+    COMMAND ${PRECOMP_SAGE} "${PROJECT_SOURCE_DIR}/scripts/precomp/precompute_torsion_constants.sage"
+    COMMAND ${PRECOMP_SAGE} "${PROJECT_SOURCE_DIR}/scripts/precomp/precompute_quaternion_constants.sage"
+    COMMAND ${PRECOMP_SAGE} "${PROJECT_SOURCE_DIR}/scripts/precomp/precompute_sizes.sage"
+    COMMAND ${PRECOMP_SAGE} "${PROJECT_SOURCE_DIR}/scripts/precomp/precompute_field_constants.sage"
+    COMMAND ${PRECOMP_SAGE} "${PROJECT_SOURCE_DIR}/scripts/precomp/precompute_quaternion_data.sage"
+    COMMAND ${PRECOMP_SAGE} "${PROJECT_SOURCE_DIR}/scripts/precomp/precompute_endomorphism_action.sage"
+    COMMAND ${PRECOMP_SAGE} "${PROJECT_SOURCE_DIR}/scripts/precomp/ec_params.sage"
+    COMMAND ${PRECOMP_SAGE} "${PROJECT_SOURCE_DIR}/scripts/precomp/precompute_hd_splitting.sage"
+    COMMAND ${PRECOMP_SAGE} "${PROJECT_SOURCE_DIR}/scripts/precomp/precompute_E0_basis.sage"
     WORKING_DIRECTORY
     "${CMAKE_CURRENT_SOURCE_DIR}"
+    VERBATIM
 )
 
 set_directory_properties(PROPERTIES CLEAN_NO_CUSTOM true)

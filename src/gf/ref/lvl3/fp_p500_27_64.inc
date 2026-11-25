@@ -1,14 +1,20 @@
+// SPDX-License-Identifier: Apache-2.0
+// Field kernel from SQIsign nist-v3 (6d017708db403bf83977fa70770fc4f7f9e9ff21).
 // clang-format off
-// Command line : python monty.py 64
+// Automatically generated modular arithmetic C code
+// Command line : python /Users/bhe/git/modarith/monty.py 64
 // 0x1afffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+// Python Script by Mike Scott (Technology Innovation Institute, UAE, 2025)
 
 #include <stdint.h>
 #include <stdio.h>
 
 #define sspint int64_t
 #define spint uint64_t
-#define udpint __uint128_t
-#define dpint __uint128_t
+// for ISO-C compatibility
+__extension__ typedef __uint128_t fp_u128_t;
+#define udpint fp_u128_t
+#define dpint fp_u128_t
 
 #define Wordlength 64
 #define Nlimbs 9
@@ -18,7 +24,7 @@
 
 #define MONTGOMERY
 // propagate carries
-inline static spint prop(spint *n) {
+static inline spint prop(spint *n) {
   int i;
   spint mask = ((spint)1 << 57u) - (spint)1;
   sspint carry = (sspint)n[0];
@@ -34,7 +40,7 @@ inline static spint prop(spint *n) {
 }
 
 // propagate carries and add p if negative, propagate carries again
-inline static int flatten(spint *n) {
+static inline int flatten(spint *n) {
   spint carry = prop(n);
   n[0] -= (spint)1u & carry;
   n[8] += ((spint)0x1b00000000000u) & carry;
@@ -43,14 +49,14 @@ inline static int flatten(spint *n) {
 }
 
 // Montgomery final subtract
-inline static int modfsb(spint *n) {
+static inline int modfsb(spint *n) {
   n[0] += (spint)1u;
   n[8] -= (spint)0x1b00000000000u;
   return flatten(n);
 }
 
 // Modular addition - reduce less than 2p
-inline static void modadd(const spint *a, const spint *b, spint *n) {
+static inline void modadd(const spint *a, const spint *b, spint *n) {
   spint carry;
   n[0] = a[0] + b[0];
   n[1] = a[1] + b[1];
@@ -70,7 +76,7 @@ inline static void modadd(const spint *a, const spint *b, spint *n) {
 }
 
 // Modular subtraction - reduce less than 2p
-inline static void modsub(const spint *a, const spint *b, spint *n) {
+static inline void modsub(const spint *a, const spint *b, spint *n) {
   spint carry;
   n[0] = a[0] - b[0];
   n[1] = a[1] - b[1];
@@ -88,7 +94,7 @@ inline static void modsub(const spint *a, const spint *b, spint *n) {
 }
 
 // Modular negation
-inline static void modneg(const spint *b, spint *n) {
+static inline void modneg(const spint *b, spint *n) {
   spint carry;
   n[0] = (spint)0 - b[0];
   n[1] = (spint)0 - b[1];
@@ -108,7 +114,7 @@ inline static void modneg(const spint *b, spint *n) {
 // Overflow limit   = 340282366920938463463374607431768211456
 // maximum possible = 186991140039668477603471750259015689
 // Modular multiplication, c=a*b mod 2p
-inline static void modmul(const spint *a, const spint *b, spint *c) {
+static inline void modmul(const spint *a, const spint *b, spint *c) {
   dpint t = 0;
   spint p8 = 0x1b00000000000u;
   spint q = ((spint)1 << 57u); // q is unsaturated radix
@@ -241,7 +247,7 @@ inline static void modmul(const spint *a, const spint *b, spint *c) {
 }
 
 // Modular squaring, c=a*a  mod 2p
-inline static void modsqr(const spint *a, spint *c) {
+static inline void modsqr(const spint *a, spint *c) {
   udpint tot;
   udpint t = 0;
   spint p8 = 0x1b00000000000u;
@@ -371,7 +377,7 @@ inline static void modsqr(const spint *a, spint *c) {
 }
 
 // copy
-inline static void modcpy(const spint *a, spint *c) {
+static inline void modcpy(const spint *a, spint *c) {
   int i;
   for (i = 0; i < 9; i++) {
     c[i] = a[i];
@@ -543,12 +549,6 @@ static void modint(int x, spint *a) {
   nres(a, a);
 }
 
-// Modular multiplication by an integer, c=a*b mod 2p
-inline static void modmli(const spint *a, int b, spint *c) {
-  spint t[9];
-  modint(b, t);
-  modmul(a, t, c);
-}
 
 // Test for quadratic residue
 static int modqr(const spint *h, const spint *x) {
@@ -563,38 +563,26 @@ static int modqr(const spint *h, const spint *x) {
   return modis1(r) | modis0(x);
 }
 
-// conditional move g to f if d=1
-// strongly recommend inlining be disabled using compiler specific syntax
-static void modcmv(int b, const spint *g, volatile spint *f) {
-  int i;
-  spint c0, c1, s, t;
-  spint r = 0x3cc3c33c5aa5a55au;
-  c0 = (1 - b) + r;
-  c1 = b + r;
-  for (i = 0; i < 9; i++) {
-    s = g[i];
-    t = f[i];
-    f[i] = c0 * t + c1 * s;
-    f[i] -= r * (t + s);
-  }
-}
 
 // conditional swap g and f if d=1
 // strongly recommend inlining be disabled using compiler specific syntax
-static void modcsw(int b, volatile spint *g, volatile spint *f) {
+static void __attribute__((noinline)) modcsw(int b, volatile spint *g,
+                                             volatile spint *f) {
   int i;
-  spint c0, c1, s, t, w;
-  spint r = 0x3cc3c33c5aa5a55au;
-  c0 = (1 - b) + r;
-  c1 = b + r;
+  spint c0, c1, s, t, w, v, aux;
+  static spint R = 0;
+  R += 0x3cc3c33c5aa5a55au;
+  w = R;
+  c0 = (~b) & (w + 1);
+  c1 = b + w;
   for (i = 0; i < 9; i++) {
     s = g[i];
     t = f[i];
-    w = r * (t + s);
-    f[i] = c0 * t + c1 * s;
-    f[i] -= w;
-    g[i] = c0 * s + c1 * t;
-    g[i] -= w;
+    v = w * (t + s);
+    f[i] = aux = c0 * t + c1 * s;
+    f[i] = aux - v;
+    g[i] = aux = c0 * s + c1 * t;
+    g[i] = aux - v;
   }
 }
 
@@ -632,51 +620,9 @@ static int modshr(unsigned int n, spint *a) {
   return r;
 }
 
-// set a= 2^r
-static void mod2r(unsigned int r, spint *a) {
-  unsigned int n = r / 57u;
-  unsigned int m = r % 57u;
-  modzer(a);
-  if (r >= 64 * 8)
-    return;
-  a[n] = 1;
-  a[n] <<= m;
-  nres(a, a);
-}
 
-// export to byte array
-static void modexp(const spint *a, char *b) {
-  int i;
-  spint c[9];
-  redc(a, c);
-  for (i = 63; i >= 0; i--) {
-    b[i] = c[0] & (spint)0xff;
-    (void)modshr(8, c);
-  }
-}
 
-// import from byte array
-// returns 1 if in range, else 0
-static int modimp(const char *b, spint *a) {
-  int i, res;
-  for (i = 0; i < 9; i++) {
-    a[i] = 0;
-  }
-  for (i = 0; i < 64; i++) {
-    modshl(8, a);
-    a[0] += (spint)(unsigned char)b[i];
-  }
-  res = modfsb(a);
-  nres(a, a);
-  return res;
-}
 
-// determine sign
-static int modsign(const spint *a) {
-  spint c[9];
-  redc(a, c);
-  return c[0] % 2;
-}
 
 // return true if equal
 static int modcmp(const spint *a, const spint *b) {
@@ -688,283 +634,4 @@ static int modcmp(const spint *a, const spint *b) {
     eq &= (((c[i] ^ d[i]) - 1) >> 57) & 1;
   }
   return eq;
-}
-
-// clang-format on
-/******************************************************************************
- API functions calling generated code above
- ******************************************************************************/
-
-#include <fp.h>
-
-const digit_t ZERO[NWORDS_FIELD] = { 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0 };
-const digit_t ONE[NWORDS_FIELD] = { 0x000000000000012f, 0x0000000000000000, 0x0000000000000000,
-                                    0x0000000000000000, 0x0000000000000000, 0x0000000000000000,
-                                    0x0000000000000000, 0x0000000000000000, 0x0000b00000000000 };
-// Montgomery representation of 2^-1
-static const digit_t TWO_INV[NWORDS_FIELD] = { 0x0000000000000097, 0x0000000000000000, 0x0000000000000000,
-                                               0x0000000000000000, 0x0000000000000000, 0x0000000000000000,
-                                               0x0000000000000000, 0x0000000000000000, 0x0001300000000000 };
-// Montgomery representation of 3^-1
-static const digit_t THREE_INV[NWORDS_FIELD] = { 0x00aaaaaaaaaaab0f, 0x0155555555555555, 0x00aaaaaaaaaaaaaa,
-                                                 0x0155555555555555, 0x00aaaaaaaaaaaaaa, 0x0155555555555555,
-                                                 0x00aaaaaaaaaaaaaa, 0x0155555555555555, 0x00015aaaaaaaaaaa };
-// Montgomery representation of 2^512
-static const digit_t R2[NWORDS_FIELD] = { 0x0012f684bda1e334, 0x01425ed097b425ed, 0x01684bda12f684bd,
-                                          0x01ed097b425ed097, 0x00bda12f684bda12, 0x0097b425ed097b42,
-                                          0x0012f684bda12f68, 0x01425ed097b425ed, 0x00008bda12f684bd };
-
-void
-fp_set_small(fp_t *x, const digit_t val)
-{
-    modint((int)val, *x);
-}
-
-void
-fp_mul_small(fp_t *x, const fp_t *a, const uint32_t val)
-{
-    modmli(*a, (int)val, *x);
-}
-
-void
-fp_set_zero(fp_t *x)
-{
-    modzer(*x);
-}
-
-void
-fp_set_one(fp_t *x)
-{
-    modone(*x);
-}
-
-uint32_t
-fp_is_equal(const fp_t *a, const fp_t *b)
-{
-    return -(uint32_t)modcmp(*a, *b);
-}
-
-uint32_t
-fp_is_zero(const fp_t *a)
-{
-    return -(uint32_t)modis0(*a);
-}
-
-void
-fp_copy(fp_t *out, const fp_t *a)
-{
-    modcpy(*a, *out);
-}
-
-void
-fp_cswap(fp_t *a, fp_t *b, uint32_t ctl)
-{
-    modcsw((int)(ctl & 0x1), *a, *b);
-}
-
-void
-fp_add(fp_t *out, const fp_t *a, const fp_t *b)
-{
-    modadd(*a, *b, *out);
-}
-
-void
-fp_sub(fp_t *out, const fp_t *a, const fp_t *b)
-{
-    modsub(*a, *b, *out);
-}
-
-void
-fp_neg(fp_t *out, const fp_t *a)
-{
-    modneg(*a, *out);
-}
-
-void
-fp_sqr(fp_t *out, const fp_t *a)
-{
-    modsqr(*a, *out);
-}
-
-void
-fp_mul(fp_t *out, const fp_t *a, const fp_t *b)
-{
-    modmul(*a, *b, *out);
-}
-
-void
-fp_inv(fp_t *x)
-{
-    modinv(*x, NULL, *x);
-}
-
-uint32_t
-fp_is_square(const fp_t *a)
-{
-    return -(uint32_t)modqr(NULL, *a);
-}
-
-void
-fp_sqrt(fp_t *a)
-{
-    modsqrt(*a, NULL, *a);
-}
-
-void
-fp_half(fp_t *out, const fp_t *a)
-{
-    modmul(TWO_INV, *a, *out);
-}
-
-void
-fp_exp3div4(fp_t *out, const fp_t *a)
-{
-    modpro(*a, *out);
-}
-
-void
-fp_div3(fp_t *out, const fp_t *a)
-{
-    modmul(THREE_INV, *a, *out);
-}
-
-void
-fp_encode(void *dst, const fp_t *a)
-{
-    // Modified version of modexp()
-    int i;
-    spint c[9];
-    redc(*a, c);
-    for (i = 0; i < 64; i++) {
-        ((char *)dst)[i] = c[0] & (spint)0xff;
-        (void)modshr(8, c);
-    }
-}
-
-uint32_t
-fp_decode(fp_t *d, const void *src)
-{
-    // Modified version of modimp()
-    int i;
-    spint res;
-    const unsigned char *b = src;
-    for (i = 0; i < 9; i++) {
-        (*d)[i] = 0;
-    }
-    for (i = 63; i >= 0; i--) {
-        modshl(8, *d);
-        (*d)[0] += (spint)b[i];
-    }
-    res = (spint)-modfsb(*d);
-    nres(*d, *d);
-    // If the value was canonical then res = -1; otherwise, res = 0
-    for (i = 0; i < 9; i++) {
-        (*d)[i] &= res;
-    }
-    return (uint32_t)res;
-}
-
-static inline unsigned char
-add_carry(unsigned char cc, spint a, spint b, spint *d)
-{
-    udpint t = (udpint)a + (udpint)b + cc;
-    *d = (spint)t;
-    return (unsigned char)(t >> Wordlength);
-}
-
-static void
-partial_reduce(spint *out, const spint *src)
-{
-    spint h, l, quo, rem;
-    unsigned char cc;
-
-    // Split value in high (12 bits) and low (500 bits) parts.
-    h = src[7] >> 52;
-    l = src[7] & 0x000FFFFFFFFFFFFF;
-
-    // 27*2^500 = 1 mod q; hence, we add floor(h/27) + (h mod 27)*2^500
-    // to the low part.
-    quo = (h * 0x12F7) >> 17;
-    rem = h - (27 * quo);
-    cc = add_carry(0, src[0], quo, &out[0]);
-    cc = add_carry(cc, src[1], 0, &out[1]);
-    cc = add_carry(cc, src[2], 0, &out[2]);
-    cc = add_carry(cc, src[3], 0, &out[3]);
-    cc = add_carry(cc, src[4], 0, &out[4]);
-    cc = add_carry(cc, src[5], 0, &out[5]);
-    cc = add_carry(cc, src[6], 0, &out[6]);
-    (void)add_carry(cc, l, rem << 52, &out[7]);
-}
-
-// Little-endian encoding of a 64-bit integer.
-static inline void
-enc64le(void *dst, uint64_t x)
-{
-    uint8_t *buf = dst;
-    buf[0] = (uint8_t)x;
-    buf[1] = (uint8_t)(x >> 8);
-    buf[2] = (uint8_t)(x >> 16);
-    buf[3] = (uint8_t)(x >> 24);
-    buf[4] = (uint8_t)(x >> 32);
-    buf[5] = (uint8_t)(x >> 40);
-    buf[6] = (uint8_t)(x >> 48);
-    buf[7] = (uint8_t)(x >> 56);
-}
-
-// Little-endian decoding of a 64-bit integer.
-static inline uint64_t
-dec64le(const void *src)
-{
-    const uint8_t *buf = src;
-    return (spint)buf[0] | ((spint)buf[1] << 8) | ((spint)buf[2] << 16) | ((spint)buf[3] << 24) |
-           ((spint)buf[4] << 32) | ((spint)buf[5] << 40) | ((spint)buf[6] << 48) | ((spint)buf[7] << 56);
-}
-
-void
-fp_decode_reduce(fp_t *d, const void *src, size_t len)
-{
-    uint64_t t[8];   // Stores Nbytes * 8 bits
-    uint8_t tmp[64]; // Nbytes
-    const uint8_t *b = src;
-
-    fp_set_zero(d);
-    if (len == 0) {
-        return;
-    }
-
-    size_t rem = len % 64;
-    if (rem != 0) {
-        // Input size is not a multiple of 64, we decode a partial
-        // block, which is already less than 2^500.
-        size_t k = len - rem;
-        memcpy(tmp, b + k, len - k);
-        memset(tmp + len - k, 0, (sizeof tmp) - (len - k));
-        fp_decode(d, tmp);
-        len = k;
-    }
-    // Process all remaining blocks, in descending address order.
-    while (len > 0) {
-        fp_mul(d, d, &R2);
-        len -= 64;
-        t[0] = dec64le(b + len);
-        t[1] = dec64le(b + len + 8);
-        t[2] = dec64le(b + len + 16);
-        t[3] = dec64le(b + len + 24);
-        t[4] = dec64le(b + len + 32);
-        t[5] = dec64le(b + len + 40);
-        t[6] = dec64le(b + len + 48);
-        t[7] = dec64le(b + len + 56);
-        partial_reduce(t, t);
-        enc64le(tmp, t[0]);
-        enc64le(tmp + 8, t[1]);
-        enc64le(tmp + 16, t[2]);
-        enc64le(tmp + 24, t[3]);
-        enc64le(tmp + 32, t[4]);
-        enc64le(tmp + 40, t[5]);
-        enc64le(tmp + 48, t[6]);
-        enc64le(tmp + 56, t[7]);
-        fp_t a;
-        fp_decode(&a, tmp);
-        fp_add(d, d, &a);
-    }
 }

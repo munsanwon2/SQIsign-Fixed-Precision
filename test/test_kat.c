@@ -50,11 +50,12 @@ static int test_sig_kat(int cnt) {
     int                 count;
     int                 done;
     int                 ret_val;
+    int                 verified = 0;
 
     char                fn_rsp[64];
     FILE                *fp_rsp;
 
-    sprintf(fn_rsp, "../../KAT/PQCsignKAT_%d_%s.rsp", CRYPTO_SECRETKEYBYTES, CRYPTO_ALGNAME);
+    snprintf(fn_rsp, sizeof(fn_rsp), "PQCsignKAT_%d_%s.rsp", CRYPTO_SECRETKEYBYTES, CRYPTO_ALGNAME);
     if ( (fp_rsp = fopen(fn_rsp, "r")) == NULL ) {
         printf("Couldn't open <%s> for read\n", fn_rsp);
         return KAT_FILE_OPEN_ERROR;
@@ -64,7 +65,10 @@ static int test_sig_kat(int cnt) {
     do {
 
         if ( FindMarker(fp_rsp, "count = ") ) {
-            ret_val = fscanf(fp_rsp, "%d", &count);
+            if (fscanf(fp_rsp, "%d", &count) != 1) {
+                fclose(fp_rsp);
+                return KAT_DATA_ERROR;
+            }
         } else {
             done = 1;
             break;
@@ -83,12 +87,16 @@ static int test_sig_kat(int cnt) {
 #endif
 
         if ( FindMarker(fp_rsp, "mlen = ") ) {
-            ret_val = fscanf(fp_rsp, "%lld", &mlen);
+            ret_val = fscanf(fp_rsp, "%llu", &mlen);
         } else {
             printf("ERROR: unable to read 'mlen' from <%s>\n", fn_rsp);
             return KAT_DATA_ERROR;
         }
 
+        if (ret_val != 1 || mlen > 3300) {
+            fclose(fp_rsp);
+            return KAT_DATA_ERROR;
+        }
         m = (unsigned char *)calloc(mlen, sizeof(unsigned char));
         m1 = (unsigned char *)calloc(mlen, sizeof(unsigned char));
 #if defined(ENABLE_SIGN)
@@ -135,7 +143,7 @@ static int test_sig_kat(int cnt) {
             return KAT_CRYPTO_FAILURE;
         }
 
-        if ( !ReadHex(fp_rsp, sm_rsp, smlen, "sm = ") ) {
+        if (smlen != mlen + CRYPTO_BYTES || !ReadHex(fp_rsp, sm_rsp, smlen, "sm = ")) {
             printf("ERROR: unable to read 'sm' from <%s>\n", fn_rsp);
             return KAT_DATA_ERROR;
         }
@@ -151,7 +159,8 @@ static int test_sig_kat(int cnt) {
         }
 #else
         if ( FindMarker(fp_rsp, "smlen = ") ) {
-            ret_val = fscanf(fp_rsp, "%llu", &smlen);
+            if (fscanf(fp_rsp, "%llu", &smlen) != 1 || smlen != mlen + CRYPTO_BYTES)
+                return KAT_DATA_ERROR;
         } else {
             printf("ERROR: unable to read 'smlen' from <%s>\n", fn_rsp);
             return KAT_DATA_ERROR;
@@ -184,12 +193,15 @@ static int test_sig_kat(int cnt) {
         free(sm);
 #endif
         free(sm_rsp);
+        verified++;
 
     } while ( !done );
 
     fclose(fp_rsp);
 
-    printf("Known Answer Tests PASSED. \n");
+    if (verified == 0)
+        return KAT_DATA_ERROR;
+    printf("Known Answer Tests PASSED (%d vectors).\n", verified);
     printf("\n\n");
 
     return KAT_SUCCESS;

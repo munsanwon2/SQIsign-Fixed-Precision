@@ -6,6 +6,7 @@
 #include <string.h>
 #include <rng.h>
 #include <stdio.h>
+#include <tutil.h>
 
 #ifdef __cplusplus
 extern "C"
@@ -20,13 +21,11 @@ extern "C"
  * silently picked lvl1's limb count for every variant. Fix: dispatch via
  * token paste. The two-level _SQI_LIMBS / _SQI_LIMBS_ indirection forces
  * SQISIGN_VARIANT to be expanded before the ## paste. */
-/* The paper's uniform magnitude bounds are 7026, 10713, and 14150 bits.
- * Rounding to 64-bit limbs gives raw widths 7040, 10752, and 14208; after
- * reserving the two's-complement sign bit, the usable positive capacities
- * remain 7039, 10751, and 14207 bits respectively. */
-#define _SQI_LIMBS_lvl1 110  /* 7040 raw bits; NIST Level I */
-#define _SQI_LIMBS_lvl3 168  /* 10752 raw bits; NIST Level III */
-#define _SQI_LIMBS_lvl5 222  /* 14208 raw bits; NIST Level V */
+/* Section 3 on the Round-3 primes, with one two's-complement sign bit.
+ * See docs/new-parameter.md for the paper values and verified expressions. */
+#define _SQI_LIMBS_lvl1 150  /* 9599 positive magnitude bits */
+#define _SQI_LIMBS_lvl3 228  /* 14591 positive magnitude bits */
+#define _SQI_LIMBS_lvl5 300  /* 19199 positive magnitude bits */
 #define _SQI_LIMBS_(v)  _SQI_LIMBS_##v
 #define _SQI_LIMBS(v)   _SQI_LIMBS_(v)
 #define IBZ_LIMBS       _SQI_LIMBS(SQISIGN_VARIANT)
@@ -39,7 +38,6 @@ extern "C"
 
     typedef uint64_t limb_t;
     typedef uint32_t half_limb_t;
-    typedef uint64_t digit_t;
 
     void ibz_init(ibz_t *x);
 
@@ -80,7 +78,8 @@ extern "C"
     void ibz_overflow_checks_reset_peak(void);
     int ibz_overflow_checks_get_peak(void);
 #endif
-    void ibz_to_digits(digit_t *digits, const ibz_t *a);
+    /** Export a nonnegative integer into a zero-padded, little-endian scalar array. */
+    void ibz_to_digits(digit_t *digits, size_t len, const ibz_t *a);
 
     /** @brief Generate a uniformly random value in the inclusive interval [a, b]
      *  Assumes a <= b and that the nonnegative span b-a is representable. Negative endpoints
@@ -97,8 +96,7 @@ extern "C"
 
 #define ibz_to_digit_array(T, I)                                                                                       \
     do {                                                                                                               \
-        memset((T), 0, sizeof(T));                                                                                     \
-        ibz_to_digits((T), (I));                                                                                       \
+        ibz_to_digits((T), sizeof(T) / sizeof(*(T)), (I));                                                              \
     } while (0)
     void ibz_copy_digits(ibz_t *a, const digit_t *digits, size_t len);
 #define ibz_copy_digit_array(I, T)                                                                                     \

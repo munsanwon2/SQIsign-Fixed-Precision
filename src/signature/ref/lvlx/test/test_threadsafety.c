@@ -99,21 +99,25 @@ main(int argc, char *argv[])
     randombytes_init((unsigned char *)seed, NULL, 256);
 
     pthread_t thread_handles[threads];
-
-    {
-        pthread_attr_t attr;
-        pthread_attr_init(&attr);
-        pthread_attr_setstacksize(&attr, 8 << 20); // 8 MB
-        for (int i = 0; i < threads; ++i)
-            pthread_create(&thread_handles[i], &attr, &test_sqisign, NULL);
+    pthread_attr_t attr;
+    if (pthread_attr_init(&attr) != 0)
+        return 1;
+    // FindUV uses parameter-sized fixed-precision arrays on each thread.
+    if (pthread_attr_setstacksize(&attr, (size_t)512 << 20) != 0) {
         pthread_attr_destroy(&attr);
+        return 1;
     }
+    int created = 0;
+    for (; created < threads; ++created)
+        if (pthread_create(&thread_handles[created], &attr, &test_sqisign, NULL) != 0)
+            break;
+    pthread_attr_destroy(&attr);
 
-    bool ok = true;
-    for (int i = 0; i < threads; ++i) {
-        void *res;
-        pthread_join(thread_handles[i], &res);
-        ok = ok && res;
+    bool ok = created == threads;
+    for (int i = 0; i < created; ++i) {
+        void *res = NULL;
+        int status = pthread_join(thread_handles[i], &res);
+        ok = ok && status == 0 && res;
     }
 
     if (!ok) {

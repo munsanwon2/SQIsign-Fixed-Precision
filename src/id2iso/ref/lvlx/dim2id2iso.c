@@ -573,8 +573,6 @@ find_uv(ibz_t *u,
 
     ibz_vec_4_t small_vecs[num_alternate_order + 1][m4];
     ibz_t small_norms[num_alternate_order + 1][m4];
-    ibz_vec_4_t alternate_small_vecs[num_alternate_order + 1][m4];
-    ibz_t alternate_small_norms[num_alternate_order + 1][m4];
     ibz_t quotients[num_alternate_order + 1][m4];
     int indices[num_alternate_order + 1];
 
@@ -582,9 +580,7 @@ find_uv(ibz_t *u,
         for (int i = 0; i < m4; i++) {
             ibz_init(&small_norms[j][i]);
             ibz_vec_4_init(&small_vecs[j][i]);
-            ibz_init(&alternate_small_norms[j][i]);
             ibz_init(&quotients[j][i]);
-            ibz_vec_4_init(&alternate_small_vecs[j][i]);
         }
         // enumeration in the hypercube of norm m
         indices[j] = enumerate_hypercube(small_vecs[j], small_norms[j], m, &gram[j], &adjusted_norm[j]);
@@ -725,9 +721,7 @@ find_uv(ibz_t *u,
         for (int i = 0; i < m4; i++) {
             ibz_finalize(&small_norms[j][i]);
             ibz_vec_4_finalize(&small_vecs[j][i]);
-            ibz_finalize(&alternate_small_norms[j][i]);
             ibz_finalize(&quotients[j][i]);
-            ibz_vec_4_finalize(&alternate_small_vecs[j][i]);
         }
     }
 

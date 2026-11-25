@@ -1,16 +1,17 @@
-#!/bin/bash
+#!/bin/sh
+set -eu
 
-echo 'Running Script for Level 1...' 
-./build/apps/PQCgenKAT_sign_lvl1
-mv PQCsignKAT_353_SQIsign_lvl1.req ./KAT/PQCsignKAT_353_SQIsign_lvl1.req
-mv PQCsignKAT_353_SQIsign_lvl1.rsp ./KAT/PQCsignKAT_353_SQIsign_lvl1.rsp
+repo_dir=$(CDPATH='' cd -- "$(dirname -- "$0")/.." && pwd)
+if [ "$#" -gt 0 ]; then
+    build_dir=$(CDPATH='' cd -- "$1" && pwd)
+    shift
+else
+    build_dir="$repo_dir/build"
+fi
 
-echo 'Running Script for Level 3...' 
-./build/apps/PQCgenKAT_sign_lvl3
-mv PQCsignKAT_529_SQIsign_lvl3.req ./KAT/PQCsignKAT_529_SQIsign_lvl3.req
-mv PQCsignKAT_529_SQIsign_lvl3.rsp ./KAT/PQCsignKAT_529_SQIsign_lvl3.rsp
-
-echo 'Running Script for Level 5...' 
-./build/apps/PQCgenKAT_sign_lvl5
-mv PQCsignKAT_701_SQIsign_lvl5.req ./KAT/PQCsignKAT_701_SQIsign_lvl5.req
-mv PQCsignKAT_701_SQIsign_lvl5.rsp ./KAT/PQCsignKAT_701_SQIsign_lvl5.rsp
+kat_dir=$(mktemp -d)
+trap 'rm -rf -- "$kat_dir"' EXIT
+for level in lvl1 lvl3 lvl5; do
+    (cd "$kat_dir" && "$build_dir/apps/PQCgenKAT_sign_$level" "$@")
+done
+mv "$kat_dir"/PQCsignKAT_*.req "$kat_dir"/PQCsignKAT_*.rsp "$repo_dir/KAT/"

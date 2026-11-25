@@ -3,7 +3,7 @@ proof.all(False)  # faster
 
 from sage.misc.banner import require_version
 if not require_version(10, 0, print_message=True):
-    exit('')
+    raise RuntimeError("endomorphism generation requires SageMath 10.0 or later")
 
 ################################################################
 
@@ -12,6 +12,7 @@ from torsion_basis import even_torsion_basis_E0
 
 ################################################################
 
+from os import environ
 from sage.groups.generic import order_from_multiple
 pari.allocatemem(1 << 34)  # 16G
 
@@ -24,6 +25,7 @@ Fp2.<i> = GF((p,2), modulus=[1,0,1])
 sqrtm1 = min(Fp2(-1).sqrt(all=True))
 
 def compute(q, mat, idl, iso1q):
+    set_random_seed(q)
     print(f'\x1b[33m{q = }\x1b[0m')
     E0 = EllipticCurve(Fp2, [1,0])
     E0.set_order((p+1)^2)
@@ -209,15 +211,11 @@ assert todo[0][0] == 1
 data[0] = compute(*todo[0])  # compute this first; we need it for the others
 print(f'[\x1b[32m+\x1b[0m] finished precomputation for \x1b[36mq = {todo[0][0]}\x1b[0m.')
 
-####XXX
-##for idx,inp in enumerate(todo[1:],1):
-##    data[idx] = compute(*inp)
-##    print(f'[\x1b[32m+\x1b[0m] finished precomputation for \x1b[36mq = {inp[0]}\x1b[0m.')
-##todo = []
-####XXX
-
-for (inp,_),res in parallel(8)(compute)(todo[1:]):
+jobs = int(environ.get('SQISIGN_PRECOMP_JOBS', '2'))
+for (inp,_),res in parallel(jobs)(compute)(todo[1:]):
     q,_,_,_ = inp
+    if not isinstance(res, tuple):
+        raise RuntimeError(f"endomorphism generation failed for q={q}: {res}")
     idx, = (i for i,(qq,_,_,_) in enumerate(todo) if qq == q)
     assert data[idx] is None
     data[idx] = res

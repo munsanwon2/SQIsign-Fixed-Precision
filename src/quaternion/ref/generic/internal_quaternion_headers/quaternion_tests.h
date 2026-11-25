@@ -125,7 +125,7 @@ int quat_test_input_random_lattice_generation(quat_lattice_t *lattices, int bits
  *
  * void ibz_copy_digits(ibz_t *target, const digit_t *dig, int dig_len);
  *
- * void ibz_to_digits(digit_t *target, const ibz_t *ibz);
+ * void ibz_to_digits(digit_t *target, size_t len, const ibz_t *ibz);
  *
  * int32_t ibz_get(const ibz_t *i);
  *

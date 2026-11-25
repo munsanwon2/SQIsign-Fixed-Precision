@@ -85,8 +85,9 @@ void secret_key_to_bytes(unsigned char *enc, const secret_key_t *sk, const publi
  * @param sk : Structure to decode the secret key in
  * @param pk : Structure to decode the public key in
  * @param enc : Byte array to decode
+ * @return 1 on success, 0 if the public key encoding is invalid
  */
-void secret_key_from_bytes(secret_key_t *sk, public_key_t *pk, const unsigned char *enc);
+int secret_key_from_bytes(secret_key_t *sk, public_key_t *pk, const unsigned char *enc);
 
 /** @}
  */
